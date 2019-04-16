@@ -22,6 +22,8 @@ public class MainController {
 		
 		List<HashMap<String,Object>> mainUserList = mainService.selectMainServiceUserList();
 		
+		System.out.println(mainUserList);
+		
 		return "main/main.tiles";
 	}
 }
