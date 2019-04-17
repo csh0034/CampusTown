@@ -22,8 +22,11 @@ public class MainController {
 		
 		List<HashMap<String,Object>> mainUserList = mainService.selectMainServiceUserList();
 		
+		model.addAttribute("mainUserList", mainUserList);
+		
 		System.out.println(mainUserList);
 		
 		return "main/main.tiles";
 	}
+	
 }
