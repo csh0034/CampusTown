@@ -24,8 +24,6 @@ public class MainController {
 		
 		model.addAttribute("mainUserList", mainUserList);
 		
-		System.out.println(mainUserList);
-		
 		return "main/main.tiles";
 	}
 	
