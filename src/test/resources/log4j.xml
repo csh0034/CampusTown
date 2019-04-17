@@ -35,7 +35,7 @@
 	<logger name="jdbc.audit">
         <level value="warn" />
     </logger>
-    <logger name="jdbc.resulteset">
+    <logger name="jdbc.resultset">
         <level value="warn" />
     </logger>
     <logger name="jdbc.connection">
