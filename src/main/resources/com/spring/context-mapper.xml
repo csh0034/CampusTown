@@ -16,8 +16,4 @@
 		<property name="basePackage" value="com.seoil.campustown.**.service.impl" />
 	</bean>
 	
-	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg ref="sqlSessionFactory" />
-	</bean> 
-	
 </beans>

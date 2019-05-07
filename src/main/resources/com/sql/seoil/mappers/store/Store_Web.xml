@@ -4,7 +4,7 @@
 <mapper namespace="com.seoil.campustown.store.service.impl.StoreMapper">
 
 	<select id="selectStoreServiceInfo" resultType="map">
-		select * from information_schema.tables limit 0,10
+		select * from information_schema.tables limit 0,1
 	</select>
 
 </mapper>
