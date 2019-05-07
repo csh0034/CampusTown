@@ -4,7 +4,7 @@
 <mapper namespace="com.seoil.campustown.main.service.impl.MainMapper">
 	
 	<select id="selectMainServiceUserList" resultType="map">
-		select * from information_schema.tables limit 0,10
+		select sysdate()
 	</select>
 	
 </mapper>
