@@ -4,7 +4,7 @@
 <mapper namespace="com.seoil.campustown.store.service.impl.StoreMapper">
 
 	<select id="selectStoreServiceInfo" resultType="map">
-		SELECT sysdate FROM dual
+		select * from information_schema.tables limit 0,10
 	</select>
 
 </mapper>

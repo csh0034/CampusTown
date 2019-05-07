@@ -13,7 +13,7 @@ import lombok.extern.log4j.Log4j;
 public class JDBCTests {
 	static {
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Class.forName("org.mariadb.jdbc.Driver");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -23,9 +23,9 @@ public class JDBCTests {
 	public void testConnection() {
 		try(Connection con = 
 				DriverManager.getConnection(
-						"jdbc:oracle:thin:@localhost:1521:orcl",
-						"scott",
-						"tiger")){
+						"jdbc:mariadb://localhost:3307/test",
+						"root",
+						"root")){
 			log.info(con);
 		} catch (Exception e) {
 			fail(e.getMessage());

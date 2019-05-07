@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.seoil.campustown.main.service.MainService;
 
-@Service()
+@Service
 public class MainServiceImpl implements MainService {
 	
 	@Resource
