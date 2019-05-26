@@ -6,8 +6,10 @@
 <tiles-definitions>
 	<definition name="layouts-tiles" template="/WEB-INF/views/cmmn/default-layouts.jsp">
 	  	<put-attribute name="header"    	value="/WEB-INF/views/cmmn/default-header.jsp" />
+	  	<put-attribute name="nav"    		value="/WEB-INF/views/cmmn/default-nav.jsp" />
 	  	<put-attribute name="content"   	value="" />
 	  	<put-attribute name="footer"    	value="/WEB-INF/views/cmmn/default-footer.jsp" />
+	  	<put-attribute name="js"    		value="/WEB-INF/views/cmmn/default-js.jsp" />
 	</definition>
 	
 	<definition name="*/*.tiles" extends="layouts-tiles">
