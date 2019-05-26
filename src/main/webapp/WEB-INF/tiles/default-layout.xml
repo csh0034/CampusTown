@@ -2,17 +2,32 @@
 <!DOCTYPE tiles-definitions PUBLIC
        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
- 
+
 <tiles-definitions>
-	<definition name="layouts-tiles" template="/WEB-INF/views/cmmn/default-layouts.jsp">
-	  	<put-attribute name="header"    	value="/WEB-INF/views/cmmn/default-header.jsp" />
-	  	<put-attribute name="nav"    		value="/WEB-INF/views/cmmn/default-nav.jsp" />
+	<definition name="layouts-tiles" template="/WEB-INF/views/cmmn/user-layouts.jsp">
+	  	<put-attribute name="header"    	value="/WEB-INF/views/cmmn/user-header.jsp" />
+	  	<put-attribute name="nav"    		value="/WEB-INF/views/cmmn/user-nav.jsp" />
 	  	<put-attribute name="content"   	value="" />
-	  	<put-attribute name="footer"    	value="/WEB-INF/views/cmmn/default-footer.jsp" />
-	  	<put-attribute name="js"    		value="/WEB-INF/views/cmmn/default-js.jsp" />
+	  	<put-attribute name="footer"    	value="/WEB-INF/views/cmmn/user-footer.jsp" />
+	  	<put-attribute name="js"    		value="/WEB-INF/views/cmmn/user-js.jsp" />
 	</definition>
 	
-	<definition name="*/*.tiles" extends="layouts-tiles">
-	  	<put-attribute name="content"   value="/WEB-INF/views/{1}/{2}.jsp" />
+	<definition name="user/*/*.tiles" extends="layouts-tiles">
+	  	<put-attribute name="content"   value="/WEB-INF/views/user/{1}/{2}.jsp" />
+	</definition>
+	
+	<definition name="layouts-tilesAdmin" template="/WEB-INF/views/cmmn/admin-layouts.jsp">
+	  	<put-attribute name="header"    	value="/WEB-INF/views/cmmn/admin-header.jsp" />
+	  	<put-attribute name="nav"    		value="/WEB-INF/views/cmmn/admin-nav.jsp" />
+	  	<put-attribute name="left"    		value="/WEB-INF/views/cmmn/admin-left.jsp" />
+	  	<put-attribute name="content"   	value="" />
+	  	<put-attribute name="footer"    	value="/WEB-INF/views/cmmn/admin-footer.jsp" />
+	  	<put-attribute name="js"    		value="/WEB-INF/views/cmmn/admin-js.jsp" />
+	</definition>
+	
+	<definition name="admin/*/*.tilesAdmin" extends="layouts-tilesAdmin">
+	  	<put-attribute name="content"   value="/WEB-INF/views/admin/{1}/{2}.jsp" />
 	</definition>
 </tiles-definitions>
+
+

@@ -1,0 +1,70 @@
+drop database campustown;
+
+create database campustown;
+use campustown;
+
+create table notice (
+	n_num int(5) auto_increment primary key,
+	n_title varchar(100) not null,
+	n_content text not null,
+	n_regdate datetime not null,
+	n_hit int(5) not null,
+	n_attach varchar(200)
+); 
+create table user (
+	u_id varchar(20) primary key,
+	u_pw varchar(20) not null,
+	u_name varchar(20) not null,
+	u_email varchar(50),
+	u_phone varchar(50)
+);
+
+create table category (
+	c_num int(10) auto_increment primary key,
+	c_category varchar(20) not null,
+	c_img varchar(50)
+);
+
+create table store (
+	s_num int(5) auto_increment primary key,
+	s_name varchar(50) not null,
+	c_num int(10) not null,
+	s_tel varchar(50),
+	s_address varchar(100),
+	s_content text,
+	s_img varchar(50),
+	s_snsurl varchar(50),
+	s_hashtag varchar(100),
+	s_hours varchar(50),
+
+	foreign key(c_num) references category(c_num) on delete cascade
+);
+
+create table reservation (
+	rn_num int(5) auto_increment primary key,
+	u_id varchar(20) not null,
+	s_num int(5) not null,
+	rn_count int(5) not null,
+	rn_date date not null,
+	rn_regdate date not null,
+	rn_content text not null,
+	rn_name varchar(30) not null,
+	
+	foreign key(u_id) references user(u_id) on delete cascade,
+	foreign key(s_num) references store(s_num) on delete cascade
+);
+
+create table review (
+	rw_num int(5) auto_increment primary key,
+	u_id varchar(20) not null,
+	s_num int(5) not null,
+	rw_content text not null,
+	rw_score int(5) not null,
+	rw_regdate date,
+	
+	foreign key(u_id) references user(u_id) on delete cascade,
+	foreign key(s_num) references store(s_num) on delete cascade
+);
+
+
+	

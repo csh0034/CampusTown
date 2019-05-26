@@ -25,6 +25,6 @@ public class StoreController {
 
 		log.info(map);
 
-		return "store/store.tiles";
+		return "user/store/store.tiles";
 	}
 }

@@ -24,7 +24,7 @@ public class MainController {
 		
 		model.addAttribute("mainUserList", mainUserList);
 		
-		return "main/main.tiles";
+		return "user/main/main.tiles";
 	}
 	
 }
