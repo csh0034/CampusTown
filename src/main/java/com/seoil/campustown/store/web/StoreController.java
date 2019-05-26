@@ -14,7 +14,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @Controller
 public class StoreController {
-
+ 
 	@Resource
 	private StoreService storeService;
 
