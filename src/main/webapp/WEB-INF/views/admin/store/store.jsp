@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="main">
 	<div class="main-content">
 		<div class="container-fluid">
@@ -16,7 +17,7 @@
 								<thead>
 									<tr>
 										<th>#</th>
-										<th>First Name</th>
+										<th>처음이름</th>
 										<th>Last Name</th>
 										<th>Username</th>
 									</tr>

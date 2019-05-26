@@ -6,5 +6,16 @@
 	<select id="selectStoreServiceInfo" resultType="map">
 		select sysdate()
 	</select>
+	
+	<insert id="saveStoreServiceInfo" parameterType="storeVO">
+		insert into store(
+			s_name, c_num   , s_tel    , s_address, s_content,
+			s_img , s_snsurl, s_hashtag, s_hours
+		) values (
+			#{s_name}, #{c_num}   , #{s_tel}    , #{s_address}, #{s_content},
+			#{s_img} , #{s_snsurl}, #{s_hashtag}, #{s_hours}
+		)
+	</insert>
+	
 
 </mapper>

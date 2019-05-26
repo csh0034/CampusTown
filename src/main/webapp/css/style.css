@@ -1,10 +1,38 @@
+@font-face {
+	font-family: 'nanumsquare';
+	src: url('/fonts/nanumsquare/nanumsquarer.eot');
+	src: url('/fonts/nanumsquare/nanumsquarer.eot?#iefix')
+		format('embedded-opentype'),
+		url('/fonts/nanumsquare/nanumsquarer.woff2') format('woff2'),
+		url('/fonts/nanumsquare/nanumsquarer.woff') format('woff'),
+		url('/fonts/nanumsquare/nanumsquarer.ttf') format('truetype'),
+		url('/fonts/nanumsquare/nanumsquarer.svg#nanumsquarerregular')
+		format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'nanumsquare';
+	src: url('/fonts/nanumsquareB/nanumsquareb.eot');
+	src: url('/fonts/nanumsquareB/nanumsquareb.eot?#iefix')
+		format('embedded-opentype'),
+		url('/fonts/nanumsquareB/nanumsquareb.woff2') format('woff2'),
+		url('/fonts/nanumsquareB/nanumsquareb.woff') format('woff'),
+		url('/fonts/nanumsquareB/nanumsquareb.ttf') format('truetype'),
+		url('/fonts/nanumsquareB/nanumsquareb.svg#nanumsquarerregular')
+		format('svg');
+	font-weight: bold;
+	font-style: bold;
+}
+
 html {
   overflow-x: hidden;
 }
 
 body {
   background: #fff;
-  font-family: "Open Sans", Arial, sans-serif;
+  font-family: "Open Sans",'nanumsquare', Arial, sans-serif;
   font-weight: 400;
   font-size: 15px;
   line-height: 1.8;

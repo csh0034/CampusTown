@@ -62,8 +62,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12 text-center heading-wrap">
-					<h2>Our Menu</h2>
-					<span class="back-text-dark">Menu</span>
+					<h2>별점순</h2>
 				</div>
 			</div>
 		</div>

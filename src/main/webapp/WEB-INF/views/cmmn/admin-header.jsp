@@ -23,3 +23,5 @@
 	href="/assets/img/apple-icon.png">
 <link rel="icon" type="image/png" sizes="96x96"
 	href="/assets/img/favicon.png">
+<script src="/assets/vendor/jquery/jquery.min.js"></script>
+<script src="/js/tmp.js"></script>
