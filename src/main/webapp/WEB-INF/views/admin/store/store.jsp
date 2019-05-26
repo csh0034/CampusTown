@@ -3,7 +3,7 @@
 <div class="main">
 	<div class="main-content">
 		<div class="container-fluid">
-			<h3 class="page-title">Tables</h3>
+			<h3 class="page-title">Store List</h3>
 			<div class="row">
 				<div class="col-md-6">
 					<!-- BASIC TABLE -->

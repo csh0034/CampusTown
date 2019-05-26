@@ -2,7 +2,7 @@
 <header role="banner">
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
 		<div class="container">
-			<a class="navbar-brand" href="index.html">CampusTown</a>
+			<a class="navbar-brand" href="/main.do">CampusTown</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarsExample05" aria-controls="navbarsExample05"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -12,8 +12,8 @@
 			<div class="collapse navbar-collapse" id="navbarsExample05">
 				<ul class="navbar-nav ml-auto pl-lg-5 pl-0">
 					<li class="nav-item"><a class="nav-link active"
-						href="index.html">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="recipes.html">Recipes</a>
+						href="/admin/main.do">Admin</a></li>
+					<li class="nav-item"><a class="nav-link" href="/store.do">Store</a>
 					</li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="services.html"
@@ -24,15 +24,13 @@
 								class="dropdown-item" href="services.html">Birthday Party</a> <a
 								class="dropdown-item" href="services.html">Wedding Party</a>
 						</div></li>
-					<li class="nav-item"><a class="nav-link" href="about.html">About</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="news.html">News</a>
+					<li class="nav-item"><a class="nav-link" href="about.html">Notice</a>
 					</li>
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item cta-btn"><a class="nav-link"
-						href="contact.html">Contact Us</a></li>
+						href="login.do">Login</a></li>
 				</ul>
 
 			</div>

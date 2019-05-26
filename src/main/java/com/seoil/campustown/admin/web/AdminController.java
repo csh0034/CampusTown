@@ -8,9 +8,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AdminController {
 
 	@RequestMapping({ "/admin/main.do", "/admin/store.do" })
-	public String initMain(ModelMap model) throws Exception {
+	public String StoreList(ModelMap model) throws Exception {
 
 		return "admin/store/store.tilesAdmin";
+	}
+	
+	@RequestMapping("/admin/storeAdd.do")
+	public String StoreAdd(ModelMap model) throws Exception {
+
+		return "admin/store/storeAdd.tilesAdmin";
 	}
 
 }

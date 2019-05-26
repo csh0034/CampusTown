@@ -3,22 +3,24 @@
 	<div class="sidebar-scroll">
 		<nav>
 			<ul class="nav">
+				<li><a href="/main.do" class=""><i
+						class="lnr lnr-home"></i> <span>Home</span></a></li>
 				<li><a href="#subPages" data-toggle="collapse" class="active"><i
 						class="lnr lnr-cart"></i> <span>Store</span> <i
 						class="icon-submenu lnr lnr-chevron-left"></i></a>
 					<div id="subPages" class="collapse in">
 						<ul class="nav">
+							<li><a href="/admin/store.do" class="active">List</a></li>
 							<li><a href="/admin/storeAdd.do" class="">Add</a></li>
-							<li><a href="/admin/store.do" class="">List</a></li>
 						</ul>
 					</div></li>
-				<li><a href="#subPages2" data-toggle="collapse" class="collapsed"><i
-						class="lnr lnr-alarm"></i> <span>Notice</span> <i
-						class="icon-submenu lnr lnr-chevron-left"></i></a>
+				<li><a href="#subPages2" data-toggle="collapse"
+					class="collapsed"><i class="lnr lnr-alarm"></i> <span>Notice</span>
+						<i class="icon-submenu lnr lnr-chevron-left"></i></a>
 					<div id="subPages2" class="collapse">
 						<ul class="nav">
-							<li><a href="/admin/noticeAdd.do" class="">Add</a></li>
 							<li><a href="/admin/notice.do" class="">List</a></li>
+							<li><a href="/admin/noticeAdd.do" class="">Add</a></li>
 						</ul>
 					</div></li>
 				<li><a href="/admin/reservation.do" class=""><i
