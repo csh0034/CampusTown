@@ -3,9 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <script>
-	var detail = function(s_num) {
-		location.href = "/storeDetail.do?num="+ s_num;
-	}
+	
 </script>
 
 <section class="home-slider-loop-false  inner-page owl-carousel">
@@ -37,38 +35,49 @@
 
 	<div class="container">
 		<div class="row no-gutters">
-			<c:forEach begin="1" end="8">
-			</c:forEach>
-
-			<div class="col-md-12">
-				<div class="sched d-block d-lg-flex">
-					<c:forEach var="store" items="${storeList}" varStatus="status">
-						<c:if test="${status.count eq 5}">
-							${"</div></div>"}
-							${"<div class='col-md-12'>"}
-							${"<div class='sched d-block d-lg-flex'>"}
-						</c:if>
-						<div class="text" style="cursor:pointer;"
-						onclick="detail('${store.s_num}')">
+			<c:forEach var="store" items="${storeList}" varStatus="status">
+				<div class="col-md-6 mb-4">
+					<div class="blog d-block d-lg-flex">
+						<div class="bg-image"
+							style="background-image: url('img/dishes_1.jpg');"></div>
+						<div class="text">
 							<h3>
 								<c:out value="${store.s_name}" />
 								<br>
 								<c:out value="${store.c_category}" />
 							</h3>
+							<p class="sched-time">
+								<span><span class="fa fa-clock-o"></span> <c:out
+										value="${store.s_hours}" /><br> <span
+									class="fa fa-phone"></span> <c:out value="${store.s_tel}" /></span> <br>
+							</p>
 							<p>
 								<c:out value="${store.s_content}" />
 							</p>
 							<p>
-								<c:out value="${store.s_hours}" />
-								<br>
-								<c:out value="${store.s_tel}" />
+								<a href="/storeDetail.do?num=${store.s_num }"
+									class="btn btn-primary btn-sm">상세 보기</a>
 							</p>
 						</div>
-						<c:if test="${status.last}">
-							${"</div></div>"}
-						</c:if>
-					</c:forEach>
+					</div>
 				</div>
+			</c:forEach>
+			<div class="col-md-12 mb-4 text-center">
+				<nav>
+					<ul class="pagination pagination-lg">
+						<li><a href="#" aria-label="Previous"> <span
+								aria-hidden="true">&laquo;</span>
+						</a></li>
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#" aria-label="Next"> <span
+								aria-hidden="true">&raquo;</span>
+						</a></li>
+					</ul>
+				</nav>
 			</div>
 		</div>
 	</div>

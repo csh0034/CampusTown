@@ -4,10 +4,12 @@
 
 <script>
 	$(function() {
-		$('.table tbody tr').click(function() {
-			location.href = '/admin/storeModify.do?num=' +
-							 $(this).children().eq(0).html();
-		});
+		$('#example').DataTable();
+		$('.table tbody tr').click(
+				function() {
+					location.href = '/admin/storeModify.do?num='
+							+ $(this).children().eq(0).html();
+				});
 	});
 </script>
 <div class="main">
@@ -22,7 +24,8 @@
 							<h3 class="panel-title"></h3>
 						</div>
 						<div class="panel-body">
-							<table class="table table-hover">
+							<table id="example" class="table table-striped table-bordered"
+								style="width: 100%">
 								<thead>
 									<tr>
 										<th>num</th>
@@ -50,9 +53,7 @@
 									</c:forEach>
 									<c:if test="${empty storeList}">
 										<tr class="text-center">
-											<td colspan="8">
-												No Data
-											</td>
+											<td colspan="8">No Data</td>
 										</tr>
 									</c:if>
 								</tbody>

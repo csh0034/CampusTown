@@ -15,4 +15,5 @@
 <link rel="stylesheet" href="fonts/flaticons/font/flaticon.css">
 <!-- Theme Style -->
 <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/tmp.css">
 <script src="/js/jquery-3.2.1.min.js"></script>

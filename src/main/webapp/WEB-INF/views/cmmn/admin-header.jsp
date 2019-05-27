@@ -18,10 +18,14 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700"
 	rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
 <!-- ICONS -->
 <link rel="apple-touch-icon" sizes="76x76"
 	href="/assets/img/apple-icon.png">
 <link rel="icon" type="image/png" sizes="96x96"
 	href="/assets/img/favicon.png">
 <script src="/assets/vendor/jquery/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
 <script src="/js/tmp.js"></script>
