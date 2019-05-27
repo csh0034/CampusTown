@@ -22,7 +22,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12 text-center heading-wrap">
-					<h2>점포리스트</h2>
+					<h2>점포상세</h2>
 					<span class="back-text-dark"></span>
 				</div>
 			</div>
@@ -36,26 +36,9 @@
 
 			<div class="col-md-12">
 				<div class="sched d-block d-lg-flex">
-					<c:forEach var="store" items="${storeList}" varStatus="status">
-						<c:if test="${status.count eq 5}">
-							${"</div></div>"}
-							${"<div class='col-md-12'>"}
-							${"<div class='sched d-block d-lg-flex'>"}
-						</c:if>
-						<div class="text">
-							<h3>
-								<c:out value="${store.s_name}" />
-								<br>
-								<c:out value="${store.c_category}" />
-							</h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-								Architecto illo delectus...</p>
-							<p class="text-primary h3">$12.00</p>
-						</div>
-						<c:if test="${status.last}">
-							${"</div></div>"}
-						</c:if>
-					</c:forEach>
+					<div class="text">
+						${storeInfo}
+					</div>
 				</div>
 			</div>
 		</div>

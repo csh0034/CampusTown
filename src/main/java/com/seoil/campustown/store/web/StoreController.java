@@ -35,7 +35,18 @@ public class StoreController {
 
 		log.info(storeList);
 
-		return "user/store/store.tiles";
+		return "user/store/storeList.tiles";
+	}
+
+	@GetMapping(value = "/storeDetail.do")
+	public String StoreDetail(@RequestParam(defaultValue = "1", required = false) int num, ModelMap model)
+			throws Exception {
+		
+		StoreVO storeInfo = storeService.selectStoreServiceInfo(num);
+
+		model.addAttribute("storeInfo", storeInfo);
+
+		return "user/store/storeDetail.tiles";
 	}
 
 	@GetMapping({ "/admin/main.do", "/admin/storeList.do" })
