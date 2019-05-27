@@ -16,12 +16,10 @@
 							</div>
 							<div class="panel-body">
 								<select class="form-control" name="c_num">
-									<option value="1">중식</option>
-									<option value="2">한식</option>
-									<option value="3">a</option>
-									<option value="4">b</option>
-									<option value="5">c</option>
-									<option value="6">d</option>
+									<c:forEach var="storeCategory" items="${storeCategoryList}">
+										<option value='<c:out value="${storeCategory.c_num}"/>'><c:out
+												value="${storeCategory.c_category}" /></option>
+									</c:forEach>
 								</select> <br> <input type="text" name="s_name" class="form-control"
 									placeholder="점포명"> <br> <input type="text"
 									name="s_tel" class="form-control"

@@ -1,5 +1,6 @@
 package com.seoil.campustown.store.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -16,14 +17,50 @@ public class StoreServiceImpl implements StoreService {
 	private StoreMapper storeMapper;
 
 	@Override
-	public Map<String, Object> selectStoreServiceInfo() throws Exception {
-		return storeMapper.selectStoreServiceInfo();
+	public StoreVO selectStoreServiceInfo(int s_num) throws Exception {
+		return storeMapper.selectStoreServiceInfo(s_num);
 	}
 
 	@Override
-	public boolean saveStoreServiceInfo(StoreVO storeVO) throws Exception {
+	public boolean insertStoreServiceInfo(StoreVO storeVO) throws Exception {
 		
-		int saveReturn = storeMapper.saveStoreServiceInfo(storeVO);
+		int saveReturn = storeMapper.insertStoreServiceInfo(storeVO);
+		boolean success = false;
+		
+		if(saveReturn == 1) {
+			success = true;
+		}
+		
+		return success;
+	}
+
+	@Override
+	public List<StoreVO> selectStoreServiceList() throws Exception {
+		return storeMapper.selectStoreServiceList();
+	}
+
+	@Override
+	public List<Map<String, Object>> selectStoreServiceCategoryList() throws Exception {
+		return storeMapper.selectStoreServiceCategoryList();
+	}
+
+	@Override
+	public boolean updateStoreServiceInfo(StoreVO storeVO) throws Exception {
+		
+		int saveReturn = storeMapper.updateStoreServiceInfo(storeVO);
+		boolean success = false;
+		
+		if(saveReturn == 1) {
+			success = true;
+		}
+		
+		return success;
+	}
+
+	@Override
+	public boolean deleteStoreServiceInfo(int s_num) throws Exception {
+		
+		int saveReturn = storeMapper.deleteStoreServiceInfo(s_num);
 		boolean success = false;
 		
 		if(saveReturn == 1) {
