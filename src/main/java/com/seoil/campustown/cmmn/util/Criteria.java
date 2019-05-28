@@ -61,11 +61,6 @@ public class Criteria {
 		this.keyword = keyword;
 	}
 
-	@Override
-	public String toString() {
-		return "SearchCriteria{" + "searchType='" + searchType + '\'' + ", keyword='" + keyword + '\'' + '}';
-	}
-
 	public int getCategory() {
 		return category;
 	}
