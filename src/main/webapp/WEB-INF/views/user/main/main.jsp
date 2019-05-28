@@ -2,13 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-	
 <script>
 	var detail = function(c_num) {
 		location.href = "/store.do?category="+ c_num;
@@ -21,10 +14,6 @@
 	<c:out value="${item.CREATED}"/><br>
 </c:forEach> --%>
 
-<div id="sujung" class="modal">
-	<p>Modal popup Testing!!</p>
-	<a href="#" rel="modal:close">Close</a>
-</div>
 <section class="home-slider-loop-false  inner-page owl-carousel">
 	<div class="slider-item"
 		style="background-image: url('img/banner.png');">

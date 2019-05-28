@@ -1,5 +1,8 @@
 package com.seoil.campustown.cmmn.util;
 
+import lombok.ToString;
+
+@ToString
 public class Criteria {
 
 	private int page;
