@@ -110,7 +110,7 @@
 			</c:forEach>
 			<c:choose>
 				<c:when test="${empty storeList}">
-					<div class="col-md-12 mb-4 text-center">
+					<div class="col-md-12 mb-5 text-center">
 						<h2>검색된 상점이 없습니다</h2>
 					</div>
 				</c:when>
@@ -132,7 +132,7 @@
 							</c:forEach>
 							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 								<li><a
-									href="/store.do${pageMaker.makeSearch(pageMaker.startPage + 1)}"
+									href="/store.do${pageMaker.makeSearch(pageMaker.endPage + 1)}"
 									aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 								</a></li>
 							</c:if>

@@ -22,7 +22,7 @@ public class StoreCreateTests {
 	@Test
 	public void insertStoreServiceInfo() throws Exception {
 
-		for (int i = 37; i < 90; i++) {
+		for (int i = 1; i < 110; i++) {
 			StoreVO storeVO = new StoreVO();
 
 			storeVO.setS_name("이름" + i);
