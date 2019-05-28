@@ -14,12 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.seoil.campustown.cmmn.util.Criteria;
+import com.seoil.campustown.cmmn.util.PageMaker;
 import com.seoil.campustown.store.service.StoreService;
 import com.seoil.campustown.store.service.StoreVO;
 
-import lombok.extern.log4j.Log4j;
-
-@Log4j
 @Controller
 public class StoreController {
 
@@ -27,14 +26,19 @@ public class StoreController {
 	private StoreService storeService;
 
 	@GetMapping(value = "/store.do")
-	public String StoreInit(ModelMap model) throws Exception {
+	public String StoreInit(ModelMap model, Criteria criteria) throws Exception {
 
-		List<StoreVO> storeList = storeService.selectStoreServiceList();
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCriteria(criteria);
+		pageMaker.setTotalCount(storeService.selectStoreServiceListCount(criteria));
+		
+		List<StoreVO> storeList = storeService.selectStoreServiceList(criteria);
+		List<Map<String, Object>> storeCategoryList = storeService.selectStoreServiceCategoryList();
 
+		model.addAttribute("pageMaker", pageMaker);
 		model.addAttribute("storeList", storeList);
-
-		log.info(storeList);
-
+		model.addAttribute("storeCategoryList", storeCategoryList);
+		
 		return "user/store/storeList.tiles";
 	}
 
@@ -52,7 +56,7 @@ public class StoreController {
 	@GetMapping({ "/admin/main.do", "/admin/storeList.do" })
 	public String StoreList(ModelMap model) throws Exception {
 
-		List<StoreVO> storeList = storeService.selectStoreServiceList();
+		List<StoreVO> storeList = storeService.selectStoreServiceAllList();
 
 		model.addAttribute("storeList", storeList);
 

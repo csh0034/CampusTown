@@ -25,9 +25,13 @@ create table category (
 	c_img varchar(50)
 );
 
-INSERT INTO `campustown`.`category` (`c_num`, `c_category`) VALUES ('1', '중식');
-INSERT INTO `campustown`.`category` (`c_num`, `c_category`) VALUES ('2', '일식');
-INSERT INTO `campustown`.`category` (`c_num`, `c_category`) VALUES ('3', '한식');
+INSERT INTO `campustown`.`category` (`c_num`, `c_category`) VALUES ('1', '한식');
+INSERT INTO `campustown`.`category` (`c_num`, `c_category`) VALUES ('2', '중식');
+INSERT INTO `campustown`.`category` (`c_num`, `c_category`) VALUES ('3', '일식');
+INSERT INTO `campustown`.`category` (`c_num`, `c_category`) VALUES ('4', '패스트푸드');
+INSERT INTO `campustown`.`category` (`c_num`, `c_category`) VALUES ('5', '카페');
+INSERT INTO `campustown`.`category` (`c_num`, `c_category`) VALUES ('6', '주점');
+INSERT INTO `campustown`.`category` (`c_num`, `c_category`) VALUES ('7', '기타');
 
 create table store (
 	s_num int(20) auto_increment primary key,

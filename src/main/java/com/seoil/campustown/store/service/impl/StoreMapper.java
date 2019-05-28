@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.seoil.campustown.cmmn.util.Criteria;
 import com.seoil.campustown.store.service.StoreVO;
 
 @Mapper
@@ -14,7 +15,11 @@ public interface StoreMapper {
 
 	int insertStoreServiceInfo(StoreVO storeVO) throws Exception;
 
-	List<StoreVO> selectStoreServiceList() throws Exception;
+	List<StoreVO> selectStoreServiceAllList() throws Exception;
+
+	List<StoreVO> selectStoreServiceList(Criteria criteria) throws Exception;
+	
+	int selectStoreServiceListCount(Criteria criteria) throws Exception;
 
 	List<Map<String, Object>> selectStoreServiceCategoryList() throws Exception;
 

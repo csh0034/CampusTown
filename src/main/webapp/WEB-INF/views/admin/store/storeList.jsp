@@ -4,7 +4,9 @@
 
 <script>
 	$(function() {
-		$('#example').DataTable();
+		$('#example').DataTable({
+			"order": [[ 0, "desc" ]]
+		});
 		$('.table tbody tr').click(
 				function() {
 					location.href = '/admin/storeModify.do?num='

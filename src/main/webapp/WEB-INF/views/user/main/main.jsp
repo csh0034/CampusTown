@@ -11,7 +11,7 @@
 	
 <script>
 	var detail = function(c_num) {
-		location.href = "/categoryDetail.do?num="+ c_num;
+		location.href = "/store.do?category="+ c_num;
 	}
 </script>
 
@@ -42,7 +42,7 @@
 </section>
 
 
-<section class="section bg-light element-animate">
+<section class="section element-animate">
 
 	<div class="clearfix mb-5 pb-5">
 		<div class="container-fluid">
@@ -58,7 +58,7 @@
 		<div class="row">
 		
 			<div class='col-md-6 mb-4 mb-lg-0 col-lg-3 text-center'>
-				<div class="text" style="cursor:pointer;" onclick="detail('##')">
+				<div class="text" style="cursor:pointer;" onclick="detail('0')">
 					<h4 class="mb-5 text-primary">
 						전체보기
 					</h4>
