@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.seoil.campustown.review.service.impl.ReviewMapper">
+	
+	<select id="selectReviewServiceList" resultType="reviewVO">
+		<![CDATA[
+			select *
+		 	  from review
+			 where s_num = #{_parameter}
+		     order by rw_regdate desc
+		]]>
+	</select>
+	
+	<insert id="insertReviewServiceInfo" parameterType="reviewVO">
+		<![CDATA[
+			insert into review(
+				u_id    , s_num, rw_content,
+				rw_score, rw_regdate
+			) values (
+				#{u_id} , #{s_num}, #{rw_content},
+				#{rw_score}, now()
+			)
+		]]>
+	</insert>
+	
+</mapper>

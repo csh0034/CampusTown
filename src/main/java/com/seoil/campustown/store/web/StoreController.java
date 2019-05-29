@@ -16,6 +16,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.seoil.campustown.cmmn.util.Criteria;
 import com.seoil.campustown.cmmn.util.PageMaker;
+import com.seoil.campustown.review.service.ReviewService;
+import com.seoil.campustown.review.service.ReviewVO;
 import com.seoil.campustown.store.service.StoreService;
 import com.seoil.campustown.store.service.StoreVO;
 
@@ -24,6 +26,9 @@ public class StoreController {
 
 	@Resource
 	private StoreService storeService;
+	
+	@Resource
+	private ReviewService reviewService;
 
 	@GetMapping(value = "/store.do")
 	public String StoreInit(ModelMap model, Criteria criteria) throws Exception {
@@ -47,8 +52,11 @@ public class StoreController {
 			throws Exception {
 		
 		StoreVO storeInfo = storeService.selectStoreServiceInfo(num);
+		
+		List<ReviewVO> reviewList = reviewService.selectReviewServiceList(num);
 
 		model.addAttribute("storeInfo", storeInfo);
+		model.addAttribute("reviewList", reviewList);
 
 		return "user/store/storeDetail.tiles";
 	}

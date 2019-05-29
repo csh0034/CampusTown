@@ -18,6 +18,7 @@ create table user (
 	u_email varchar(50),
 	u_phone varchar(50)
 );
+INSERT INTO `campustown`.`user` (`u_id`, `u_pw`, `u_name`, `u_email`) VALUES ('admin', '1', '관리자', 'xx@naver.com');
 
 create table category (
 	c_num int(10) auto_increment primary key,
@@ -74,7 +75,7 @@ create table review (
 	s_num int(5) not null,
 	rw_content text not null,
 	rw_score int(5) not null,
-	rw_regdate date,
+	rw_regdate datetime,
 	
 	foreign key(u_id) references user(u_id) on delete cascade,
 	foreign key(s_num) references store(s_num) on delete cascade

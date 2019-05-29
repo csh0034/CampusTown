@@ -132,3 +132,16 @@
   cursor: not-allowed;
   background-color: #fff;
 }
+
+.custom-min-max {
+	min-height: auto !important;
+	max-height: 495px;
+}
+
+.slider-custom .owl-dots{
+	bottom: 50px !important;
+}
+
+.fa-star-wrap .on {
+	color: red;
+}
