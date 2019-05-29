@@ -60,8 +60,8 @@ create table reservation (
 	u_id varchar(20) not null,
 	s_num int(5) not null,
 	rn_count int(5) not null,
-	rn_date date not null,
-	rn_regdate date not null,
+	rn_date datetime not null,
+	rn_regdate datetime not null,
 	rn_content text not null,
 	rn_name varchar(30) not null,
 	

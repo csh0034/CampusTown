@@ -14,14 +14,14 @@ import lombok.extern.log4j.Log4j;
 @ContextConfiguration(locations = { "/com/spring/context-datasource.xml", "/com/spring/context-mapper.xml",
 		"/com/spring/context-common.xml" })
 @Log4j
-public class ReviewSelectTests {
+public class ReviewDeleteTests {
 
 	@Setter(onMethod_ = @Autowired)
 	private ReviewMapper reviewMapper;
 
 	@Test
-	public void selectReviewServiceinfo() throws Exception {
+	public void deleteReviewServiceList() throws Exception {
 
-		log.info(reviewMapper.deleteReviewServiceInfo(14));
+		log.info(reviewMapper.selectReviewServiceList(11));
 	}
 }

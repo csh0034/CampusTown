@@ -25,4 +25,11 @@ public class ReviewServiceImpl implements ReviewService {
 		return reviewMapper.insertReviewServiceInfo(reviewVO);
 	}
 
+	@Override
+	public int deleteReviewServiceInfo(int s_num) throws Exception {
+		return reviewMapper.deleteReviewServiceInfo(s_num);
+	}
+	
+	
+
 }

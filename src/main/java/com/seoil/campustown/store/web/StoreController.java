@@ -1,12 +1,16 @@
 package com.seoil.campustown.store.web;
 
+import java.io.File;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,12 +25,15 @@ import com.seoil.campustown.review.service.ReviewVO;
 import com.seoil.campustown.store.service.StoreService;
 import com.seoil.campustown.store.service.StoreVO;
 
+import lombok.extern.log4j.Log4j;
+
+@Log4j
 @Controller
 public class StoreController {
 
 	@Resource
 	private StoreService storeService;
-	
+
 	@Resource
 	private ReviewService reviewService;
 
@@ -36,23 +43,23 @@ public class StoreController {
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCriteria(criteria);
 		pageMaker.setTotalCount(storeService.selectStoreServiceListCount(criteria));
-		
+
 		List<StoreVO> storeList = storeService.selectStoreServiceList(criteria);
 		List<Map<String, Object>> storeCategoryList = storeService.selectStoreServiceCategoryList();
 
 		model.addAttribute("pageMaker", pageMaker);
 		model.addAttribute("storeList", storeList);
 		model.addAttribute("storeCategoryList", storeCategoryList);
-		
+
 		return "user/store/storeList.tiles";
 	}
 
 	@GetMapping(value = "/storeDetail.do")
 	public String StoreDetail(@RequestParam(defaultValue = "1", required = false) int num, ModelMap model)
 			throws Exception {
-		
+
 		StoreVO storeInfo = storeService.selectStoreServiceInfo(num);
-		
+
 		List<ReviewVO> reviewList = reviewService.selectReviewServiceList(num);
 
 		model.addAttribute("storeInfo", storeInfo);
@@ -82,16 +89,25 @@ public class StoreController {
 	}
 
 	@PostMapping("/admin/storeAdd.do")
-	public String StoreAdd(@ModelAttribute StoreVO storeVO, RedirectAttributes rttr, MultipartFile[] uploadfile)
-			throws Exception {
+	public String StoreAdd(@ModelAttribute StoreVO storeVO, RedirectAttributes rttr, MultipartFile[] uploadfile,
+			HttpServletRequest req) throws Exception {
 
 		boolean success = false;
-		String fileName = "";
 
 		for (MultipartFile multipartFile : uploadfile) {
 
 			if (!multipartFile.isEmpty()) {
-				fileName = fileName + multipartFile.getOriginalFilename() + ",";
+				UUID uuid = UUID.randomUUID();
+				log.info(multipartFile.getOriginalFilename());
+				log.info(req.getSession().getServletContext().getRealPath("/"));
+
+				log.info(multipartFile.getOriginalFilename()
+						.substring(multipartFile.getOriginalFilename().lastIndexOf(".")));
+
+				String fileName = uuid.toString();
+
+				File file = new File(req.getSession().getServletContext().getRealPath("/"), fileName);
+				multipartFile.transferTo(file);
 			}
 		}
 

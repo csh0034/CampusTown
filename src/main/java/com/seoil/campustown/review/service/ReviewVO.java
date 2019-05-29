@@ -11,4 +11,6 @@ public class ReviewVO {
 	private String rw_content;
 	private int rw_score;
 	private Date rw_regdate;
+	
+	private String s_name;
 }

@@ -4,12 +4,12 @@
 <mapper namespace="com.seoil.campustown.review.service.impl.ReviewMapper">
 	
 	<select id="selectReviewServiceList" resultType="reviewVO">
-		<![CDATA[
-			select *
-		 	  from review
-			 where s_num = #{_parameter}
-		     order by rw_regdate desc
-		]]>
+		select rw_num, rw.u_id, s.s_num, rw_content, rw_score, rw_regdate, s_name
+	 	  from review rw join store s on rw.s_num = s.s_num
+	 	 <if test="_parameter > 0">
+	 	 	where s.s_num = #{_parameter}
+	 	 </if>
+	     order by rw_regdate desc
 	</select>
 	
 	<insert id="insertReviewServiceInfo" parameterType="reviewVO">
@@ -23,5 +23,10 @@
 			)
 		]]>
 	</insert>
+	
+	<delete id="deleteReviewServiceInfo" parameterType="int">
+		delete from review
+		 where rw_num = #{_parameter}  
+	</delete>
 	
 </mapper>

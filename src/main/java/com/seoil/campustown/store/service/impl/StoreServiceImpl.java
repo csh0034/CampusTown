@@ -4,8 +4,10 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.seoil.campustown.cmmn.util.Criteria;
 import com.seoil.campustown.store.service.StoreService;
@@ -44,7 +46,7 @@ public class StoreServiceImpl implements StoreService {
 	public List<StoreVO> selectStoreServiceList(Criteria criteria) throws Exception {
 		return storeMapper.selectStoreServiceList(criteria);
 	}
-	
+
 	@Override
 	public int selectStoreServiceListCount(Criteria criteria) throws Exception {
 		return storeMapper.selectStoreServiceListCount(criteria);
@@ -81,4 +83,8 @@ public class StoreServiceImpl implements StoreService {
 		return success;
 	}
 
+	@Override
+	public void saveStoreServiceFiles(HttpServletRequest req, MultipartFile[] uploadfile) throws Exception {
+		
+	}
 }
