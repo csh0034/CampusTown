@@ -4,16 +4,13 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.web.multipart.MultipartFile;
-
 import com.seoil.campustown.cmmn.util.Criteria;
 
 public interface StoreService {
 
 	StoreVO selectStoreServiceInfo(int s_num) throws Exception;
 
-	boolean insertStoreServiceInfo(StoreVO storeVO) throws Exception;
+	int insertStoreServiceInfo(StoreVO storeVO) throws Exception;
 
 	List<StoreVO> selectStoreServiceAllList() throws Exception;
 
@@ -27,6 +24,12 @@ public interface StoreService {
 
 	boolean deleteStoreServiceInfo(int s_num) throws Exception;
 
-	void saveStoreServiceFiles(HttpServletRequest req, MultipartFile[] uploadfile) throws Exception;
+	int insertStoreServiceFiles(int s_num, HttpServletRequest req) throws Exception;
+
+	List<Map<String, Object>> selectStoreServiceFileList(int s_num) throws Exception;
+
+	int deleteStoreServiceFileInfo(HttpServletRequest req) throws Exception;
+
+	int deleteStoreServiceFileList(int s_num, HttpServletRequest req) throws Exception;
 
 }

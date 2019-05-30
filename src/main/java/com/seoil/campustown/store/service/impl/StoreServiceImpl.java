@@ -7,9 +7,9 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.seoil.campustown.cmmn.util.Criteria;
+import com.seoil.campustown.cmmn.util.CustomFileUtil;
 import com.seoil.campustown.store.service.StoreService;
 import com.seoil.campustown.store.service.StoreVO;
 
@@ -25,16 +25,8 @@ public class StoreServiceImpl implements StoreService {
 	}
 
 	@Override
-	public boolean insertStoreServiceInfo(StoreVO storeVO) throws Exception {
-
-		int saveReturn = storeMapper.insertStoreServiceInfo(storeVO);
-		boolean success = false;
-
-		if (saveReturn == 1) {
-			success = true;
-		}
-
-		return success;
+	public int insertStoreServiceInfo(StoreVO storeVO) throws Exception {
+		return storeMapper.insertStoreServiceInfo(storeVO);
 	}
 
 	@Override
@@ -84,7 +76,51 @@ public class StoreServiceImpl implements StoreService {
 	}
 
 	@Override
-	public void saveStoreServiceFiles(HttpServletRequest req, MultipartFile[] uploadfile) throws Exception {
+	public int insertStoreServiceFiles(int s_num, HttpServletRequest req) throws Exception {
+
+		List<Map<String, Object>> uploadList = CustomFileUtil.getUploadFileList(s_num, req);
+
+		if (uploadList.size() == 0) {
+			return 0;
+		}
+
+		return storeMapper.insertStoreServiceFiles(uploadList);
+	}
+
+	@Override
+	public List<Map<String, Object>> selectStoreServiceFileList(int s_num) throws Exception {
+		return storeMapper.selectStoreServiceFileList(s_num);
+	}
+
+	@Override
+	public int deleteStoreServiceFileInfo(HttpServletRequest req) throws Exception {
+
+		int si_num = Integer.parseInt(req.getParameter("si_num"));
+		String si_rename = req.getParameter("si_rename");
+
+		int count = storeMapper.deleteStoreServiceFileInfo(si_num);
+
+		if (count > 0) {
+			CustomFileUtil.deleteFile(si_rename, req);
+		}
+
+		return count;
+	}
+
+	@Override
+	public int deleteStoreServiceFileList(int s_num, HttpServletRequest req) throws Exception {
 		
+		List<Map<String, Object>> storeFileList = storeMapper.selectStoreServiceFileList(s_num);
+		
+		int count = storeMapper.deleteStoreServiceFileList(s_num);
+
+		if (count > 0) {
+
+			for (Map<String, Object> map : storeFileList) {
+				CustomFileUtil.deleteFile((String) map.get("si_rename"), req);
+			}
+		}
+
+		return count;
 	}
 }

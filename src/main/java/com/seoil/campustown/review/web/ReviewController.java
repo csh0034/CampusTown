@@ -43,7 +43,7 @@ public class ReviewController {
 	}
 
 	@GetMapping("/admin/reviewList.do")
-	public String StoreList(ModelMap model) throws Exception {
+	public String reviewList(ModelMap model) throws Exception {
 
 		List<ReviewVO> reviewList = reviewService.selectReviewServiceList(0);
 

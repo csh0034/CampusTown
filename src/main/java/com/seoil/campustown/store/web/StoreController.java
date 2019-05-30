@@ -1,21 +1,18 @@
 package com.seoil.campustown.store.web;
 
-import java.io.File;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.seoil.campustown.cmmn.util.Criteria;
@@ -25,9 +22,6 @@ import com.seoil.campustown.review.service.ReviewVO;
 import com.seoil.campustown.store.service.StoreService;
 import com.seoil.campustown.store.service.StoreVO;
 
-import lombok.extern.log4j.Log4j;
-
-@Log4j
 @Controller
 public class StoreController {
 
@@ -38,7 +32,7 @@ public class StoreController {
 	private ReviewService reviewService;
 
 	@GetMapping(value = "/store.do")
-	public String StoreInit(ModelMap model, Criteria criteria) throws Exception {
+	public String storeInit(ModelMap model, Criteria criteria) throws Exception {
 
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCriteria(criteria);
@@ -55,7 +49,7 @@ public class StoreController {
 	}
 
 	@GetMapping(value = "/storeDetail.do")
-	public String StoreDetail(@RequestParam(defaultValue = "1", required = false) int num, ModelMap model)
+	public String storeDetail(@RequestParam(defaultValue = "1", required = false) int num, ModelMap model)
 			throws Exception {
 
 		StoreVO storeInfo = storeService.selectStoreServiceInfo(num);
@@ -69,7 +63,7 @@ public class StoreController {
 	}
 
 	@GetMapping({ "/admin/main.do", "/admin/storeList.do" })
-	public String StoreList(ModelMap model) throws Exception {
+	public String storeList(ModelMap model) throws Exception {
 
 		List<StoreVO> storeList = storeService.selectStoreServiceAllList();
 
@@ -79,7 +73,7 @@ public class StoreController {
 	}
 
 	@GetMapping("/admin/storeAdd.do")
-	public String StoreAdd(ModelMap model) throws Exception {
+	public String storeAdd(ModelMap model) throws Exception {
 
 		List<Map<String, Object>> storeCategoryList = storeService.selectStoreServiceCategoryList();
 
@@ -89,31 +83,15 @@ public class StoreController {
 	}
 
 	@PostMapping("/admin/storeAdd.do")
-	public String StoreAdd(@ModelAttribute StoreVO storeVO, RedirectAttributes rttr, MultipartFile[] uploadfile,
-			HttpServletRequest req) throws Exception {
+	public String storeAdd(@ModelAttribute StoreVO storeVO, RedirectAttributes rttr, HttpServletRequest req)
+			throws Exception {
 
-		boolean success = false;
+		int s_num = storeService.insertStoreServiceInfo(storeVO);
 
-		for (MultipartFile multipartFile : uploadfile) {
+		if (s_num > 0) {
 
-			if (!multipartFile.isEmpty()) {
-				UUID uuid = UUID.randomUUID();
-				log.info(multipartFile.getOriginalFilename());
-				log.info(req.getSession().getServletContext().getRealPath("/"));
+			storeService.insertStoreServiceFiles(storeVO.getS_num(), req);
 
-				log.info(multipartFile.getOriginalFilename()
-						.substring(multipartFile.getOriginalFilename().lastIndexOf(".")));
-
-				String fileName = uuid.toString();
-
-				File file = new File(req.getSession().getServletContext().getRealPath("/"), fileName);
-				multipartFile.transferTo(file);
-			}
-		}
-
-		success = storeService.insertStoreServiceInfo(storeVO);
-
-		if (success) {
 			rttr.addFlashAttribute("result", "success");
 		}
 
@@ -121,20 +99,23 @@ public class StoreController {
 	}
 
 	@GetMapping("/admin/storeModify.do")
-	public String StoreModify(@RequestParam(defaultValue = "1", required = false) int num, ModelMap model)
+	public String storeModify(@RequestParam(defaultValue = "1", required = false) int num, ModelMap model)
 			throws Exception {
 
 		List<Map<String, Object>> storeCategoryList = storeService.selectStoreServiceCategoryList();
+		List<Map<String, Object>> storeFileList = storeService.selectStoreServiceFileList(num);
 		StoreVO storeInfo = storeService.selectStoreServiceInfo(num);
 
 		model.addAttribute("storeCategoryList", storeCategoryList);
+		model.addAttribute("storeFileList", storeFileList);
 		model.addAttribute("storeInfo", storeInfo);
 
 		return "admin/store/storeModify.tilesAdmin";
 	}
 
 	@PostMapping("/admin/storeModify.do")
-	public String StoreModify(@ModelAttribute StoreVO storeVO, RedirectAttributes rttr) throws Exception {
+	public String storeModify(@ModelAttribute StoreVO storeVO, RedirectAttributes rttr, HttpServletRequest req)
+			throws Exception {
 
 		boolean success = false;
 		String redirect = "redirect:/admin/storeList.do";
@@ -142,6 +123,9 @@ public class StoreController {
 		success = storeService.updateStoreServiceInfo(storeVO);
 
 		if (success) {
+
+			storeService.insertStoreServiceFiles(storeVO.getS_num(), req);
+
 			rttr.addFlashAttribute("result", "success");
 		}
 
@@ -149,17 +133,26 @@ public class StoreController {
 	}
 
 	@GetMapping("/admin/storeDelete.do")
-	public String StoreDelete(@RequestParam(defaultValue = "1", required = false) int num, RedirectAttributes rttr)
-			throws Exception {
+	public String storeDelete(@RequestParam(defaultValue = "1", required = false) int num, RedirectAttributes rttr,
+			HttpServletRequest req) throws Exception {
 
-		boolean success = false;
-
-		success = storeService.deleteStoreServiceInfo(num);
+		storeService.deleteStoreServiceFileList(num, req);
+		
+		boolean success = storeService.deleteStoreServiceInfo(num);
 
 		if (success) {
 			rttr.addFlashAttribute("result", "success");
 		}
 
 		return "redirect:/admin/storeList.do";
+	}
+
+	@GetMapping(value = "/admin/storeFileDelete.do")
+	@ResponseBody
+	public String storeFileDelete(HttpServletRequest req) throws Exception {
+
+		storeService.deleteStoreServiceFileInfo(req);
+
+		return "good";
 	}
 }

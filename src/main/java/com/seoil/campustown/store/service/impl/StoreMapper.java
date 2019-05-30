@@ -18,7 +18,7 @@ public interface StoreMapper {
 	List<StoreVO> selectStoreServiceAllList() throws Exception;
 
 	List<StoreVO> selectStoreServiceList(Criteria criteria) throws Exception;
-	
+
 	int selectStoreServiceListCount(Criteria criteria) throws Exception;
 
 	List<Map<String, Object>> selectStoreServiceCategoryList() throws Exception;
@@ -26,5 +26,13 @@ public interface StoreMapper {
 	int updateStoreServiceInfo(StoreVO storeVO) throws Exception;
 
 	int deleteStoreServiceInfo(int s_num) throws Exception;
+
+	int insertStoreServiceFiles(List<Map<String, Object>> uploadList) throws Exception;
+
+	List<Map<String, Object>> selectStoreServiceFileList(int s_num) throws Exception;
+
+	int deleteStoreServiceFileInfo(int si_num) throws Exception;
+	
+	int deleteStoreServiceFileList(int s_num) throws Exception;
 
 }

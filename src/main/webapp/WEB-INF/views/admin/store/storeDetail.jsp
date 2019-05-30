@@ -20,10 +20,10 @@
 										<option value='<c:out value="${storeCategory.c_num}"/>'><c:out
 												value="${storeCategory.c_category}" /></option>
 									</c:forEach>
-								</select> <br> <input type="text" name="s_name" class="form-control"
+								</select> <br> <input type="text" name="s_name" class="form-control" required
 									placeholder="점포명"> <br> <input type="text"
 									name="s_tel" class="form-control"
-									placeholder="전화번호 ex) 02-2233-4455"> <br> <input
+									placeholder="전화번호 ex) 02-2233-4455" required> <br> <input
 									type="text" name="s_address" class="form-control"
 									placeholder="주소"> <br> <input type="text"
 									name="s_hours" class="form-control"
@@ -52,10 +52,15 @@
 											data-class-input="form-control" data-button-text=""
 											data-icon-name="fa fa-upload" class="form-control"
 											tabindex="${status.count}"
-											style="position: absolute; clip: rect(0px, 0px, 0px, 0px);">
+											style="position: absolute; clip: rect(0px, 0px, 0px, 0px);"
+											<c:if test="${status.count eq 1}">
+												required
+											</c:if>
+											>
 										<div class="bootstrap-filestyle input-group">
 											<input type="text" id="userfile${status.count}"
-												class="form-control" name="userfile"> <span
+												class="form-control" name="userfile" readonly
+												style="background-color: #fcfcfc;"> <span
 												class="group-span-filestyle input-group-btn" tabindex="0">
 												<label for="fileInput${status.count}"
 												class="btn btn-default "> <span

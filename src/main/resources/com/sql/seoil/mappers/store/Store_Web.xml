@@ -44,12 +44,13 @@
 		 where s_num = #{_parameter}
 	</select>
 	
-	<insert id="insertStoreServiceInfo" parameterType="storeVO">
+	<insert id="insertStoreServiceInfo" parameterType="storeVO" 
+			keyProperty="s_num" useGeneratedKeys="true">
 		insert into store(
 			s_name  , c_num    , s_tel   , s_address, s_content,
 			s_snsurl, s_hashtag, s_hours
 		) values (
-			#{s_name}, #{c_num}   , #{s_tel}    , #{s_address}, #{s_content},
+			#{s_name}  , #{c_num}    , #{s_tel}   , #{s_address}, #{s_content},
 			#{s_snsurl}, #{s_hashtag}, #{s_hours}
 		)
 	</insert>
@@ -113,5 +114,33 @@
 		delete from store
 		 where s_num = #{_parameter}  
 	</delete>
-
+	
+	<insert id="insertStoreServiceFiles" parameterType="list">
+		insert into store_img(
+			s_num, si_name, si_rename
+		) values 
+		<foreach item="item" separator="," collection="list">
+			(
+				#{item.s_num}, #{item.si_name}, #{item.si_rename}
+			)
+		</foreach>
+	</insert>
+	
+	<select id="selectStoreServiceFileList" parameterType="int" resultType="map">
+		select si_num, si_name, si_rename
+	      from store_img
+		 where s_num = #{_parameter}
+		 order by si_num;
+	</select>
+	
+	<delete id="deleteStoreServiceFileInfo">
+		delete from store_img
+		 where si_num = #{_parameter}  
+	</delete>
+	
+	<delete id="deleteStoreServiceFileList">
+		delete from store_img
+		 where s_num = #{_parameter}  
+	</delete>
+	
 </mapper>

@@ -5,8 +5,28 @@
 <script>
 	$(function() {
 		$('.btn-danger').click(function() {
-			if(confirm('삭제하시겠습니까?')){
+			if (confirm('삭제하시겠습니까?')) {
 				location.href = '/admin/storeDelete.do?num=' + '${param.num}';
+			}
+		});
+
+		$('.del').click(function() {
+
+			if (confirm('삭제하시겠습니까?')) {
+				$.ajax({
+					url : '/admin/storeFileDelete.do',
+					type : 'get',
+					data : {
+						'si_num' : $(this).data('num'),
+						'si_rename' : $(this).data('rename')
+					},
+					success : function(data) {
+						location.reload();
+					},
+					error : function(xhr, stats, error) {
+						alert('error');
+					}
+				});
 			}
 		});
 	});
@@ -16,7 +36,8 @@
 		<div class="container-fluid">
 			<h3 class="page-title">Store Modify</h3>
 			<div class="row">
-				<form action="/admin/storeModify.do" method="post">
+				<form action="/admin/storeModify.do" method="post"
+					enctype="multipart/form-data">
 					<div class="col-md-6">
 						<div class="panel">
 							<div class="panel-heading">
@@ -24,8 +45,8 @@
 							</div>
 							<div class="panel-body">
 								<input type="hidden"
-									value="<c:out value='${storeInfo.s_num}' />"
-									name="s_num"> <select class="form-control" name="c_num">
+									value="<c:out value='${storeInfo.s_num}' />" name="s_num">
+								<select class="form-control" name="c_num">
 									<c:forEach var="storeCategory" items="${storeCategoryList}">
 										<c:choose>
 											<c:when test="${storeCategory.c_num eq storeInfo.c_num}">
@@ -69,20 +90,39 @@
 								<h3 class="panel-title"></h3>
 							</div>
 							<div class="panel-body fileWrap">
-								<c:forEach begin="1" end="10" varStatus="status">
+								<c:forEach var="storeFile" items="${storeFileList}"
+									varStatus="status">
 									<div class="form-group">
-										<input id="fileInput${status.count}" class="fileInput"
+										<div class="bootstrap-filestyle input-group">
+											<input type="text" readonly name="si_rename"
+												style="background-color: #fcfcfc;" class="form-control"
+												value='<c:out value="${storeFile.si_name}"/>'> <span
+												class="group-span-filestyle input-group-btn" tabindex="0">
+												<button data-num="<c:out value="${storeFile.si_num}"/>"
+													data-rename="<c:out value="${storeFile.si_rename}"/>"
+													type="button" class="btn btn-default del">
+													<span class="glyphicon fa fa-trash"></span>
+												</button>
+											</span>
+										</div>
+									</div>
+								</c:forEach>
+								<c:forEach begin="${storeFileList.size() + 1}" end="10"
+									varStatus="status">
+									<div class="form-group">
+										<input id="fileInput${status.current}" class="fileInput"
 											name="uploadfile" type="file"
 											data-class-button="btn btn-default"
 											data-class-input="form-control" data-button-text=""
 											data-icon-name="fa fa-upload" class="form-control"
-											tabindex="${status.count}"
+											tabindex="${status.current}"
 											style="position: absolute; clip: rect(0px, 0px, 0px, 0px);">
 										<div class="bootstrap-filestyle input-group">
-											<input type="text" id="userfile${status.count}"
-												class="form-control" name="userfile"> <span
+											<input type="text" id="userfile${status.current}"
+												class="form-control" name="userfile" readonly
+												style="background-color: #fcfcfc;"> <span
 												class="group-span-filestyle input-group-btn" tabindex="0">
-												<label for="fileInput${status.count}"
+												<label for="fileInput${status.current}"
 												class="btn btn-default "> <span
 													class="glyphicon fa fa-upload"></span>
 											</label>
