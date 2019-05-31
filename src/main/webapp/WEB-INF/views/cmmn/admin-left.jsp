@@ -37,9 +37,9 @@
 			<ul class="nav">
 				<li><a href="/main.do" class=""><i class="lnr lnr-home"></i>
 						<span>Home</span></a></li>
-				<li><a href="#subPages" data-toggle="collapse" class=""><i
-						class="lnr lnr-cart"></i> <span>Store</span> <i
-						class="icon-submenu lnr lnr-chevron-left"></i></a>
+				<li><a href="#subPages" data-toggle="collapse"
+					class="collapsed"><i class="lnr lnr-cart"></i> <span>Store</span>
+						<i class="icon-submenu lnr lnr-chevron-left"></i></a>
 					<div id="subPages" class="collapse">
 						<ul class="nav">
 							<li><a href="/admin/storeList.do" class="">List</a></li>

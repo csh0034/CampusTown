@@ -12,7 +12,6 @@
                 AND s_content LIKE CONCAT('%', #{keyword}, '%')
             </if>
             <if test="searchType == 'w'.toString()">
-                <!-- AND writer LIKE CONCAT('%', #{keyword}, '%') -->
             </if>
             <if test="searchType == 'tc'.toString()">
                 AND (
@@ -21,26 +20,27 @@
                 )
             </if>
             <if test="searchType == 'cw'.toString()">
-      <!--           AND (
-                content LIKE CONCAT('%', #{keyword}, '%')
-                OR writer LIKE CONCAT('%', #{keyword}, '%')
-                ) -->
             </if>
             <if test="searchType == 'tcw'.toString()">
-<!--                 AND (
-                title LIKE CONCAT('%', #{keyword}, '%')
-                OR content LIKE CONCAT('%', #{keyword}, '%')
-                OR writer LIKE CONCAT('%', #{keyword}, '%')
-                ) -->
             </if>
         </if>
     </sql>
 
 
 	<select id="selectStoreServiceInfo" parameterType="int" resultType="storeVO">
-		select s_num    , s_name    , s.c_num    , s_tel   , s_address,
-			   s_content, s_snsurl  , s_hashtag  , s_hours , c_category
-	      from store s join category c on s.c_num = c.c_num
+		select s_num
+		      ,s_name
+		      ,s.c_num
+		      ,s_tel
+		      ,s_address
+		      ,s_content
+		      ,s_snsurl
+		      ,s_hashtag
+		      ,s_hours
+		      ,c_category
+	      from store s
+	      join category c
+	        on s.c_num = c.c_num
 		 where s_num = #{_parameter}
 	</select>
 	
@@ -56,23 +56,45 @@
 	</insert>
 	
 	<select id="selectStoreServiceAllList" resultType="storeVO">
-		select s_num    , s_name, c_category, s_tel    , s_address,
-			   s_content, s_snsurl  , s_hashtag, s_hours
-	      from store s join category c on s.c_num = c.c_num
-		 order by s_num
+		select s_num
+		      ,s_name
+		      ,c_category
+		      ,s_tel
+		      ,s_address
+		      ,s_content
+		      ,s_snsurl
+		      ,s_hashtag
+		      ,s_hours
+	      from store s 
+	      join category c 
+	        on s.c_num = c.c_num
+         order by s_num
 	</select>
 	
 	<select id="selectStoreServiceList" parameterType="criteria" resultType="storeVO">
 		<![CDATA[
-			select s_num    , s_name, c_category, s_tel    , s_address,
-				   s_content, s_snsurl  , s_hashtag, s_hours
-		      from store s join category c on s.c_num = c.c_num
-		     where s_num > 0
+			select s.s_num
+			      ,s_name
+			      ,c_category
+			      ,s_tel
+			      ,s_address
+			      ,s_content
+			      ,s_snsurl
+			      ,s_hashtag
+			      ,s_hours
+			      ,si_rename
+		      from store s
+		      join category c 
+		        on s.c_num = c.c_num
+		      left join store_img si on s.s_num = si.s_num
+		     where s.s_num > 0 and (si_num in (select max(si_num)
+		     								  from store_img
+		     							     group by s_num) or si_num is null)
 		]]>
 		<if test="category != null and category != 0">
     		and c.c_num = #{category}
     	</if>
-        <include refid="search"/>
+       		<include refid="search"/>
         <![CDATA[
        		 order by s_num desc
         	 limit #{pageStart}, #{perPageNum}
@@ -92,7 +114,9 @@
 	</select>
 	
 	<select id="selectStoreServiceCategoryList" resultType="map">
-		select c_num, c_category, c_img
+		select c_num
+		      ,c_category
+		      ,c_img
 	      from category
 		 order by c_num
 	</select>
@@ -127,7 +151,9 @@
 	</insert>
 	
 	<select id="selectStoreServiceFileList" parameterType="int" resultType="map">
-		select si_num, si_name, si_rename
+		select si_num
+		      ,si_name
+		      ,si_rename
 	      from store_img
 		 where s_num = #{_parameter}
 		 order by si_num;

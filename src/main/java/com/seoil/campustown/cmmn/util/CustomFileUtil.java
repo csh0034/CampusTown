@@ -17,10 +17,10 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 public class CustomFileUtil {
 
 	public static final String SAVE_FOLDER = "/files";
+	public static final String FORM_FILE_NAME = "uploadfile";
 
 	public static List<Map<String, Object>> getUploadFileList(int primaryKey, HttpServletRequest req) throws Exception {
 
-		String multipartFileName = "uploadfile";
 		String serverPath = req.getSession().getServletContext().getRealPath(SAVE_FOLDER) + File.separator;
 
 		@SuppressWarnings("unused")
@@ -34,7 +34,7 @@ public class CustomFileUtil {
 		List<Map<String, Object>> fileList = new ArrayList<Map<String, Object>>();
 		Map<String, Object> fileMap = null;
 
-		List<MultipartFile> mfList = mulReq.getFiles(multipartFileName);
+		List<MultipartFile> mfList = mulReq.getFiles(FORM_FILE_NAME);
 		
 		//업로드된 파일이 없다면 리턴
 		if(mfList.size() == 0) {

@@ -14,4 +14,5 @@ public class StoreVO {
 	private String s_snsurl;
 	private String s_hashtag;
 	private String s_hours;
+	private String si_rename;
 }

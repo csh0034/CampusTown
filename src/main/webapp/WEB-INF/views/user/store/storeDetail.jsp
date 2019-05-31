@@ -89,27 +89,33 @@
 
 							<div class="slider-item custom-min-max"
 								style="background-image: url('img/hero_2.jpg');"></div>
-
 						</section>
 					</div>
 					<div class="text">
-						<c:out value="${storeInfo.s_name}" />
-						<br>
-						<c:out value="${storeInfo.c_category}" />
-						<br>
-						<c:out value="${storeInfo.s_tel}" />
-						<br>
-						<c:out value="${storeInfo.s_hours}" />
-						<br>
-						<c:out value="${storeInfo.s_address}" />
-						<br>
-						<c:out value="${storeInfo.s_content}" />
-						<br>
-						<c:out value="${storeInfo.s_snsurl}" />
-						<br>
-						<c:out value="${storeInfo.s_hashtag}" />
-						<br>
-
+						<h3 class="mt-0 text-black">점포명</h3>
+						<p class="lead">
+							<c:out value="${storeInfo.s_name}" />
+						</p>
+						<h3 class="mt-0 text-black">카테고리</h3>
+						<p class="lead">
+							<c:out value="${storeInfo.c_category}" />
+						</p>
+						<h3 class="mt-0 text-black">전화번호</h3>
+						<p class="lead">
+							<c:out value="${storeInfo.s_tel}" />
+						</p>
+						<h3 class="mt-0 text-black">운영시간</h3>
+						<p class="lead">
+							<c:out value="${storeInfo.s_hours}" />
+						</p>
+						<h3 class="mt-0 text-black">주소</h3>
+						<p class="lead">
+							<c:out value="${storeInfo.s_address}" />
+						</p>
+						<h3 class="mt-0 text-black">상점소개</h3>
+						<p class="lead">
+							<c:out value="${storeInfo.s_content}" />
+						</p>
 					</div>
 				</div>
 			</div>
@@ -139,7 +145,7 @@
 			<div class="col-md-12">
 				<div class="sched fa-star-wrap" style="padding: 30px;">
 					<h3 style="display: inline-block;">리뷰테이블</h3>
-					<br> 
+					<br>
 					<c:forEach var="review" items="${reviewList}">
 						<c:out value="${review.u_id}" /> //
 						<fmt:formatDate value="${review.rw_regdate}"
