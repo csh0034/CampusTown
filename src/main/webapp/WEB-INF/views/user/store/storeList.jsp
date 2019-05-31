@@ -85,7 +85,7 @@
 				<div class="col-md-6 mb-4">
 					<div class="blog d-block d-lg-flex">
 						<div class="bg-image"
-							style="background-image: url('img/dishes_1.jpg');"></div>
+							style="background-image: url('/img/dishes_1.jpg');"></div>
 						<div class="text">
 							<h3>
 								<c:out value="${store.s_name}" />
