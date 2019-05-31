@@ -12,11 +12,10 @@
 <link rel="stylesheet" href="/css/magnific-popup.css">
 <link rel="stylesheet" href="/fonts/ionicons/css/ionicons.min.css">
 <link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<link rel="stylesheet"
 	href="/fonts/fontawesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="/fonts/flaticons/font/flaticon.css">
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-
 <!-- Theme Style -->
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/tmp.css">
