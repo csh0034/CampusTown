@@ -24,7 +24,7 @@
 								class="dropdown-item" href="services.html">Birthday Party</a> <a
 								class="dropdown-item" href="services.html">Wedding Party</a>
 						</div></li>
-					<li class="nav-item"><a class="nav-link" href="about.html">Notice</a>
+					<li class="nav-item"><a class="nav-link" href="/notice.do">Notice</a>
 					</li>
 				</ul>
 
