@@ -12,4 +12,6 @@ public interface UserService {
 
 	int insertUserServiceInfo(UserVO userVO) throws Exception;
 
+	int updateUserServiceInfo(UserVO userVO) throws Exception;
+
 }

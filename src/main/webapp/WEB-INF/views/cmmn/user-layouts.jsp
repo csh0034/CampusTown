@@ -25,8 +25,9 @@
 					<div class="modal-body">
 						<form id="loginForm" method="post">
 							<div class="form-group">
-								<i class="fa fa-user"></i> <input type="text" name="u_id"
-									class="form-control" placeholder="Username" required="required">
+								<i class="fa fa-user"></i> <input autocomplete="off" type="text"
+									name="u_id" class="form-control" placeholder="Id"
+									required="required">
 							</div>
 							<div class="form-group">
 								<i class="fa fa-lock"></i> <input type="password" name="u_pw"

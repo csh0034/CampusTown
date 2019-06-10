@@ -27,4 +27,13 @@
 		)
 	</insert>
 	
+	<update id="updateUserServiceInfo" parameterType="userVO">
+		update user
+		   set u_name=#{u_name},
+			   u_pw=#{u_pw},
+			   u_phone=#{u_phone},
+			   u_email=#{u_email}
+		 where u_id = #{u_id}
+	</update>
+	
 </mapper>

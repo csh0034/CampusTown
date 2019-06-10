@@ -39,23 +39,23 @@
 
 <script>
 	$(function() {
-		$('#joinForm').submit(function(e) {
+		$('#updateForm').submit(function(e) {
 			e.preventDefault();
 
 			if ($('#pw').val() !== $('#pwre').val()) {
 				alert('비밀번호가 일치하지 않습니다.');
 			} else {
 				$.ajax({
-					url : '/join.do',
+					url : '/mypage.do',
 					type : 'post',
 					data : $(this).serialize(),
 					success : function(data) {
 
 						if (data === 'true') {
-							alert('가입 성공');
-							location.href = "/";
+							alert('수정 성공');
+							location.reload();
 						} else if (data === 'false') {
-							alert('가입 실패')
+							alert('수정 실패')
 						}
 					},
 					error : function(xhr, stats, error) {
@@ -74,7 +74,7 @@
 			<div
 				class="row slider-text align-items-center justify-content-center">
 				<div class="col-md-8 text-center col-sm-12 element-animate">
-					<h1>Join</h1>
+					<h1>MyPage</h1>
 				</div>
 			</div>
 		</div>
@@ -87,11 +87,12 @@
 				<div class="blog d-block d-lg-flex">
 					<div class="card bg-light" style="width: 100%;">
 						<article class="card-body mx-auto" style="width: 50%;">
-							<h2 class="card-title mt-3 mb-4 text-center">Create Account</h2>
-							<form id="joinForm">
+							<h2 class="card-title mt-3 mb-4 text-center">Update Account</h2>
+							<form id="updateForm">
 								<div class="form-group input-group">
 									<input autocomplete="off" name="u_id" class="form-control"
-										placeholder="Id" type="text" required>
+										value="${user.u_id}" type="text"
+										readonly="readonly">
 								</div>
 								<div class="form-group input-group">
 									<input name="u_pw" id="pw" class="form-control"
@@ -102,21 +103,23 @@
 										placeholder="Repeat password" type="password" required>
 								</div>
 								<div class="form-group input-group">
-									<input name="u_name" class="form-control"
-										placeholder="Full Name" type="text" required>
+									<input value="${user.u_name}" name="u_name"
+										class="form-control" placeholder="Full Name" type="text"
+										required>
 								</div>
 								<div class="form-group input-group">
-									<input name="u_email" class="form-control"
-										placeholder="Email address" type="text" required>
+									<input value="${user.u_email}" name="u_email"
+										class="form-control" placeholder="Email address" type="text"
+										required>
 								</div>
 								<div class="form-group input-group">
-									<input name="u_phone" class="form-control" placeholder="Phone"
-										type="text" required>
+									<input value="${user.u_phone}" name="u_phone"
+										class="form-control" placeholder="Phone" type="text" required>
 								</div>
 
 								<div class="form-group">
 									<button type="submit" class="btn btn-primary btn-block">
-										Create Account</button>
+										Update Account</button>
 								</div>
 							</form>
 						</article>

@@ -16,17 +16,12 @@
 						href="/admin/main.do">Admin</a></li>
 					<li class="nav-item"><a class="nav-link" href="/store.do">Store</a>
 					</li>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="services.html"
-						id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false">Services</a>
-						<div class="dropdown-menu" aria-labelledby="dropdown04">
-							<a class="dropdown-item" href="services.html">Catering</a> <a
-								class="dropdown-item" href="services.html">Birthday Party</a> <a
-								class="dropdown-item" href="services.html">Wedding Party</a>
-						</div></li>
 					<li class="nav-item"><a class="nav-link" href="/notice.do">Notice</a>
 					</li>
+					<c:if test="${!empty sessionScope.user}">
+						<li class="nav-item"><a class="nav-link" href="/mypage.do">MyPage</a>
+						</li>
+					</c:if>
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
@@ -36,7 +31,9 @@
 								data-toggle="modal" href="#myModal">Login</a></li>
 						</c:when>
 						<c:otherwise>
-							<li class="nav-item cta-btn"><a class="nav-link" href="/logout.do">Logout</a>
+							<li class="nav-item cta-btn"><a class="nav-link"
+								href="/logout.do"><c:out value="${sessionScope.user.u_id}" />
+									Logout</a>
 						</c:otherwise>
 					</c:choose>
 

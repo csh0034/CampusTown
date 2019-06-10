@@ -142,7 +142,7 @@
 							id="rw_content" placeholder="리뷰입력" required="required">
 						<div class="text-center">
 							<button class="btn btn-primary btn-flat text-center"
-								style="width: 100%" id="reviewAddBtn">리뷰등록</button>
+								style="width: 100%; cursor:pointer" id="reviewAddBtn">리뷰등록</button>
 						</div>
 					</form>
 				</div>
