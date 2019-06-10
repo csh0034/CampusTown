@@ -45,6 +45,26 @@ public class UserController {
 		return "redirect:/";
 	}
 	
+	@GetMapping("/join.do")
+	public String join() throws Exception {
+		return "user/main/join.tiles";
+	}
+	
+	@PostMapping("/join.do")
+	@ResponseBody
+	public String join(UserVO userVO) throws Exception {
+		
+		int cnt = userService.insertUserServiceInfo(userVO);
+		
+		if(cnt == 1) {
+			return "true";
+
+		} else {
+			return "false";
+		}
+		
+	}
+	
 	@GetMapping("/admin/userList.do")
 	public String userList(ModelMap model) throws Exception {
 		

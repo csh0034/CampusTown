@@ -19,4 +19,12 @@
 		 where u_id = #{u_id} and u_pw = #{u_pw}
 	</select>
 	
+	<insert id="insertUserServiceInfo" parameterType="userVO">
+		insert into user(
+			u_id, u_pw, u_name, u_email, u_phone
+		) values (
+			#{u_id}, #{u_pw}, #{u_name}, #{u_email}, #{u_phone}
+		)
+	</insert>
+	
 </mapper>

@@ -29,5 +29,10 @@ public class UserServiceImpl implements UserService{
 	public UserVO selectUserServiceInfo(UserVO userVO) throws Exception {
 		return userMapper.selectUserServiceInfo(userVO);
 	}
+
+	@Override
+	public int insertUserServiceInfo(UserVO userVO) throws Exception {
+		return userMapper.insertUserServiceInfo(userVO);
+	}
 	
 }

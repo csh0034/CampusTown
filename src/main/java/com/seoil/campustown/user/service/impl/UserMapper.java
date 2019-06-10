@@ -13,4 +13,6 @@ public interface UserMapper {
 
 	UserVO selectUserServiceInfo(UserVO userVO) throws Exception;
 
+	int insertUserServiceInfo(UserVO userVO) throws Exception;
+
 }
