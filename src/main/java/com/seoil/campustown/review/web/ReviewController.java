@@ -16,10 +16,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.seoil.campustown.review.service.ReviewService;
 import com.seoil.campustown.review.service.ReviewVO;
+import com.seoil.campustown.user.service.UserVO;
 
-import lombok.extern.log4j.Log4j;
-
-@Log4j
 @Controller
 public class ReviewController {
 
@@ -30,16 +28,16 @@ public class ReviewController {
 	@ResponseBody
 	public String reviewAdd(@RequestBody ReviewVO reviewVO, HttpServletRequest req) throws Exception {
 
-		String u_id = "admin";
-		reviewVO.setU_id(u_id);
-		// HttpSession session = req.getSession();
-
-		if (u_id.length() == 0) {
+		UserVO userVO = (UserVO) req.getSession().getAttribute("user");
+		
+		if (userVO == null) {
 			return "로그인 후 이용 가능합니다";
 		} else {
-			log.info(reviewVO);
+			reviewVO.setU_id(userVO.getU_id());
+			
 			return String.valueOf(reviewService.insertReviewServiceInfo(reviewVO));
 		}
+
 	}
 
 	@GetMapping("/admin/reviewList.do")

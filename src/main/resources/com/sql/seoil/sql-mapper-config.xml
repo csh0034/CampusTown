@@ -4,6 +4,7 @@
     <typeAliases>
     	<typeAlias alias="storeVO" type="com.seoil.campustown.store.service.StoreVO"/>
     	<typeAlias alias="reviewVO" type="com.seoil.campustown.review.service.ReviewVO"/>
+    	<typeAlias alias="userVO" type="com.seoil.campustown.user.service.UserVO"/>
     	<typeAlias alias="criteria" type="com.seoil.campustown.cmmn.util.Criteria"/>
     </typeAliases>
 </configuration>

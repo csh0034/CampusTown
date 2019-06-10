@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <header role="banner">
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
 		<div class="container">
@@ -29,8 +30,16 @@
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item cta-btn"><a class="nav-link"
-						href="login.do">Login</a></li>
+					<c:choose>
+						<c:when test="${empty sessionScope.user}">
+							<li class="nav-item cta-btn"><a class="nav-link trigger-btn"
+								data-toggle="modal" href="#myModal">Login</a></li>
+						</c:when>
+						<c:otherwise>
+							<li class="nav-item cta-btn"><a class="nav-link" href="/logout.do">Logout</a>
+						</c:otherwise>
+					</c:choose>
+
 				</ul>
 
 			</div>

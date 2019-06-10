@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.seoil.campustown.user.service.impl.UserMapper">
+	
+	<select id="selectUserServiceList" resultType="userVO">
+		select *
+		  from user
+	</select>
+	
+	<delete id="deleteUserServiceInfo" parameterType="String">
+		delete from user
+		 where u_id = #{_parameter}
+	</delete>
+	
+	<select id="selectUserServiceInfo" parameterType="userVO" resultType="userVO">
+		select *
+		  from user
+		 where u_id = #{u_id} and u_pw = #{u_pw}
+	</select>
+	
+</mapper>

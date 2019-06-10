@@ -37,7 +37,12 @@
 				data : JSON.stringify(reviewData),
 				contentType : 'application/json',
 				success : function(data) {
-					location.reload();
+					
+					if(data.length === 1) {
+						location.reload();
+					} else {
+						alert(data);
+					}
 				},
 				error : function(xhr, stats, error) {
 					alert('error');

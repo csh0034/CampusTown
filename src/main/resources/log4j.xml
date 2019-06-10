@@ -12,7 +12,7 @@
 
 	<!-- Application Loggers -->
 	<logger name="com.seoil.campustown">
-		<level value="debug" />
+		<level value="trace" />
 	</logger>
 
 	<!-- 3rdparty Loggers -->
