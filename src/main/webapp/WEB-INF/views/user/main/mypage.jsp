@@ -91,8 +91,7 @@
 							<form id="updateForm">
 								<div class="form-group input-group">
 									<input autocomplete="off" name="u_id" class="form-control"
-										value="${user.u_id}" type="text"
-										readonly="readonly">
+										value="${user.u_id}" type="text" readonly="readonly">
 								</div>
 								<div class="form-group input-group">
 									<input name="u_pw" id="pw" class="form-control"
@@ -120,6 +119,21 @@
 								<div class="form-group">
 									<button type="submit" class="btn btn-primary btn-block">
 										Update Account</button>
+								</div>
+							</form>
+						</article>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-12 mb-4">
+				<div class="blog d-block d-lg-flex">
+					<div class="card bg-light" style="width: 100%;">
+						<article class="card-body mx-auto" style="width: 50%;">
+							<h2 class="card-title mt-3 mb-4 text-center">My Reservation</h2>
+							<form id="resForm">
+								<div class="form-group input-group">
+									예약확인 미구현
 								</div>
 							</form>
 						</article>
