@@ -90,7 +90,7 @@
 							</div>
 							<div class="form-group">
 								<textarea name="rn_content" id="rn_content"
-									class="form-control" placeholder="요구사항" style="height:150px;"></textarea>						
+									class="form-control" placeholder="요구사항" style="height:150px; resize: none"></textarea>						
 							</div>
 							<div class="form-group" style="display:inline; margin:none;">
 								<input type="submit" class="btn btn-primary btn-block btn-lg"
@@ -100,7 +100,6 @@
 
 					</div>
 					<div class="modal-footer">
-						<a onclick="alert('')"><span class="fa fa-phone detail-icon"></span>상점으로 전화 연결</a>
 					</div>
 				</div>
 			</div>

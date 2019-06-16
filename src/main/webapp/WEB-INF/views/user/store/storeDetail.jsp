@@ -114,9 +114,6 @@
 
 	<div class="container">
 		<div class="row no-gutters justify-content-center">
-			<c:forEach begin="1" end="8">
-			</c:forEach>
-
 			<div class="col-md-12">
 				<div class="sched d-block d-lg-flex">
 					<div class="text">
