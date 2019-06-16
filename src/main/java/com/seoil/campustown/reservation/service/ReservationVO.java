@@ -2,7 +2,7 @@ package com.seoil.campustown.reservation.service;
 
 import java.util.Date;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
 
@@ -13,7 +13,7 @@ public class ReservationVO {
 	 private int s_num;
 	 private int rn_count;
 	 
-	 @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	 @JsonFormat(pattern="yyyy-MM-dd HH:mm", timezone="Asia/Seoul")
 	 private Date rn_date;
 	 
 	 private Date rn_regdate;
