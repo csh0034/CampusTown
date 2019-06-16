@@ -3,6 +3,7 @@
 <script>
 	$(function() {
 		var $subPages = $('#subPages');
+		var $subPages2 = $('#subPages2');
 
 		switch (location.pathname) {
 		case '/admin/main.do':
@@ -17,6 +18,19 @@
 			$subPages.addClass('in');
 			$('#subPages li a').eq(1).addClass('active');
 			break;
+		
+		case '/admin/noticeList.do':
+		case '/admin/noticeModify.do':
+			$subPages2.prev().addClass('active');
+			$subPages2.addClass('in');
+			$('#subPages2 li a').eq(0).addClass('active');
+			break;
+		case '/admin/noticeAdd.do':
+			$subPages2.prev().addClass('active');
+			$subPages2.addClass('in');
+			$('#subPages2 li a').eq(1).addClass('active');
+			break;
+			
 		case '/admin/reservationList.do':
 			$('.reservation').addClass('active');
 			break;
@@ -51,7 +65,7 @@
 						<i class="icon-submenu lnr lnr-chevron-left"></i></a>
 					<div id="subPages2" class="collapse">
 						<ul class="nav">
-							<li><a href="/admin/notice.do" class="">List</a></li>
+							<li><a href="/admin/noticeList.do" class="">List</a></li>
 							<li><a href="/admin/noticeAdd.do" class="">Add</a></li>
 						</ul>
 					</div></li>

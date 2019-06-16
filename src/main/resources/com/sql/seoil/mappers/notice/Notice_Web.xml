@@ -2,4 +2,120 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.seoil.campustown.notice.service.impl.NoticeMapper">
+
+	<sql id="search">
+        <if test="searchType != null">
+            <if test="searchType == 't'.toString()">
+                AND n_title LIKE CONCAT('%', #{keyword}, '%')
+            </if>
+            <if test="searchType == 'c'.toString()">
+                AND n_content LIKE CONCAT('%', #{keyword}, '%')
+            </if>
+            <if test="searchType == 'w'.toString()">
+            </if>
+            <if test="searchType == 'tc'.toString()">
+                AND (
+                n_title LIKE CONCAT('%', #{keyword}, '%')
+                OR n_content LIKE CONCAT('%', #{keyword}, '%')
+                )
+            </if>
+            <if test="searchType == 'cw'.toString()">
+            </if>
+            <if test="searchType == 'tcw'.toString()">
+            </if>
+        </if>
+    </sql>
+    
+    <select id="selectNoticeServiceInfo" parameterType="int" resultType="noticeVO">
+		select n_num
+		      ,n_title
+		      ,n_content
+		      ,n_regdate
+		      ,n_hit
+		      ,n_attach
+	      from notice n
+		  where n_num = #{_parameter}
+	</select>
+	
+	<select id="selectNoticeServiceAllList" resultType="noticeVO">
+		select n_num
+		      ,n_title
+		      ,n_content
+		      ,n_regdate
+		      ,n_hit
+		      ,n_attach
+	      from notice n
+         order by n_num
+	</select>
+	
+	<select id="selectNoticeServiceList" parameterType="criteria" resultType="noticeVO">
+		<![CDATA[
+			select n_num
+			      ,n_title
+			      ,n_content
+			      ,n_regdate
+			      ,n_hit
+			      ,n_attach
+			  from notice n
+		     where n_num > 0
+		]]>
+       		<include refid="search"/>
+        <![CDATA[
+       		 order by n_num desc
+        	 limit #{pageStart}, #{perPageNum}
+        ]]>
+	</select>
+	
+	<select id="selectNoticeServiceListCount" parameterType="criteria" resultType="int">
+		<![CDATA[
+			select count(n_num)
+		      from notice
+		     where n_num > 0
+		 ]]>
+		 <include refid="search"/>
+	</select>
+	
+	<insert id="insertNoticeServiceInfo" parameterType="noticeVO" 
+			keyProperty="n_num" useGeneratedKeys="true">
+		insert into notice(
+			n_title
+		  , n_content
+		  , n_regdate
+		  , n_hit
+		  , n_attach
+		) values (
+			#{n_title}
+		  , #{n_content}
+		  , now()
+		  , 0
+		  , #{n_attach}
+		)
+	</insert>
+	
+	<update id="updateNoticeServiceHitInfo" parameterType="int">
+		update notice
+		   set n_hit = n_hit+1
+		 where n_num = #{_parameter}
+	</update>
+	
+	<update id="updateNoticeServiceInfo" parameterType="noticeVO">
+		update notice
+		   set n_title=#{n_title},
+			   n_content=#{n_content}
+			   <if test='n_attach != null'>
+			  		,n_attach=#{n_attach}
+			   </if>
+		 where n_num = #{n_num}
+	</update>
+	
+	<update id="updateNoticeServiceFileInfo">
+		update notice
+		   set n_attach=''
+		 where n_num=#{_parameter}
+	</update>
+	
+	<delete id="deleteNoticeServiceInfo">
+		delete from notice
+		 where n_num=#{_parameter} 
+	</delete>
 </mapper>
