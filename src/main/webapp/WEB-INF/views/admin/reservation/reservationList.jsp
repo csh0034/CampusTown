@@ -12,10 +12,10 @@
 		$('.table tbody tr').click(function() {
 			if (confirm('삭제하시겠습니까?')) {
 				$.ajax({
-					url  : '/admin/userDelete.do',
+					url : '/admin/reservationDelete.do',
 					type : 'get',
 					data : {
-						'u_id' : $(this).children().eq(0).html()
+						'rn_num' : $(this).children().eq(0).html()
 					},
 					success : function(data) {
 						location.reload();
@@ -31,7 +31,7 @@
 <div class="main">
 	<div class="main-content">
 		<div class="container-fluid">
-			<h3 class="page-title">User List</h3>
+			<h3 class="page-title">Reservation List</h3>
 			<div class="row">
 				<div class="col-md-12">
 					<!-- TABLE HOVER -->
@@ -44,22 +44,32 @@
 								style="width: 100%">
 								<thead>
 									<tr>
+										<th>rn_num</th>
 										<th>ID</th>
-										<th>이름</th>
-										<th>핸드폰번호</th>
-										<th>이메일</th>
+										<th>상점명</th>
+										<th>예약자명</th>
+										<th>예약수</th>
+										<th>예약일</th>
+										<th>예약등록일</th>
+										<th>추가사항</th>
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach var="item" items="${userList}">
+									<c:forEach var="item" items="${reservationList}">
 										<tr style="cursor: pointer;">
+											<td><c:out value="${item.rn_num}" /></td>
 											<td><c:out value="${item.u_id}" /></td>
-											<td><c:out value="${item.u_name}" /></td>
-											<td><c:out value="${item.u_phone}" /></td>
-											<td><c:out value="${item.u_email}" /></td>
+											<td><c:out value="${item.s_name}" /></td>
+											<td><c:out value="${item.rn_name}" /></td>
+											<td><c:out value="${item.rn_count}" /></td>
+											<td><fmt:formatDate value="${item.rn_date}"
+													pattern="yyyy-MM-dd HH:mm" /></td>
+											<td><fmt:formatDate value="${item.rn_regdate}"
+													pattern="yyyy-MM-dd HH:mm" /></td>
+											<td><c:out value="${item.rn_content}" /></td>
 										</tr>
 									</c:forEach>
-									<c:if test="${empty userList}">
+									<c:if test="${empty reservationList}">
 										<tr class="text-center">
 											<td colspan="8">No Data</td>
 										</tr>

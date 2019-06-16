@@ -109,10 +109,11 @@ public class UserController {
 	}
 
 	@GetMapping("/admin/userDelete.do")
+	@ResponseBody
 	public String reviewDelete(@RequestParam(required = false) String u_id, RedirectAttributes rttr) throws Exception {
 
 		userService.deleteUserServiceInfo(u_id);
 
-		return "redirect:/admin/reviewList.do";
+		return "good";
 	}
 }

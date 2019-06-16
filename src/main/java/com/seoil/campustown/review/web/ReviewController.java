@@ -51,6 +51,7 @@ public class ReviewController {
 	}
 
 	@GetMapping("/admin/reviewDelete.do")
+	@ResponseBody
 	public String reviewDelete(@RequestParam(defaultValue = "1", required = false) int num, RedirectAttributes rttr)
 			throws Exception {
 
@@ -62,7 +63,7 @@ public class ReviewController {
 			rttr.addFlashAttribute("result", "success");
 		}
 
-		return "redirect:/admin/reviewList.do";
+		return "good";
 	}
 
 }
