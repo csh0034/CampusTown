@@ -28,7 +28,7 @@
 
 			});
 
-	var detail = function(c_num) {
+	function detail(c_num) {
 		location.href = "/store.do?category=" + c_num;
 	}
 </script>
