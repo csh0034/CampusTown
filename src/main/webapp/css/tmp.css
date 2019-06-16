@@ -226,10 +226,20 @@ body {
 	justify-content: center;
 }
 
+.modal-login .modal-footer .reservation {
+		background: #fff;
+}
+
 .modal-login .modal-footer a {
 	color: #999;
 }
 
 .trigger-btn {
 	display: inline-block;
+}
+
+.fa.detail-icon {
+	width:20px; 
+	margin-right:10px; 
+	text-align:center;
 }

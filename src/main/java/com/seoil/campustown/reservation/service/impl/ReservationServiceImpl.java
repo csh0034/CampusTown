@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+
 import com.seoil.campustown.reservation.service.ReservationService;
 import com.seoil.campustown.reservation.service.ReservationVO;
 
@@ -19,6 +20,12 @@ public class ReservationServiceImpl implements ReservationService{
 	public List<ReservationVO> selectReservationServiceList(int s_num) throws Exception {
 		return reservationMapper.selectReservationServiceList(s_num);
 	}
+	
+	@Override
+	public int insertReservationServiceInfo(ReservationVO reservationVO) throws Exception {
+		return reservationMapper.insertReservationServiceInfo(reservationVO);
+	}
+
 
 	@Override
 	public int deleteReservationServiceInfo(int rn_num) throws Exception {

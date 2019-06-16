@@ -37,8 +37,41 @@
 				data : JSON.stringify(reviewData),
 				contentType : 'application/json',
 				success : function(data) {
-					
+										
 					if(data.length === 1) {
+						location.reload();
+					} else {
+						alert(data);
+					}
+				},
+				error : function(xhr, stats, error) {
+					alert('error');
+				}
+			});
+
+		});
+		
+		
+		$('#rnForm').submit(function(e) {
+			e.preventDefault();
+
+			var reservationData = {
+				's_num' : '${param.num}',
+				'rn_count' : $('#rn_count').val(),
+				'rn_date' : $('#rn_date').val() + " " + $('#rn_hour').val(),
+				'rn_name' : $('#rn_name').val(),
+				'rn_content' : $('#rn_content').val()
+			}
+
+			$.ajax({
+				url : '/reservationAdd.do',
+				type : 'post',
+				data : JSON.stringify(reservationData),
+				contentType : 'application/json',
+				success : function(data) {
+										
+					if(data.length === 1) {
+						alert(JSON.stringify(reservationData));
 						location.reload();
 					} else {
 						alert(data);
@@ -94,33 +127,52 @@
 
 							<div class="slider-item custom-min-max"
 								style="background-image: url('img/hero_2.jpg');"></div>
+
 						</section>
 					</div>
-					<div class="text">
-						<h3 class="mt-0 text-black">점포명</h3>
-						<p class="lead">
-							<c:out value="${storeInfo.s_name}" />
-						</p>
-						<h3 class="mt-0 text-black">카테고리</h3>
-						<p class="lead">
-							<c:out value="${storeInfo.c_category}" />
-						</p>
-						<h3 class="mt-0 text-black">전화번호</h3>
-						<p class="lead">
+					<div class="text" style="margin:auto;">
+						<div style="margin-top:15px; display:flex;">  
+							<h2><c:out value="${storeInfo.s_name}"/></h2>
+							<a style="margin-left:12px; margin-top:12px;"><c:out value="${storeInfo.c_category}" /></a> 
+						</div>
+						<div style="text-align:center; margin-top:0.4rem;">
+							<p style="color:black;"> 
+								<c:out value="${storeInfo.s_content}" />
+							</p>
+						</div>
+
+						
+						<hr style="border: 1px, solid;"/>
+						
+						<div style="margin-left:5%;">
+						<div class="inform-wrap">
+							<span class="fa fa-phone detail-icon"></span>
 							<c:out value="${storeInfo.s_tel}" />
-						</p>
-						<h3 class="mt-0 text-black">운영시간</h3>
-						<p class="lead">
+						</div>
+						<div class="inform-wrap">
+							<span class="fa fa-clock-o detail-icon"></span>
 							<c:out value="${storeInfo.s_hours}" />
-						</p>
-						<h3 class="mt-0 text-black">주소</h3>
-						<p class="lead">
+						</div>
+						<div class="inform-wrap">
+							<span class="fa fa-map-marker detail-icon"></span>
 							<c:out value="${storeInfo.s_address}" />
-						</p>
-						<h3 class="mt-0 text-black">상점소개</h3>
-						<p class="lead">
-							<c:out value="${storeInfo.s_content}" />
-						</p>
+						</div>
+						<div class="inform-wrap">
+							<span class="fa fa-globe detail-icon"></span>
+							<c:out value="${storeInfo.s_snsurl}" />
+						</div>
+						<div class="inform-wrap">
+							<span class="fa fa-tag detail-icon"></span>
+							<c:out value="${storeInfo.s_hashtag}" />
+						</div>
+						</div>
+						
+						<hr style="border: 1px, solid;"/>
+						
+						<a class="btn btn-primary btn-flat text-center" data-toggle="modal" href="#reservationModal"
+							style="width: 100%" id="reservationAddBtn">예약하기</a>
+
+
 					</div>
 				</div>
 			</div>
@@ -142,7 +194,7 @@
 							id="rw_content" placeholder="리뷰입력" required="required">
 						<div class="text-center">
 							<button class="btn btn-primary btn-flat text-center"
-								style="width: 100%; cursor:pointer" id="reviewAddBtn">리뷰등록</button>
+								style="width: 100%" id="reviewAddBtn">리뷰등록</button>
 						</div>
 					</form>
 				</div>
@@ -150,19 +202,28 @@
 			<div class="col-md-12">
 				<div class="sched fa-star-wrap" style="padding: 30px;">
 					<h3 style="display: inline-block;">리뷰테이블</h3>
-					<br>
+					<br> 
 					<c:forEach var="review" items="${reviewList}">
-						<c:out value="${review.u_id}" /> //
-						<fmt:formatDate value="${review.rw_regdate}"
-							pattern="yyyy-MM-dd HH:mm" /> //
-						<c:out value="${review.rw_content}" /> //
+						<div style="display: inline; padding-right:30px;">
+							<div style="display: inline; width:20%; margin-right:30px;">
+								<c:out value="${review.u_id}" />
+							</div>
+							<div style="display: inline;">
+								<fmt:formatDate value="${review.rw_regdate}"
+									pattern="yyyy-MM-dd HH:mm" />
+							</div>
+						</div>
 						
-						<c:forEach begin="1" end="${review.rw_score}">
-							<i class="fas fa-star on"></i>
-						</c:forEach>
-						<c:forEach begin="1" end="${5 - review.rw_score}">
-							<i class="fas fa-star"></i>
-						</c:forEach>
+						<div style="display: inline;">
+							<c:out value="${review.rw_content}" />
+						
+							<c:forEach begin="1" end="${review.rw_score}">
+								<i class="fas fa-star on"></i>
+							</c:forEach>
+							<c:forEach begin="1" end="${5 - review.rw_score}">
+								<i class="fas fa-star"></i>
+							</c:forEach>
+						</div>
 						<br>
 					</c:forEach>
 				</div>
