@@ -201,10 +201,10 @@
 					<br> 
 					<c:forEach var="review" items="${reviewList}">
 						<div style="display: inline; padding-right:30px;">
-							<div style="display: inline; width:20%; margin-right:30px;">
+							<div style="display: inline-block; width:10%;">
 								<c:out value="${review.u_id}" />
 							</div>
-							<div style="display: inline;">
+							<div style="display: inline-block; width:140px; padding-right:10px;">
 								<fmt:formatDate value="${review.rw_regdate}"
 									pattern="yyyy-MM-dd HH:mm" />
 							</div>
@@ -213,7 +213,7 @@
 						<div style="display: inline-block; width:40%;">
 							<c:out value="${review.rw_content}" />
 						</div>
-						<div style="display: inline-block; width:20%; text-align:right;">
+						<div style="display: inline; float:right;">
 							<c:forEach begin="1" end="${review.rw_score}">
 								<i class="fas fa-star on"></i>
 							</c:forEach>
