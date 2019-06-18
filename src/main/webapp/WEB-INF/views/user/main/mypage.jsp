@@ -126,20 +126,6 @@
 				</div>
 			</div>
 
-			<div class="col-md-12 mb-4">
-				<div class="blog d-block d-lg-flex">
-					<div class="card bg-light" style="width: 100%;">
-						<article class="card-body mx-auto" style="width: 50%;">
-							<h2 class="card-title mt-3 mb-4 text-center">My Reservation</h2>
-							<form id="resForm">
-								<div class="form-group input-group">
-									예약확인 미구현
-								</div>
-							</form>
-						</article>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 </section>

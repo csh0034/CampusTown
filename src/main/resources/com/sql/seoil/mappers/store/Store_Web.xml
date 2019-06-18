@@ -169,4 +169,27 @@
 		 where s_num = #{_parameter}  
 	</delete>
 	
+	<select id="selectStoreServiceBestList" resultType="storeVO">
+        select s.s_num
+		      ,s_name
+		      ,c_category
+		      ,s_tel
+		      ,s_address
+		      ,s_content
+		      ,s_snsurl
+		      ,s_hashtag
+		      ,s_hours
+		  from store s
+		  join ( 
+			    select s_num,ROUND(sum(rw_score)/count(rw_score),1) rw_score 
+				  from review 
+				 group by s_num
+				 order by rw_score desc
+			   ) rw		
+			on s.s_num = rw.s_num
+		  join category c 
+	        on s.c_num = c.c_num
+			limit 0,4
+	</select>
+	
 </mapper>

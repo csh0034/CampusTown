@@ -35,4 +35,6 @@ public interface StoreMapper {
 	
 	int deleteStoreServiceFileList(int s_num) throws Exception;
 
+	List<StoreVO> selectStoreServiceBestList() throws Exception;
+
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.seoil.campustown.main.service.MainService;
 import com.seoil.campustown.store.service.StoreService;
+import com.seoil.campustown.store.service.StoreVO;
 
 @Controller
 public class MainController {
@@ -25,7 +26,9 @@ public class MainController {
 	public String initMain(ModelMap model) throws Exception {
 		
 		List<Map<String, Object>> storeCategoryList = storeService.selectStoreServiceCategoryList();
+		List<StoreVO> storeBestList = storeService.selectStoreServiceBestList();
 
+		model.addAttribute("storeBestList", storeBestList);
 		model.addAttribute("storeCategoryList", storeCategoryList);
 		
 		return "user/main/main.tiles";
