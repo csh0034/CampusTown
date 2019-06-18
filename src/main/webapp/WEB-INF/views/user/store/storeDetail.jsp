@@ -37,8 +37,8 @@
 				data : JSON.stringify(reviewData),
 				contentType : 'application/json',
 				success : function(data) {
-										
-					if(data.length === 1) {
+
+					if (data.length === 1) {
 						location.reload();
 					} else {
 						alert(data);
@@ -50,8 +50,7 @@
 			});
 
 		});
-		
-		
+
 		$('#rnForm').submit(function(e) {
 			e.preventDefault();
 
@@ -69,8 +68,8 @@
 				data : JSON.stringify(reservationData),
 				contentType : 'application/json',
 				success : function(data) {
-										
-					if(data.length === 1) {
+
+					if (data.length === 1) {
 						location.reload();
 					} else {
 						alert(data);
@@ -126,47 +125,51 @@
 
 						</section>
 					</div>
-					<div class="text" style="margin:auto;">
-						<div style="margin-top:15px; display:flex;">  
-							<h2><c:out value="${storeInfo.s_name}"/></h2>
-							<a style="margin-left:12px; margin-top:12px;"><c:out value="${storeInfo.c_category}" /></a> 
+					<div class="text" style="margin: auto;">
+						<div style="margin-top: 15px; display: flex;">
+							<h2>
+								<c:out value="${storeInfo.s_name}" />
+							</h2>
+							<a style="margin-left: 12px; margin-top: 12px;"><c:out
+									value="${storeInfo.c_category}" /></a>
 						</div>
-						<div style="text-align:center; margin-top:0.4rem;">
-							<p style="color:black;"> 
+						<div style="text-align: center; margin-top: 0.4rem;">
+							<p style="color: black;">
 								<c:out value="${storeInfo.s_content}" />
 							</p>
 						</div>
 
-						
-						<hr style="border: 1px, solid;"/>
-						
-						<div style="margin-left:5%;">
-						<div class="inform-wrap">
-							<span class="fa fa-phone detail-icon"></span>
-							<c:out value="${storeInfo.s_tel}" />
+
+						<hr style="border: 1px, solid;" />
+
+						<div style="margin-left: 5%;">
+							<div class="inform-wrap">
+								<span class="fa fa-phone detail-icon"></span>
+								<c:out value="${storeInfo.s_tel}" />
+							</div>
+							<div class="inform-wrap">
+								<span class="fa fa-clock-o detail-icon"></span>
+								<c:out value="${storeInfo.s_hours}" />
+							</div>
+							<div class="inform-wrap">
+								<span class="fa fa-map-marker detail-icon"></span>
+								<c:out value="${storeInfo.s_address}" />
+							</div>
+							<div class="inform-wrap">
+								<span class="fa fa-globe detail-icon"></span>
+								<c:out value="${storeInfo.s_snsurl}" />
+							</div>
+							<div class="inform-wrap">
+								<span class="fa fa-tag detail-icon"></span>
+								<c:out value="${storeInfo.s_hashtag}" />
+							</div>
 						</div>
-						<div class="inform-wrap">
-							<span class="fa fa-clock-o detail-icon"></span>
-							<c:out value="${storeInfo.s_hours}" />
-						</div>
-						<div class="inform-wrap">
-							<span class="fa fa-map-marker detail-icon"></span>
-							<c:out value="${storeInfo.s_address}" />
-						</div>
-						<div class="inform-wrap">
-							<span class="fa fa-globe detail-icon"></span>
-							<c:out value="${storeInfo.s_snsurl}" />
-						</div>
-						<div class="inform-wrap">
-							<span class="fa fa-tag detail-icon"></span>
-							<c:out value="${storeInfo.s_hashtag}" />
-						</div>
-						</div>
-						
-						<hr style="border: 1px, solid;"/>
-						
-						<a class="btn btn-primary btn-flat text-center" data-toggle="modal" href="#reservationModal"
-							style="width: 100%" id="reservationAddBtn">예약하기</a>
+
+						<hr style="border: 1px, solid;" />
+
+						<a class="btn btn-primary btn-flat text-center"
+							data-toggle="modal" href="#reservationModal" style="width: 100%"
+							id="reservationAddBtn">예약하기</a>
 
 
 					</div>
@@ -187,10 +190,11 @@
 								class="fas fa-star"></i>
 						</div>
 						<input type="text" class="form-control mb-4" name="rw_content"
-							id="rw_content" placeholder="리뷰입력" required="required">
+							id="rw_content" placeholder="리뷰입력" required="required"
+							autocomplete="off">
 						<div class="text-center">
 							<button class="btn btn-primary btn-flat text-center"
-								style="width: 100%" id="reviewAddBtn">리뷰등록</button>
+								style="width: 100%; cursor: pointer;" id="reviewAddBtn">리뷰등록</button>
 						</div>
 					</form>
 				</div>
@@ -198,22 +202,26 @@
 			<div class="col-md-12">
 				<div class="sched fa-star-wrap" style="padding: 30px;">
 					<h3 style="display: inline-block;">리뷰테이블</h3>
-					<br> 
+					<br>
+					<c:if test="${empty reviewList}">
+						<span>등록된 리뷰가 없습니다.</span>
+					</c:if>
 					<c:forEach var="review" items="${reviewList}">
-						<div style="display: inline; padding-right:30px;">
-							<div style="display: inline-block; width:10%;">
+						<div style="display: inline; padding-right: 30px;">
+							<div style="display: inline-block; width: 10%;">
 								<c:out value="${review.u_id}" />
 							</div>
-							<div style="display: inline-block; width:140px; padding-right:10px;">
+							<div
+								style="display: inline-block; width: 140px; padding-right: 10px;">
 								<fmt:formatDate value="${review.rw_regdate}"
 									pattern="yyyy-MM-dd HH:mm" />
 							</div>
 						</div>
-						
-						<div style="display: inline-block; width:40%;">
+
+						<div style="display: inline-block; width: 40%;">
 							<c:out value="${review.rw_content}" />
 						</div>
-						<div style="display: inline; float:right;">
+						<div style="display: inline; float: right;">
 							<c:forEach begin="1" end="${review.rw_score}">
 								<i class="fas fa-star on"></i>
 							</c:forEach>
