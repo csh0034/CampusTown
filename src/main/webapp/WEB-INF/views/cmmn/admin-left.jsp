@@ -62,10 +62,6 @@
 							<li><a href="/admin/noticeAdd.do" class="">Add</a></li>
 						</ul>
 					</div></li>
-				<li><a href="/admin/reservationList.do" class="reservation"><i
-						class="lnr lnr-inbox"></i> <span>Reservation</span></a></li>
-				<li><a href="/admin/reviewList.do" class="review"><i
-						class="lnr lnr-pencil"></i> <span>Review</span></a></li>
 				<li><a href="/admin/userList.do" class="user"><i
 						class="lnr lnr-user"></i> <span>User</span></a></li>
 			</ul>

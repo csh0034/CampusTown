@@ -28,6 +28,8 @@
     
     <select id="selectNoticeServiceInfo" parameterType="int" resultType="noticeVO">
 		select n_num
+			  ,n_type
+			  ,n_url
 		      ,n_title
 		      ,n_content
 		      ,n_regdate
@@ -39,6 +41,8 @@
 	
 	<select id="selectNoticeServiceAllList" resultType="noticeVO">
 		select n_num
+			  ,n_type
+			  ,n_url
 		      ,n_title
 		      ,n_content
 		      ,n_regdate
@@ -51,6 +55,8 @@
 	<select id="selectNoticeServiceList" parameterType="criteria" resultType="noticeVO">
 		<![CDATA[
 			select n_num
+				  ,n_type
+			  	  ,n_url
 			      ,n_title
 			      ,n_content
 			      ,n_regdate
@@ -79,12 +85,16 @@
 			keyProperty="n_num" useGeneratedKeys="true">
 		insert into notice(
 			n_title
+		  , n_type
+		  , n_url
 		  , n_content
 		  , n_regdate
 		  , n_hit
 		  , n_attach
 		) values (
 			#{n_title}
+		  , #{n_type}
+		  , #{n_url}
 		  , #{n_content}
 		  , now()
 		  , 0
@@ -101,7 +111,9 @@
 	<update id="updateNoticeServiceInfo" parameterType="noticeVO">
 		update notice
 		   set n_title=#{n_title},
-			   n_content=#{n_content}
+			   n_content=#{n_content},
+			   n_url=#{n_url},
+			   n_type=#{n_type}
 			   <if test='n_attach != null'>
 			  		,n_attach=#{n_attach}
 			   </if>

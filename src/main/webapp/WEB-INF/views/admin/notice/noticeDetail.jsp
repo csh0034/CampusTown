@@ -29,13 +29,20 @@
 								<h3 class="panel-title"></h3>
 							</div>
 							<div class="panel-body fileWrap">
+								<select class="form-control" name="c_type">
+									<option value='0'>공지사항</option>
+									<option value='1'>사업단 공지사항</option>
+								</select> <br> 
+								<input type="text"
+									name="n_url" class="form-control"
+									placeholder="url" required> <br>
 								<div class="form-group">
 									<input id="fileInput1" class="fileInput" name="uploadfile"
 										type="file" data-class-button="btn btn-default"
 										data-class-input="form-control" data-button-text=""
 										data-icon-name="fa fa-upload" class="form-control"
 										tabindex="1"
-										style="position: absolute; clip: rect(0px, 0px, 0px, 0px);">
+										style="position: absolute; clip: rect(0px, 0px, 0px, 0px);" required>
 									<div class="bootstrap-filestyle input-group">
 										<input type="text" id="userfile1" class="form-control"
 											name="userfile" readonly style="background-color: #fcfcfc;">

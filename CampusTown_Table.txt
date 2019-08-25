@@ -5,6 +5,8 @@ use campustown;
 
 create table notice (
 	n_num int(5) auto_increment primary key,
+	n_type VARCHAR(5) NULL DEFAULT NULL,
+	n_url VARCHAR(200) NULL DEFAULT NULL,
 	n_title varchar(100) not null,
 	n_content text not null,
 	n_regdate datetime not null,
@@ -53,31 +55,5 @@ create table store_img (
 	s_num int(20) not null,
 	si_name varchar(50) not null,
 	si_rename varchar(50) not null,
-	foreign key(s_num) references store(s_num) on delete cascade
-);
-
-create table reservation (
-	rn_num int(5) auto_increment primary key,
-	u_id varchar(20) not null,
-	s_num int(5) not null,
-	rn_count int(5) not null,
-	rn_date datetime not null,
-	rn_regdate datetime not null,
-	rn_content text not null,
-	rn_name varchar(30) not null,
-	
-	foreign key(u_id) references user(u_id) on delete cascade,
-	foreign key(s_num) references store(s_num) on delete cascade
-);
-
-create table review (
-	rw_num int(5) auto_increment primary key,
-	u_id varchar(20) not null,
-	s_num int(5) not null,
-	rw_content text not null,
-	rw_score int(5) not null,
-	rw_regdate datetime,
-	
-	foreign key(u_id) references user(u_id) on delete cascade,
 	foreign key(s_num) references store(s_num) on delete cascade
 );
