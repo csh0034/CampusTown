@@ -34,9 +34,19 @@ public class StoreController {
 		pageMaker.setCriteria(criteria);
 		pageMaker.setTotalCount(storeService.selectStoreServiceListCount(criteria));
 
-		List<StoreVO> storeList = storeService.selectStoreServiceList(criteria);
 		List<Map<String, Object>> storeCategoryList = storeService.selectStoreServiceCategoryList();
+		List<StoreVO> storeList = storeService.selectStoreServiceList(criteria);
 
+		String category = "";
+		
+		for (Map<String, Object> map : storeCategoryList) {
+			if(criteria.getCategory() == (int)map.get("c_num")) {
+				category = (String)map.get("c_category");
+				break;
+			}
+		}
+
+		model.addAttribute("category", category);
 		model.addAttribute("pageMaker", pageMaker);
 		model.addAttribute("storeList", storeList);
 		model.addAttribute("storeCategoryList", storeCategoryList);

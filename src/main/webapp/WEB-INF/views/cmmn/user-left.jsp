@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <nav class="menu-nav">
 	<ul id="menu">
 		<li class="main"><a href="#">사업소개</a>
@@ -20,6 +21,18 @@
 		<li class="main"><a href="#">대학협력사업</a>
 			<ul class="sub">
 				<li><a href="#">협력사업소개</a></li>
+			</ul></li>
+		<li class="main"><a href="#">관리</a>
+			<ul class="sub">
+				<c:choose>
+					<c:when test="${empty sessionScope.user}">
+						<li><a href="/login.do">로그인</a></li>
+					</c:when>
+					<c:otherwise>
+						<li><a href="/admin/main.do">관리페이지</a></li>
+						<li><a href="/logout.do">로그아웃</a></li>
+					</c:otherwise>
+				</c:choose>
 			</ul></li>
 	</ul>
 </nav>

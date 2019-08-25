@@ -14,11 +14,11 @@
 		<div class="store_inner">
 			<div class="store_menu">
 				<img id="share" src="/img/share.png" alt="공유아이콘"> <img
-					id="phone" src="/img/phone_white.png" alt="전화아이콘"> <span>
-					음식점 </span>
+					id="phone" src="/img/phone_white.png" alt="전화아이콘">
+					<span><c:out value="${storeInfo.c_category}"/></span>
 			</div>
 			<p>
-				<strong>THE 담다</strong> <span> #한식</span> <span> #돈까스</span>
+				<strong><c:out value="${storeInfo.s_name}"/></strong> <span><c:out value="${storeInfo.s_hashtag}"/></span>
 			</p>
 			<ul class="store_info">
 				<li id="open"><img src="/img/open.png" alt="오픈 아이콘"> 10:00
@@ -40,7 +40,7 @@
 				<li class="store_desc_title">
 					<h3>상점 소개</h3>
 				</li>
-				<li class="store_intro">HACCP 인증받은 재료로 정성을 다해 조리합니다.</li>
+				<li class="store_intro"><c:out value="${storeInfo.s_content}"/></li>
 			</ul>
 			<!-- 영업정보 -->
 			<ul>
@@ -48,13 +48,13 @@
 					<h3>영업 정보</h3>
 				</li>
 				<li class="store_hashtag store_desc_hashtag"><img
-					src="/img/hashtag.png" alt="해시태그 아이콘"> #한식 #돈까스</li>
+					src="/img/hashtag.png" alt="해시태그 아이콘"><c:out value="${storeInfo.s_hashtag}"/></li>
 				<li class="store_open store_desc_open"><img src="img/clock.png"
-					alt="영업시간 아이콘"> 10:00 ~ 20:00</li>
+					alt="영업시간 아이콘"> <c:out value="${storeInfo.s_hours}"/></li>
 				<li class="store_phone store_desc_phone"><img
-					src="/img/phone.png" alt="전화번호 아이콘"> 02-1234-1234</li>
+					src="/img/phone.png" alt="전화번호 아이콘"> <c:out value="${storeInfo.s_tel}"/></li>
 				<li class="store_location store_desc_location"><img
-					src="/img/location.png" alt="주소 아이콘"> 서울시 용마산로 333</li>
+					src="/img/location.png" alt="주소 아이콘"> <c:out value="${storeInfo.s_address}"/></li>
 			</ul>
 		</div>
 	</section>
@@ -85,7 +85,7 @@
 
 	<div class="store_list">
 		<ul class="back_list">
-			<li><a href="#" class="bnt_list"><img src="/img/list.png"
+			<li><a href="javascript:history.go(-1)" class="bnt_list"><img src="/img/list.png"
 					alt="목록 이미지"> 상점 목록</a></li>
 		</ul>
 	</div>

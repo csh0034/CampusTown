@@ -21,6 +21,11 @@ public class UserController {
 
 	@Resource
 	private UserService userService;
+	
+	@GetMapping("/login.do")
+	public String login() throws Exception {
+		return "user/main/login.tiles";
+	}
 
 	@PostMapping("/login.do")
 	@ResponseBody
