@@ -1,201 +1,131 @@
-(function($) {
+$(document).ready(function() {
+	//메인 네비
+	$('.total').click(function() {
+		$(this).toggleClass('on');
+		if($(this).hasClass('on')) {
+            $('.menu-nav').show();
+            $('.bg_black').show();
+        } else {
+            $('.menu-nav').hide();
+            $('.bg_black').hide();
+        }
+	});
 
-	'use strict';
 
-	// bootstrap dropdown hover
+	$('.bg_black').click(function() {
+		$('.total').toggleClass('on');
+		$('.menu-nav').hide();
+        $('.bg_black').hide();
+	});
 
-  // loader
-  var loader = function() {
-    setTimeout(function() { 
-      if($('#loader').length > 0) {
-        $('#loader').removeClass('show');
-      }
-    }, 1);
-  };
-  loader();
 
+	$(".main>a").click(function(){
+		var sub = $(this).next(".sub");
+
+		if(sub.is(":visible")) {
+			sub.slideUp();
+			$(".main>a").removeClass("on");
+		} else {
+			sub.slideDown();
+			$(this).addClass("on");
+		}
+	});
+
+
+	//통합 검색
+	$('.search_btn').click(function() {
+        $('#search_box').show();
+        $('.bg_black2').show();
+	});
+
+
+	$('.bg_black2').click(function() {
+		$('#search_box').hide();
+        $('.bg_black2').hide();
+	});
+
+
+	//메인 슬라이드
+	$('.fade').slick({
+		autoplay: true,
+		dots: true,
+		infinite: true,
+		speed: 500,
+		fade: true,
+		cssEase: 'linear',
+		arrows: false
+	});
+
+
+	//오늘의 식당
+	$('.today').slick({
+		infinite: true,
+  		slidesToShow: 2,
+  		slidesToScroll: 2,
+  		dots: false,
+  		centerMode: true,
+  		focusOnSelect: true,
+		arrows:true,
+	});
+
+	$('.img_inner').slick({
+		dots: true,
+		infinite: true,
+		cssEase: 'linear',
+		arrows: false,
+	});
 	
-	$('nav .dropdown').hover(function(){
-		var $this = $(this);
-		$this.addClass('show');
-		$this.find('> a').attr('aria-expanded', true);
-		$this.find('.dropdown-menu').addClass('show');
-	}, function(){
-		var $this = $(this);
-			$this.removeClass('show');
-			$this.find('> a').attr('aria-expanded', false);
-			$this.find('.dropdown-menu').removeClass('show');
+
+	//검색 탭
+	$('ul.tabs li').click(function(){
+		var tab_id = $(this).attr('data-tab');
+
+		$('ul.tabs li').removeClass('current');
+		$('.tab-content').removeClass('current');
+
+		$(this).addClass('current');
+		$("#"+tab_id).addClass('current');
+	});
+
+	$('').click(function() {
+		if($("").css("display") == "none"){
+			('').show();
+		}else{
+			('').hide();
+		}
 	});
 
 
-	$('#dropdown04').on('show.bs.dropdown', function () {
-	  console.log('show');
-	});
-
-	// home slider
-	$('.home-slider').owlCarousel({
-    loop:true,
-    autoplay: true,
-    margin:0,
-    animateOut: 'fadeOut',
-    animateIn: 'fadeIn',
-    nav:true,
-    autoplayHoverPause: true,
-    items: 1,
-    navText : ["<span class='ion-chevron-left'></span>","<span class='ion-chevron-right'></span>"],
-    responsive:{
-      0:{
-        items:1,
-        nav:false
-      },
-      600:{
-        items:1,
-        nav:false
-      },
-      1000:{
-        items:1,
-        nav:true
-      }
-    }
-	});
-
-  $('.home-slider-loop-false').owlCarousel({
-    loop:false,
-    autoplay: true,
-    margin:0,
-    animateOut: 'fadeOut',
-    animateIn: 'fadeIn',
-    nav:true,
-    autoplayHoverPause: true,
-    items: 1,
-    navText : ["<span class='ion-chevron-left'></span>","<span class='ion-chevron-right'></span>"],
-    responsive:{
-      0:{
-        items:1,
-        nav:false
-      },
-      600:{
-        items:1,
-        nav:false
-      },
-      1000:{
-        items:1,
-        nav:true
-      }
-    }
-  });
-
-	// owl carousel
-	var majorCarousel = $('.js-carousel-1');
-	majorCarousel.owlCarousel({
-    loop:true,
-    autoplay: true,
-    stagePadding: 7,
-    margin: 20,
-    animateOut: 'fadeOut',
-    animateIn: 'fadeIn',
-    nav: true,
-    autoplayHoverPause: true,
-    items: 3,
-    navText : ["<span class='ion-chevron-left'></span>","<span class='ion-chevron-right'></span>"],
-    responsive:{
-      0:{
-        items:1,
-        nav:false
-      },
-      600:{
-        items:2,
-        nav:false
-      },
-      1000:{
-        items:3,
-        nav:true,
-        loop:false
-      }
-  	}
-	});
-
-	// owl carousel
-	var major2Carousel = $('.js-carousel-2');
-	major2Carousel.owlCarousel({
-    loop:true,
-    autoplay: true,
-    stagePadding: 7,
-    margin: 20,
-    animateOut: 'fadeOut',
-    animateIn: 'fadeIn',
-    nav: true,
-    autoplayHoverPause: true,
-    items: 4,
-    navText : ["<span class='ion-chevron-left'></span>","<span class='ion-chevron-right'></span>"],
-    responsive:{
-      0:{
-        items:1,
-        nav:false
-      },
-      600:{
-        items:3,
-        nav:false
-      },
-      1000:{
-        items:4,
-        nav:true,
-        loop:false
-      }
-  	}
-	});
-
-
-  $('.centernonloop').owlCarousel({
-    center: true,
-    items: 1,
-    loop: false,
-    margin:10,
-    dots: true,
-    responsive:{
-      600:{
-        items: 3
-      }
-    }
-  });
-
-
-	var contentWayPoint = function() {
-		var i = 0;
-		$('.element-animate').waypoint( function( direction ) {
-
-			if( direction === 'down' && !$(this.element).hasClass('element-animated') ) {
-				
-				i++;
-
-				$(this.element).addClass('item-animate');
-				setTimeout(function(){
-
-					$('body .element-animate.item-animate').each(function(k){
-						var el = $(this);
-						setTimeout( function () {
-							var effect = el.data('animate-effect');
-							if ( effect === 'fadeIn') {
-								el.addClass('fadeIn element-animated');
-							} else if ( effect === 'fadeInLeft') {
-								el.addClass('fadeInLeft element-animated');
-							} else if ( effect === 'fadeInRight') {
-								el.addClass('fadeInRight element-animated');
-							} else {
-								el.addClass('fadeInUp element-animated');
-							}
-							el.removeClass('item-animate');
-						},  k * 100);
-					});
-					
-				}, 100);
-				
-			}
-
-		} , { offset: '95%' } );
+	// 상점리스트 탭
+	var store_slick = {
+		infinite: true,
+	  	slidesToShow: 1,
+	  	slidesToScroll: 1,
+	  	dots: false,
+	  	centerMode: true,
+	  	focusOnSelect: true,
+		arrows: true
 	};
-	contentWayPoint();
+
+	$('.store_tab').slick(store_slick);
+	$('#all').css({'left':'0px'});
+
+	$('.s_item a').click(function(){
+		var tab_id = $(this).attr('data-tab');
+
+		$('.item_content').css({'left':'-9999px'});
+		$("#"+tab_id).css({'left':'0px'});
+	});
+
+});
 
 
 
-})(jQuery);
+
+
+
+
+
+
+
+

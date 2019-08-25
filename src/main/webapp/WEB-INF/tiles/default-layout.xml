@@ -7,6 +7,7 @@
 	<definition name="layouts-tiles" template="/WEB-INF/views/cmmn/user-layouts.jsp">
 	  	<put-attribute name="header"    	value="/WEB-INF/views/cmmn/user-header.jsp" />
 	  	<put-attribute name="nav"    		value="/WEB-INF/views/cmmn/user-nav.jsp" />
+	  	<put-attribute name="left"    		value="/WEB-INF/views/cmmn/user-left.jsp" />
 	  	<put-attribute name="content"   	value="" />
 	  	<put-attribute name="footer"    	value="/WEB-INF/views/cmmn/user-footer.jsp" />
 	  	<put-attribute name="js"    		value="/WEB-INF/views/cmmn/user-js.jsp" />

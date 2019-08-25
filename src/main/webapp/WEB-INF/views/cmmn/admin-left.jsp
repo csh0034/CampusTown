@@ -30,13 +30,6 @@
 			$subPages2.addClass('in');
 			$('#subPages2 li a').eq(1).addClass('active');
 			break;
-			
-		case '/admin/reservationList.do':
-			$('.reservation').addClass('active');
-			break;
-		case '/admin/reviewList.do':
-			$('.review').addClass('active');
-			break;
 		case '/admin/userList.do':
 			$('.user').addClass('active');
 			break;

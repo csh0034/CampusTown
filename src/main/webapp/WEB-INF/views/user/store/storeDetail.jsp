@@ -2,237 +2,91 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
-<script>
-	var rw_score = 0;
-
-	$(function() {
-		$('.fa-star-wrap-in > i').click(function() {
-			rw_score = $(this).index() + 1;
-
-			$('.fa-star-wrap-in > i').removeClass('on');
-
-			for (var i = 0; i < rw_score; i++) {
-				$('.fa-star-wrap-in > i').eq(i).addClass('on');
-			}
-		});
-
-		$('#rwForm').submit(function(e) {
-			e.preventDefault();
-
-			var reviewData = {
-				's_num' : '${param.num}',
-				'rw_content' : $('#rw_content').val(),
-				'rw_score' : rw_score
-			}
-
-			if (rw_score == 0) {
-				alert('별점을 선택해주세요');
-				return;
-			}
-
-			$.ajax({
-				url : '/reviewAdd.do',
-				type : 'post',
-				data : JSON.stringify(reviewData),
-				contentType : 'application/json',
-				success : function(data) {
-
-					if (data.length === 1) {
-						location.reload();
-					} else {
-						alert(data);
-					}
-				},
-				error : function(xhr, stats, error) {
-					alert('error');
-				}
-			});
-
-		});
-
-		$('#rnForm').submit(function(e) {
-			e.preventDefault();
-
-			var reservationData = {
-				's_num' : '${param.num}',
-				'rn_count' : $('#rn_count').val(),
-				'rn_date' : $('#rn_date').val() + " " + $('#rn_hour').val(),
-				'rn_name' : $('#rn_name').val(),
-				'rn_content' : $('#rn_content').val()
-			}
-
-			$.ajax({
-				url : '/reservationAdd.do',
-				type : 'post',
-				data : JSON.stringify(reservationData),
-				contentType : 'application/json',
-				success : function(data) {
-
-					if (data.length === 1) {
-						location.reload();
-					} else {
-						alert(data);
-					}
-				},
-				error : function(xhr, stats, error) {
-					alert('error');
-				}
-			});
-
-		});
-	});
-</script>
-
-<section class="home-slider-loop-false  inner-page owl-carousel">
-	<div class="slider-item"
-		style="background-image: url('img/banner.png');">
-		<div class="container">
-			<div
-				class="row slider-text align-items-center justify-content-center">
-				<div class="col-md-8 text-center col-sm-12 element-animate">
-					<h1>Store</h1>
-				</div>
-			</div>
+<!--content-->
+<div id="wrap">
+	<section id="store_img_wrap">
+		<div class="img_inner">
+			<ul id="store_img" class="fade">
+				<li><img src="files/store1.jpg" alt="상점 이미지"></li>
+				<li><img src="files/store2.jpg" alt="상점 이미지"></li>
+			</ul>
 		</div>
-	</div>
-</section>
-
-<section class="section bg-light element-animate">
-
-	<div class="clearfix mb-5 pb-5">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-12 text-center heading-wrap">
-					<h2>점포상세</h2>
-					<span class="back-text-dark"></span>
-				</div>
+		<div class="store_inner">
+			<div class="store_menu">
+				<img id="share" src="img/share.png" alt="공유아이콘"> <img
+					id="phone" src="img/phone_white.png" alt="전화아이콘"> <span>
+					음식점 </span>
 			</div>
+			<p>
+				<strong>THE 담다</strong> <span> #한식</span> <span> #돈까스</span>
+			</p>
+			<ul class="store_info">
+				<li id="open"><img src="img/open.png" alt="오픈 아이콘"> 10:00
+				</li>
+				<li id="close"><img src="img/close.png" alt="마감 아이콘">
+					20:00</li>
+				<li id="phone"><img src="img/phone_white.png" alt="공유 아이콘">
+					CALL</li>
+				<li id="share"><img src="img/share.png" alt="전화 아이콘">
+					SHARE</li>
+			</ul>
 		</div>
+	</section>
+	<section id="store_desc">
+		<div class="store_desc">
+
+			<!-- 상점소개 -->
+			<ul>
+				<li class="store_desc_title">
+					<h3>상점 소개</h3>
+				</li>
+				<li class="store_intro">HACCP 인증받은 재료로 정성을 다해 조리합니다.</li>
+			</ul>
+			<!-- 영업정보 -->
+			<ul>
+				<li class="store_desc_title">
+					<h3>영업 정보</h3>
+				</li>
+				<li class="store_hashtag store_desc_hashtag"><img
+					src="img/hashtag.png" alt="해시태그 아이콘"> #한식 #돈까스</li>
+				<li class="store_open store_desc_open"><img src="img/clock.png"
+					alt="영업시간 아이콘"> 10:00 ~ 20:00</li>
+				<li class="store_phone store_desc_phone"><img
+					src="img/phone.png" alt="전화번호 아이콘"> 02-1234-1234</li>
+				<li class="store_location store_desc_location"><img
+					src="img/location.png" alt="주소 아이콘"> 서울시 용마산로 333</li>
+			</ul>
+		</div>
+	</section>
+
+		<section id="today">
+			<h3 class="h_text">오늘의 식당</h3>
+			<ul class="today today_str">
+				<li>
+					<img src="files/store1.jpg" alt="오늘의 식당1">
+				</li>
+				<li>
+					<img src="files/store2.jpg" alt="오늘의 식당2">
+				</li>
+				<li>
+					<img src="files/store3.jpg" alt="오늘의 식당3">
+				</li>
+				<li>
+					<img src="files/store4.jpg" alt="오늘의 식당4">
+				</li>
+			</ul>
+		</section>
+
+	<div class="store_share">
+		<button class="share">
+			<span><img src="img/share.svg" alt="공유 아이콘"> </span> 공유하기
+		</button>
 	</div>
 
-	<div class="container">
-		<div class="row no-gutters justify-content-center">
-			<div class="col-md-12">
-				<div class="sched d-block d-lg-flex">
-					<div class="text">
-						<section class="home-slider slider-custom owl-carousel">
-							<div class="slider-item custom-min-max"
-								style="background-image: url('img/hero_1.jpg');"></div>
-
-							<div class="slider-item custom-min-max"
-								style="background-image: url('img/hero_2.jpg');"></div>
-
-						</section>
-					</div>
-					<div class="text" style="margin: auto;">
-						<div style="margin-top: 15px; display: flex;">
-							<h2>
-								<c:out value="${storeInfo.s_name}" />
-							</h2>
-							<a style="margin-left: 12px; margin-top: 12px;"><c:out
-									value="${storeInfo.c_category}" /></a>
-						</div>
-						<div style="text-align: center; margin-top: 0.4rem;">
-							<p style="color: black;">
-								<c:out value="${storeInfo.s_content}" />
-							</p>
-						</div>
-
-
-						<hr style="border: 1px, solid;" />
-
-						<div style="margin-left: 5%;">
-							<div class="inform-wrap">
-								<span class="fa fa-phone detail-icon"></span>
-								<c:out value="${storeInfo.s_tel}" />
-							</div>
-							<div class="inform-wrap">
-								<span class="fa fa-clock-o detail-icon"></span>
-								<c:out value="${storeInfo.s_hours}" />
-							</div>
-							<div class="inform-wrap">
-								<span class="fa fa-map-marker detail-icon"></span>
-								<c:out value="${storeInfo.s_address}" />
-							</div>
-							<div class="inform-wrap">
-								<span class="fa fa-globe detail-icon"></span>
-								<c:out value="${storeInfo.s_snsurl}" />
-							</div>
-							<div class="inform-wrap">
-								<span class="fa fa-tag detail-icon"></span>
-								<c:out value="${storeInfo.s_hashtag}" />
-							</div>
-						</div>
-
-						<hr style="border: 1px, solid;" />
-
-						<a class="btn btn-primary btn-flat text-center"
-							data-toggle="modal" href="#reservationModal" style="width: 100%"
-							id="reservationAddBtn">예약하기</a>
-
-
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-12">
-				<div class="sched" style="padding: 30px;">
-					<form id="rwForm">
-						<h3 style="display: inline-block;">
-							총
-							<c:out value="${reviewList.size()}" />
-							개 리뷰
-						</h3>
-						<div class="fa-star-wrap fa-star-wrap-in" style="float: right">
-							<i class="fas fa-star on"></i> <i class="fas fa-star"></i> <i
-								class="fas fa-star"></i> <i class="fas fa-star"></i> <i
-								class="fas fa-star"></i>
-						</div>
-						<input type="text" class="form-control mb-4" name="rw_content"
-							id="rw_content" placeholder="리뷰입력" required="required"
-							autocomplete="off">
-						<div class="text-center">
-							<button class="btn btn-primary btn-flat text-center"
-								style="width: 100%; cursor: pointer;" id="reviewAddBtn">리뷰등록</button>
-						</div>
-					</form>
-				</div>
-			</div>
-			<div class="col-md-12">
-				<div class="sched fa-star-wrap" style="padding: 30px;">
-					<h3 style="display: inline-block;">리뷰테이블</h3>
-					<br>
-					<c:if test="${empty reviewList}">
-						<span>등록된 리뷰가 없습니다.</span>
-					</c:if>
-					<c:forEach var="review" items="${reviewList}">
-						<div style="display: inline; padding-right: 30px;">
-							<div style="display: inline-block; width: 10%;">
-								<c:out value="${review.u_id}" />
-							</div>
-							<div
-								style="display: inline-block; width: 140px; padding-right: 10px;">
-								<fmt:formatDate value="${review.rw_regdate}"
-									pattern="yyyy-MM-dd HH:mm" />
-							</div>
-						</div>
-
-						<div style="display: inline-block; width: 40%;">
-							<c:out value="${review.rw_content}" />
-						</div>
-						<div style="display: inline; float: right;">
-							<c:forEach begin="1" end="${review.rw_score}">
-								<i class="fas fa-star on"></i>
-							</c:forEach>
-							<c:forEach begin="1" end="${5 - review.rw_score}">
-								<i class="fas fa-star"></i>
-							</c:forEach>
-						</div>
-						<br>
-					</c:forEach>
-				</div>
-			</div>
-		</div>
+	<div class="store_list">
+		<ul class="back_list">
+			<li><a href="#" class="bnt_list"><img src="img/list.png"
+					alt="목록 이미지"> 상점 목록</a></li>
+		</ul>
 	</div>
-</section>
+</div>

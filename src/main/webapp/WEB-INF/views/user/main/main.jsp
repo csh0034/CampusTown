@@ -2,106 +2,111 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<script>
-	var detail = function(c_num) {
-		location.href = "/store.do?category=" + c_num;
-	}
-</script>
+<!--content-->
+	<div id="wrap">
+		<section id="slide">
+			<ul id="mainImg" class="fade">
+				<li>
+					<img src="files/main1.jpg" alt="슬라이드1">
+				</li>
+				<li>
+					<img src="files/main2.jpg" alt="슬라이드2">
+				</li>
+				<li>
+					<img src="files/main3.jpg" alt="슬라이드3">
+				</li>
+			</ul>
+		</section>
+		<section id="notice">
+			<dl>
+				<dt>공지</dt>
+				<dd>
+					<a href="#">[서일대학교 캠퍼스타운조성사업]상설매장 운영 창업팀 선정 결과 발표</a>
+				</dd>
+				<dt>사업단공지</dt>
+				<dd>
+					<a href="#">서일대학교혁신지원사업단 사업관리 전담직원 채용 공고</a>
+				</dd>
+			</dl>           
+		</section>
+		<section id="intro">
+			<div class="intro_box">
+				<p>BUSINESS INTRODUCTION</p>
+				<p>캠퍼스타운이란?</p>
+				<p>서일대학교 상가들의 정보제공을 통하여<br/> 서일대학 학생들이 갖는 편리함과,<br/>더불어 대학상권의 동반성장을 기대하고자 합니다.</p>
+				<button class="more_btn">MORE ▶</button>
+			</div>
+		</section>
+		<section id="quick">
+			<h3 class="h_text">QUICK MENU</h3>
+			<div class="inner">
+				<div class="q_item">
+					<a href="#">
+						<img src="img/food.png">
+					</a>
+					<span>음식점</span>
+				</div>
+				<div class="q_item">
+					<a href="#">
+						<img src="img/cafe.png">
+					</a>
+					<span>카페</span>
+				</div>
+				<div class="q_item">
+					<a href="#">
+						<img src="img/beer.png">
+					</a>
+					<span>주점</span>
+				</div>				
+				<div class="q_item">
+					<a href="#">
+						<img src="img/market.png">
+					</a>
+					<span>잡화</span>
+				</div>
+				<div class="q_item">
+					<a href="#">
+						<img src="img/building.png">
+					</a>
+					<span>편의</span>
+				</div>
+				<div class="q_item">
+					<a href="#">
+						<img src="img/etc.png">
+					</a>
+					<span>기타</span>
+				</div>
+				<div class="q_item">
+					<a href="#">
+						<img src="img/more.png">
+					</a>
+					<span>더보기</span>
 
-<section class="home-slider-loop-false  inner-page owl-carousel">
-	<div class="slider-item"
-		style="background-image: url('img/banner.png');">
-
-		<div class="container">
-			<div
-				class="row slider-text align-items-center justify-content-center">
-				<div class="col-md-8 text-center col-sm-12 element-animate">
-					<h1>Campus Town</h1>
+				</div>
+				<div class="q_item">
 				</div>
 			</div>
-		</div>
-
+		</section>
+		<section id="today">
+			<h3 class="h_text">오늘의 식당</h3>
+			<ul class="today today_str">
+				<li>
+					<img src="files/store1.jpg" alt="오늘의 식당1">
+				</li>
+				<li>
+					<img src="files/store2.jpg" alt="오늘의 식당2">
+				</li>
+				<li>
+					<img src="files/store3.jpg" alt="오늘의 식당3">
+				</li>
+				<li>
+					<img src="files/store4.jpg" alt="오늘의 식당4">
+				</li>
+			</ul>
+		</section>
+		<section id="map">
+			<h3 class="h_text">CAMPUS MAP</h3>
+			<img src="files/map.png" alt="캠퍼스타운지도">
+		</section>
 	</div>
-</section>
-
-
-<section class="section element-animate">
-
-	<div class="clearfix mb-5 pb-5">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-12 text-center heading-wrap">
-					<h2>카테고리</h2>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="container" style="width: 100%;">
-		<div class="row">
-
-			<div class='col-md-6 mb-4 mb-lg-0 col-lg-3 text-center'>
-				<div class="text" style="cursor: pointer;" onclick="detail('0')">
-					<h4 class="mb-5 text-primary">전체보기</h4>
-				</div>
-			</div>
-
-			<c:forEach var="category" items="${storeCategoryList}">
-				<div class='col-md-6 mb-4 mb-lg-0 col-lg-3 text-center'>
-					<div class="text" style="cursor: pointer;"
-						onclick="detail('${category.c_num}')">
-						<h4 class="mb-5 text-primary">
-							<c:out value="${category.c_category}" />
-						</h4>
-					</div>
-				</div>
-			</c:forEach>
-		</div>
-	</div>
-</section>
-
-
-<section class="section bg-light element-animate">
-
-	<div class="clearfix mb-5 pb-5">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-12 text-center heading-wrap">
-					<h2>별점순</h2>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="container">
-		<div class="row no-gutters text-center">
-			<c:forEach var="store" items="${storeBestList}" end="7" varStatus="status">
-				<div class="col-md-6 mb-4">
-					<div class="blog d-block d-lg-flex">
-						<div class="bg-image"
-							style="background-image: url('/img/dishes_1.jpg');"></div>
-						<div class="text">
-							<h3>
-								<c:out value="${store.s_name}" />
-								<br>
-								<c:out value="${store.c_category}" />
-							</h3>
-							<p class="sched-time">
-								<span><span class="fa fa-clock-o"></span> <c:out
-										value="${store.s_hours}" /><br> <span
-									class="fa fa-phone"></span> <c:out value="${store.s_tel}" /></span> <br>
-							</p>
-							<p>
-								<c:out value="${store.s_content}" />
-							</p>
-							<p>
-								<a href="/storeDetail.do?num=${store.s_num }"
-									class="btn btn-primary btn-sm">상세 보기</a>
-							</p>
-						</div>
-					</div>
-				</div>
-			</c:forEach>
-		</div>
-	</div>
-</section>
+<!--wrap end-->
