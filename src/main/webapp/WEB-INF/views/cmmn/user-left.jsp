@@ -13,9 +13,9 @@
 			</ul></li>
 		<li class="main"><a href="#">커뮤니티</a>
 			<ul class="sub">
-				<li><a href="/notice.do">공지사항</a></li>
-				<li><a href="#">사업단 공지사항</a></li>
-				<li><a href="#">자유게시판</a></li>
+				<li><a href="/notice/list.do">공지사항</a></li>
+				<li><a href="/notice/list.do?type=1">사업단 공지사항</a></li>
+				<li><a href="/notice/list.do?type=2">자유게시판</a></li>
 			</ul></li>
 		<li class="main"><a href="#">대학협력사업</a>
 			<ul class="sub">

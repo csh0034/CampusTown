@@ -19,14 +19,19 @@
 		</section>
 		<section id="notice">
 			<dl>
-				<dt>공지</dt>
+				<c:forEach var="item" items="${noticeRecentInfo}">
+					<c:if test="${item.n_type eq 0}">
+						<dt>공지</dt>
+					</c:if>
+					<c:if test="${item.n_type eq 1}">
+						<dt>사업단공지</dt>
+					</c:if>
 				<dd>
-					<a href="#">[서일대학교 캠퍼스타운조성사업]상설매장 운영 창업팀 선정 결과 발표</a>
+					<a href="/notice/detail.do?num=<c:out value='${item.n_num}'/>">
+						<c:out value="${item.n_title}"/>
+					</a>
 				</dd>
-				<dt>사업단공지</dt>
-				<dd>
-					<a href="#">서일대학교혁신지원사업단 사업관리 전담직원 채용 공고</a>
-				</dd>
+				</c:forEach>
 			</dl>           
 		</section>
 		<section id="intro">

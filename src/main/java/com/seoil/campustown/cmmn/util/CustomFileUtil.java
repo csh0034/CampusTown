@@ -19,9 +19,9 @@ public class CustomFileUtil {
 	public static final String SAVE_FOLDER = "/files";
 	public static final String FORM_FILE_NAME = "uploadfile";
 
-	public static List<Map<String, Object>> getUploadFileList(int primaryKey, HttpServletRequest req) throws Exception {
+	public static List<Map<String, Object>> getUploadFileList(int primaryKey, HttpServletRequest req, String root) throws Exception {
 
-		String serverPath = req.getSession().getServletContext().getRealPath(SAVE_FOLDER) + File.separator;
+		String serverPath = req.getSession().getServletContext().getRealPath(SAVE_FOLDER) + File.separator + root + File.separator;
 
 		@SuppressWarnings("unused")
 		String fileSavePath = "";
@@ -74,9 +74,9 @@ public class CustomFileUtil {
 		return fileList;
 	}
 
-	public static void deleteFile(String fileName, HttpServletRequest req) throws Exception {
+	public static void deleteFile(String fileName, HttpServletRequest req, String root) throws Exception {
 		
-		String serverPath = req.getSession().getServletContext().getRealPath(SAVE_FOLDER) + File.separator;
+		String serverPath = req.getSession().getServletContext().getRealPath(SAVE_FOLDER) + File.separator + root + File.separator;
 		
 		File file = new File(serverPath,fileName);
 		if (file.exists()) {

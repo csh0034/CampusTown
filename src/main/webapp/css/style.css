@@ -938,6 +938,10 @@ section .h_text {
   text-align: center;
 }
 
+.pg_wrap .active a {
+	font-weight: bold;
+}
+
 .pg_page {
   display: inline-block;
   height: 30px;
@@ -948,6 +952,7 @@ section .h_text {
   color: #000;
   line-height: 1.7rem;
   vertical-align: middle;
+  cursor: pointer;
 }
 
 .notice_date img,
@@ -984,6 +989,14 @@ section .h_text {
   height: auto;
   padding: 1rem 0.8rem 0;
   font-weight: 600;
+}
+
+.notice_content textarea {
+	width: 100%;
+	resize: none;
+	border: none;
+	padding: 30px;
+	margin-top: 10px;
 }
 
 .back_list{

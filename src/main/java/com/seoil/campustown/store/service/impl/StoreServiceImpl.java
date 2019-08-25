@@ -78,7 +78,7 @@ public class StoreServiceImpl implements StoreService {
 	@Override
 	public int insertStoreServiceFiles(int s_num, HttpServletRequest req) throws Exception {
 
-		List<Map<String, Object>> uploadList = CustomFileUtil.getUploadFileList(s_num, req);
+		List<Map<String, Object>> uploadList = CustomFileUtil.getUploadFileList(s_num, req,"store");
 
 		if (uploadList.size() == 0) {
 			return 0;
@@ -101,7 +101,7 @@ public class StoreServiceImpl implements StoreService {
 		int count = storeMapper.deleteStoreServiceFileInfo(si_num);
 
 		if (count > 0) {
-			CustomFileUtil.deleteFile(si_rename, req);
+			CustomFileUtil.deleteFile(si_rename, req,"store");
 		}
 
 		return count;
@@ -117,7 +117,7 @@ public class StoreServiceImpl implements StoreService {
 		if (count > 0) {
 
 			for (Map<String, Object> map : storeFileList) {
-				CustomFileUtil.deleteFile((String) map.get("si_rename"), req);
+				CustomFileUtil.deleteFile((String) map.get("si_rename"), req,"store");
 			}
 		}
 

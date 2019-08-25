@@ -32,8 +32,8 @@ public class NoticeController {
 	@Resource
 	private NoticeService noticeService;
 
-	@GetMapping("/notice.do")
-	public String noticeInit(ModelMap model, Criteria criteria) throws Exception {
+	@GetMapping("/notice/list.do")
+	public String noticeList(ModelMap model, Criteria criteria) throws Exception {
 
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCriteria(criteria);
@@ -46,14 +46,14 @@ public class NoticeController {
 
 		return "user/notice/noticeList.tiles";
 	}
-
-	@GetMapping(value = "/noticeDetail.do")
+	
+	@GetMapping(value = "/notice/detail.do")
 	public String noticeDetail(@RequestParam(defaultValue = "1", required = false) int num, ModelMap model)
 			throws Exception {
+		
+		noticeService.updateNoticeServiceHitInfo(num);
 
 		NoticeVO noticeInfo = noticeService.selectNoticeServiceInfo(num);
-
-		noticeService.updateNoticeServiceHitInfo(num);
 
 		model.addAttribute("noticeInfo", noticeInfo);
 
@@ -78,7 +78,7 @@ public class NoticeController {
 	@PostMapping("/admin/noticeAdd.do")
 	public String storeAdd(@ModelAttribute NoticeVO noticeVO, HttpServletRequest req) throws Exception {
 
-		List<Map<String, Object>> uploadList = CustomFileUtil.getUploadFileList(0, req);
+		List<Map<String, Object>> uploadList = CustomFileUtil.getUploadFileList(0, req,"notice");
 
 		if (uploadList.size() > 0) {
 			noticeVO.setN_attach((String) uploadList.get(0).get("si_rename"));
@@ -103,7 +103,7 @@ public class NoticeController {
 	@PostMapping("/admin/noticeModify.do")
 	public String noticeModify(@ModelAttribute NoticeVO noticeVO, HttpServletRequest req) throws Exception {
 
-		List<Map<String, Object>> uploadList = CustomFileUtil.getUploadFileList(0, req);
+		List<Map<String, Object>> uploadList = CustomFileUtil.getUploadFileList(0, req,"notice");
 
 		if (uploadList.size() > 0) {
 			noticeVO.setN_attach((String) uploadList.get(0).get("si_rename"));

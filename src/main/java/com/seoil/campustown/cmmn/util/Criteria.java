@@ -9,11 +9,12 @@ public class Criteria {
 	private int perPageNum;
 	private String searchType;
 	private String keyword;
-	private int category;
+	private int category;	//상점카테고리
+	private String type = "0";	//공지타입
 
 	public Criteria() {
 		this.page = 1;
-		this.perPageNum = 8;
+		this.perPageNum = 5;
 	}
 
 	public void setPage(int page) {
@@ -33,7 +34,7 @@ public class Criteria {
 	public void setPerPageNum(int perPageNum) {
 
 		if (perPageNum <= 0 || perPageNum > 100) {
-			this.perPageNum = 10;
+			this.perPageNum = 5;
 			return;
 		}
 
@@ -71,4 +72,13 @@ public class Criteria {
 	public void setCategory(int category) {
 		this.category = category;
 	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+	
 }

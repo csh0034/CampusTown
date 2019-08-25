@@ -65,6 +65,9 @@
 			  from notice n
 		     where n_num > 0
 		]]>
+		<if test="type != null">
+    		and n_type = #{type}
+    	</if>
        		<include refid="search"/>
         <![CDATA[
        		 order by n_num desc
@@ -78,6 +81,9 @@
 		      from notice
 		     where n_num > 0
 		 ]]>
+		 <if test="type != null">
+    		and n_type = #{type}
+    	</if>
 		 <include refid="search"/>
 	</select>
 	
@@ -130,4 +136,13 @@
 		delete from notice
 		 where n_num=#{_parameter} 
 	</delete>
+	
+	<select id="selectNoticeServiceRecentInfo" resultType="noticeVO">
+		select *
+ 		  from notice
+         where n_num in (select max(n_num)
+ 						   from notice
+  						  group by n_type) and n_type in(0,1)
+ 		 order by n_type
+	</select>
 </mapper>

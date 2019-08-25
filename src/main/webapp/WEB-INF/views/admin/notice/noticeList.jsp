@@ -33,6 +33,8 @@
 								<thead>
 									<tr>
 										<th>n_num</th>
+										<th>type</th>
+										<th>url</th>
 										<th>제목</th>
 										<th>작성일</th>
 										<th>조회수</th>
@@ -42,6 +44,19 @@
 									<c:forEach var="item" items="${noticeList}">
 										<tr style="cursor: pointer;">
 											<td><c:out value="${item.n_num}" /></td>
+											<td>
+												<c:choose>
+													<c:when test="${item.n_type eq 0}">
+														공지사항
+													</c:when>
+												</c:choose>
+												<c:choose>
+													<c:when test="${item.n_type eq 1}">
+														사업단 공지사항
+													</c:when>
+												</c:choose>
+											</td>
+											<td><c:out value="${item.n_url}" /></td>
 											<td><c:out value="${item.n_title}" /></td>
 											<td><fmt:formatDate pattern="yyyy-MM-dd"
 													value="${item.n_regdate}" /></td>

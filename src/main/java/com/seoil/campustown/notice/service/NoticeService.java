@@ -25,5 +25,7 @@ public interface NoticeService {
 	int updateNoticeServiceFileInfo(HttpServletRequest req) throws Exception;
 
 	boolean deleteNoticeServiceInfo(int n_num, HttpServletRequest req) throws Exception;
+	
+	List<NoticeVO> selectNoticeServiceRecentInfo() throws Exception;
 
 }

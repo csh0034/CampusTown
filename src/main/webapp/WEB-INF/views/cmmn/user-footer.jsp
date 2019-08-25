@@ -21,8 +21,8 @@
 			</div>
 		</div>
 		<div class="f_copyright">
-			<span>2019&copy;SEOIL UNIVERSITY </span> <img src="img/seoul.jpg"
-				alt="서울시 로고"> <img src="img/seoil.png" alt="서일대 로고">
+			<span>2019&copy;SEOIL UNIVERSITY </span> <img src="/img/seoul.jpg"
+				alt="서울시 로고"> <img src="/img/seoil.png" alt="서일대 로고">
 		</div>
 	</div>
 </footer>

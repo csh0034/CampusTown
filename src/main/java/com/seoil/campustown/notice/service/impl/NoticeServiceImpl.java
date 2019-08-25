@@ -62,7 +62,7 @@ public class NoticeServiceImpl implements NoticeService {
 		int count = noticeMapper.updateNoticeServiceFileInfo(n_num);
 
 		if (count > 0) {
-			CustomFileUtil.deleteFile(n_attach, req);
+			CustomFileUtil.deleteFile(n_attach, req,"notice");
 		}
 
 		return count;
@@ -74,9 +74,14 @@ public class NoticeServiceImpl implements NoticeService {
 		NoticeVO noticeVO = noticeMapper.selectNoticeServiceInfo(n_num);
 		
 		if (noticeVO.getN_attach() != null && !"".equals(noticeVO.getN_attach())) {
-			CustomFileUtil.deleteFile(noticeVO.getN_attach(), req);
+			CustomFileUtil.deleteFile(noticeVO.getN_attach(), req,"notice");
 		}
 
 		return noticeMapper.deleteNoticeServiceInfo(n_num);
+	}
+
+	@Override
+	public List<NoticeVO> selectNoticeServiceRecentInfo() throws Exception {
+		return noticeMapper.selectNoticeServiceRecentInfo();
 	}
 }

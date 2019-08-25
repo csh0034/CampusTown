@@ -24,4 +24,6 @@ public interface NoticeMapper {
 
 	boolean deleteNoticeServiceInfo(int n_num) throws Exception;
 
+	List<NoticeVO> selectNoticeServiceRecentInfo() throws Exception;
+
 }

@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	//메인 네비
-	$('.total').click(function() {
+	$('.total').click(function(e) {
+		e.preventDefault();
 		$(this).toggleClass('on');
 		if($(this).hasClass('on')) {
             $('.menu-nav').show();
@@ -19,7 +20,8 @@ $(document).ready(function() {
 	});
 
 
-	$(".main>a").click(function(){
+	$(".main>a").click(function(e){
+		e.preventDefault();
 		var sub = $(this).next(".sub");
 
 		if(sub.is(":visible")) {
@@ -33,13 +35,15 @@ $(document).ready(function() {
 
 
 	//통합 검색
-	$('.search_btn').click(function() {
+	$('.search_btn').click(function(e) {
+		e.preventDefault();
         $('#search_box').show();
         $('.bg_black2').show();
 	});
 
 
-	$('.bg_black2').click(function() {
+	$('.bg_black2').click(function(e) {
+		e.preventDefault();
 		$('#search_box').hide();
         $('.bg_black2').hide();
 	});
@@ -77,7 +81,8 @@ $(document).ready(function() {
 	
 
 	//검색 탭
-	$('ul.tabs li').click(function(){
+	$('ul.tabs li').click(function(e){
+		e.preventDefault();
 		var tab_id = $(this).attr('data-tab');
 
 		$('ul.tabs li').removeClass('current');
@@ -118,14 +123,3 @@ $(document).ready(function() {
 	});
 
 });
-
-
-
-
-
-
-
-
-
-
-

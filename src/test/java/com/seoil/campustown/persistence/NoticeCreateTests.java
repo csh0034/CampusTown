@@ -22,10 +22,12 @@ public class NoticeCreateTests {
 	@Test
 	public void insertStoreServiceInfo() throws Exception {
 
-		for (int i = 1; i < 110; i++) {
+		for (int i = 0; i < 213; i++) {
 			NoticeVO noticeVO = new NoticeVO();
 			
 			noticeVO.setN_title("title"+i);
+			noticeVO.setN_type(String.valueOf((int)(Math.random()*3)));
+			noticeVO.setN_url("https://naver.com?"+i);
 			noticeVO.setN_content("content"+i);
 			noticeVO.setN_attach("attach"+i);
 			

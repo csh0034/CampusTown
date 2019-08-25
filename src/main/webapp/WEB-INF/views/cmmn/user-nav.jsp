@@ -5,7 +5,7 @@
 <header>
 	<a href="#" class="total"> <span></span>
 	</a> <a href="/" class="logo"> CAMPUS TOWN </a> <a href="#"
-		class="search_btn"> <img src="img/search.png" alt="통합검색">
+		class="search_btn"> <img src="/img/search.png" alt="통합검색">
 	</a>
 </header>
 <div id="search_box">

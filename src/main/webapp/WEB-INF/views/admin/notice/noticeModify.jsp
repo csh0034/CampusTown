@@ -63,6 +63,23 @@
 								<h3 class="panel-title"></h3>
 							</div>
 							<div class="panel-body fileWrap">
+								<select class="form-control" name="n_type">
+									<c:choose>
+										<c:when test="${noticeInfo.n_type eq 0}">
+											<option value='0' selected>공지사항</option>
+											<option value='1'>사업단 공지사항</option>
+										</c:when>
+									</c:choose>
+									<c:choose>
+										<c:when test="${noticeInfo.n_type eq 1}">
+											<option value='0'>공지사항</option>
+											<option value='1' selected>사업단 공지사항</option>
+										</c:when>
+									</c:choose>
+								</select> <br> 
+								<input type="text"
+									name="n_url" class="form-control"
+									placeholder="url" required value="<c:out value="${noticeInfo.n_url}" />"> <br>
 								<div class="form-group">
 									<c:choose>
 										<c:when test="${empty noticeInfo.n_attach}">

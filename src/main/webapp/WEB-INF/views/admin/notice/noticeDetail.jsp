@@ -29,7 +29,7 @@
 								<h3 class="panel-title"></h3>
 							</div>
 							<div class="panel-body fileWrap">
-								<select class="form-control" name="c_type">
+								<select class="form-control" name="n_type">
 									<option value='0'>공지사항</option>
 									<option value='1'>사업단 공지사항</option>
 								</select> <br> 

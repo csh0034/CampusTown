@@ -46,14 +46,12 @@ create table store (
 	s_content text,
 	s_snsurl varchar(50),
 	s_hashtag varchar(100),
-	s_hours varchar(50),
-	foreign key(c_num) references category(c_num) on delete cascade
+	s_hours varchar(50)
 );
 
 create table store_img (
 	si_num int(20) auto_increment primary key,
 	s_num int(20) not null,
 	si_name varchar(50) not null,
-	si_rename varchar(50) not null,
-	foreign key(s_num) references store(s_num) on delete cascade
+	si_rename varchar(50) not null
 );
