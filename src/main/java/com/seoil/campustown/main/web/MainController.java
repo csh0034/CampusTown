@@ -1,6 +1,7 @@
 package com.seoil.campustown.main.web;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -29,8 +30,10 @@ public class MainController {
 	public String initMain(ModelMap model) throws Exception {
 		
 		List<NoticeVO> noticeRecentInfo = noticeService.selectNoticeServiceRecentInfo();
+		List<Map<String, Object>> storeCategoryList = storeService.selectStoreServiceCategoryList();
 		
 		model.addAttribute("noticeRecentInfo", noticeRecentInfo);
+		model.addAttribute("storeCategoryList", storeCategoryList);
 		
 		return "user/main/main.tiles";
 	}

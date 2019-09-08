@@ -45,44 +45,17 @@
 		<section id="quick">
 			<h3 class="h_text">QUICK MENU</h3>
 			<div class="inner">
+				<c:forEach var="category" items="${storeCategoryList}">
+						<div class="q_item">
+						<a href="/store.do?category=${category.c_num}">
+							<img src="<c:out value="${category.c_img}"/>">
+						</a>
+						<span><c:out value="${category.c_category}" /></span>
+					</div>
+				</c:forEach>
+	
 				<div class="q_item">
-					<a href="#">
-						<img src="img/food.png">
-					</a>
-					<span>음식점</span>
-				</div>
-				<div class="q_item">
-					<a href="#">
-						<img src="img/cafe.png">
-					</a>
-					<span>카페</span>
-				</div>
-				<div class="q_item">
-					<a href="#">
-						<img src="img/beer.png">
-					</a>
-					<span>주점</span>
-				</div>				
-				<div class="q_item">
-					<a href="#">
-						<img src="img/market.png">
-					</a>
-					<span>잡화</span>
-				</div>
-				<div class="q_item">
-					<a href="#">
-						<img src="img/building.png">
-					</a>
-					<span>편의</span>
-				</div>
-				<div class="q_item">
-					<a href="#">
-						<img src="img/etc.png">
-					</a>
-					<span>기타</span>
-				</div>
-				<div class="q_item">
-					<a href="#">
+					<a href="/store.do">
 						<img src="img/more.png">
 					</a>
 					<span>더보기</span>
