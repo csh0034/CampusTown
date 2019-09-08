@@ -36,7 +36,6 @@
 										<th>전화번호</th>
 										<th>주소</th>
 										<th>영업시간</th>
-										<th>SnsURL</th>
 										<th>해시태그</th>
 									</tr>
 								</thead>
@@ -49,7 +48,6 @@
 											<td><c:out value="${store.s_tel}" /></td>
 											<td><c:out value="${store.s_address}" /></td>
 											<td><c:out value="${store.s_hours}" /></td>
-											<td><c:out value="${store.s_snsurl}" /></td>
 											<td><c:out value="${store.s_hashtag}" /></td>
 										</tr>
 									</c:forEach>

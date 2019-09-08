@@ -2,13 +2,31 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<script>
+	$(function() {
+		var s_hashtag = '${storeInfo.s_hashtag}';
+		var s_hours   = '${storeInfo.s_hours}';
+		
+		var hashtag = s_hashtag.split(',');
+		var hours   = s_hours.split('~');
+		
+		$('#open').append(hours[0]);
+		$('#close').append(hours[1]);
+		
+		hashtag.forEach(function(e,i) {
+			$('.store_inner p').append('<span>' + e + '</span>');
+		});
+	});
+</script>
 <!--content-->
 <div id="wrap">
 	<section id="store_img_wrap">
 		<div class="img_inner">
 			<ul id="store_img" class="fade">
-				<li><img src="/files/store1.jpg" alt="상점 이미지"></li>
-				<li><img src="/files/store2.jpg" alt="상점 이미지"></li>
+				<c:forEach var="storeFile" items="${storeFileList}">
+					<li><img src="/files/store/<c:out value='${storeFile.si_rename}'/>" alt="상점 이미지"></li>
+				</c:forEach>
 			</ul>
 		</div>
 		<div class="store_inner">
@@ -17,14 +35,12 @@
 					id="phone" src="/img/phone_white.png" alt="전화아이콘">
 					<span><c:out value="${storeInfo.c_category}"/></span>
 			</div>
-			<p>
-				<strong><c:out value="${storeInfo.s_name}"/></strong> <span><c:out value="${storeInfo.s_hashtag}"/></span>
-			</p>
+			<p><strong><c:out value="${storeInfo.s_name}"/></strong></p>
 			<ul class="store_info">
-				<li id="open"><img src="/img/open.png" alt="오픈 아이콘"> 10:00
+				<li id="open"><img src="/img/open.png" alt="오픈 아이콘"> 
 				</li>
 				<li id="close"><img src="/img/close.png" alt="마감 아이콘">
-					20:00</li>
+					</li>
 				<li id="phone"><img src="/img/phone_white.png" alt="공유 아이콘">
 					CALL</li>
 				<li id="share"><img src="/img/share.png" alt="전화 아이콘">
@@ -59,23 +75,23 @@
 		</div>
 	</section>
 
-		<section id="today">
-			<h3 class="h_text">오늘의 식당</h3>
-			<ul class="today today_str">
-				<li>
-					<img src="/files/store1.jpg" alt="오늘의 식당1">
-				</li>
-				<li>
-					<img src="/files/store2.jpg" alt="오늘의 식당2">
-				</li>
-				<li>
-					<img src="/files/store3.jpg" alt="오늘의 식당3">
-				</li>
-				<li>
-					<img src="/files/store4.jpg" alt="오늘의 식당4">
-				</li>
-			</ul>
-		</section>
+<!-- 	<section id="today">
+		<h3 class="h_text">오늘의 식당</h3>
+		<ul class="today today_str">
+			<li>
+				<img src="/files/store1.jpg" alt="오늘의 식당1">
+			</li>
+			<li>
+				<img src="/files/store2.jpg" alt="오늘의 식당2">
+			</li>
+			<li>
+				<img src="/files/store3.jpg" alt="오늘의 식당3">
+			</li>
+			<li>
+				<img src="/files/store4.jpg" alt="오늘의 식당4">
+			</li>
+		</ul>
+	</section> -->
 
 	<div class="store_share">
 		<button class="share">

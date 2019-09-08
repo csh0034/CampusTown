@@ -27,49 +27,64 @@ public class StoreCreateTests {
 
 	@Test
 	public void insertStoreServiceInfo() throws Exception {
-		
+
 		File file = new ClassPathResource("excel/campustown.xlsx").getFile();
-		
+
 		log.info("excelToMapList");
 		ExcelUtils.excelToMapList(file.getAbsolutePath()).forEach(map -> {
-			
+
 			log.info(map);
-			
+
 			StoreVO storeVO = new StoreVO();
-			storeVO.setS_name((String)map.get("A"));
-			storeVO.setC_num((int) (Math.random() * 7 + 1));
-			
-			String tel = map.get("B").equals("false") ? "02-0000-0000" : (String)map.get("B");
+			storeVO.setS_name((String) map.get("A"));
+
+			String category = (String) map.get("D");
+
+			switch (category) {
+			case "음식점":
+				storeVO.setC_num(1);
+				break;
+			case "카페":
+				storeVO.setC_num(2);
+				break;
+			case "오락":
+				storeVO.setC_num(3);
+				break;
+			case "잡화":
+				storeVO.setC_num(4);
+				break;
+			case "편의":
+				storeVO.setC_num(5);
+				break;
+			case "기타":
+				storeVO.setC_num(6);
+				break;
+			default:
+				break;
+			}
+
+			String tel = map.get("B").equals("false") ? "02-0000-0000" : (String) map.get("B");
 			storeVO.setS_tel(tel);
-			
-			String address = map.get("C").equals("false") ? "서울 중랑구 용마산로" : (String)map.get("C");
+
+			String address = map.get("C").equals("false") ? "서울 중랑구 용마산로" : (String) map.get("C");
 			storeVO.setS_address(address);
-			
+
 			storeVO.setS_hours("09:00~18:00");
 			storeVO.setS_content("많은 이용 부탁드립니다.");
-			storeVO.setS_hashtag("#서일대");
-			
+
+			if ("음식점".equals(category) && !map.get("E").equals("false")) {
+				storeVO.setS_hashtag("#서일대,#" + map.get("E"));
+			} else {
+				storeVO.setS_hashtag("#서일대");
+			}
+
 			try {
 				storeMapper.insertStoreServiceInfo(storeVO);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+
 		});
 
-
-		/*for (int i = 1; i < 110; i++) {
-			StoreVO storeVO = new StoreVO();
-
-			storeVO.setS_name("이름" + i);
-			storeVO.setC_num((int) (Math.random() * 7 + 1));
-			storeVO.setS_tel("02-" + (int) (Math.random() * 2000 + 1) + "-" + (int) (Math.random() * 2000 + 1));
-			storeVO.setS_address("주소" + i);
-			storeVO.setS_content("점포 소개" + i);
-			storeVO.setS_snsurl("facebook/test" + i);
-			storeVO.setS_hashtag("#맛집" + i + ", #서일대");
-			storeVO.setS_hours("09:00 ~ 17:00");
-
-			storeMapper.insertStoreServiceInfo(storeVO);
-		}*/
 	}
 }

@@ -100,26 +100,19 @@ $(document).ready(function() {
 		}
 	});
 
+	 $('#all').css({'left':'0px'});
 
-	// 상점리스트 탭
-	var store_slick = {
-		infinite: true,
-	  	slidesToShow: 1,
-	  	slidesToScroll: 1,
-	  	dots: false,
-	  	centerMode: true,
-	  	focusOnSelect: true,
-		arrows: true
-	};
+	   $('.s_item a').click(function(){
+	      var tab_id = $(this).attr('data-tab');
 
-	$('.store_tab').slick(store_slick);
-	$('#all').css({'left':'0px'});
+	      $('.item_content').css({'left':'-9999px'});
+	      $("#"+tab_id).css({'left':'0px'});
+	   });
 
-	$('.s_item a').click(function(){
-		var tab_id = $(this).attr('data-tab');
-
-		$('.item_content').css({'left':'-9999px'});
-		$("#"+tab_id).css({'left':'0px'});
-	});
+	   $('.s_img').hover(function(){
+	      $(this).find('.s_detail').show();
+	     }, function(){
+	      $(this).find('.s_detail').hide();
+	  });
 
 });

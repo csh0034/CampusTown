@@ -9,41 +9,64 @@
 </script>
 <!--content-->
 <div id="wrap">
-	<section id="store_quick">
+		<div id="search_box">
+			<form action="" name="" method="" >
+				<input type="search" class="notice_search" placeholder="검색어를 입력하세요.">
+				<input type="submit" class="btn_search" value="">
+			</form>
+		</div>
+		
+		<section id="store_quick">
 		<div class="inner">
 			<div class="s_item current">
 				<a href="/store.do" data-tab="all"> ALL </a> <span>전체</span>
 			</div>
-			
 			<c:forEach var="category" items="${storeCategoryList}">
 				<div class="s_item current">
-					<a href="javascript:detail('${category.c_num}')"> 
-						<img src="<c:out value="${category.c_img}"/>">
+					<a href="javascript:detail('${category.c_num}')"> <img
+						src="<c:out value="${category.c_img}"/>">
 					</a> <span><c:out value="${category.c_category}" /></span>
 				</div>
 			</c:forEach>
 		</div>
-	</section>
-	<div id="slist_content">
-		<section id="all" class="item_content">
-			<div>
-				<!-- 테스트중 -->
-				 <c:forEach var="store" items="${storeList}" varStatus="status">
-					<li>
-						<a href='/storeDetail.do?num=<c:out value="${store.s_num}"/>'>
-							<c:out value="${store.s_name}"/>
+		</section>
+		<section class="s_container">
+			<div id="all" class="item_content">
+				<h3 class="h_text"><c:out value="${category == '' ? '전체' : category}"/></h3>
+				<div id="all" class="s_inner">
+					<c:forEach var="store" items="${storeList}" varStatus="status">
+						<div class="s_img">
+						<a href="/storeDetail.do?num=<c:out value="${store.s_num}"/>">
+							<img src='/files/store/<c:out value="${store.si_rename}"/>'>
+							<div class="s_detail">
+								<h4><c:out value="${store.s_hashtag}"/></h4>
+								<p><c:out value="${store.s_name}"/></p>
+								<p><c:out value="${store.s_tel}"/></p>
+								<button>상세보기</button>
+							</div>
 						</a>
-					</li>
-				</c:forEach> 
+					</div>
+					</c:forEach> 
+				</div>
+	        	<nav class="pg_wrap">
+					<c:if test="${pageMaker.prev}">
+						<span class="pg_page">
+							<a href="/store.do${pageMaker.makeSearch(pageMaker.startPage - 1)}">&lt;</a>
+						</span>
+					</c:if>
+					<c:forEach begin="${pageMaker.startPage}"
+						end="${pageMaker.endPage}" var="idx">
+						<span class="pg_page <c:out value="${pageMaker.criteria.page == idx ? 'active' : ''}"/>">
+							<a href="/store.do${pageMaker.makeSearch(idx)}">${idx}</a>
+						</span>
+					</c:forEach>
+					<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+						<span class="pg_page">
+							<a href="/store.do${pageMaker.makeSearch(pageMaker.endPage + 1)}">&gt;</a>
+						</span>
+					</c:if>
+				</nav>
 			</div>
-			<h3 class="h_text"><c:out value="${category == '' ? '전체' : category}"/></h3>
-			<ul class="store_tab today_str">
-				<li><img src="files/store1.jpg" alt="오늘의 식당1"></li>
-				<li><img src="files/store2.jpg" alt="오늘의 식당2"></li>
-				<li><img src="files/store3.jpg" alt="오늘의 식당3"></li>
-				<li><img src="files/store4.jpg" alt="오늘의 식당4"></li>
-			</ul>
 		</section>
 	</div>
-</div>
 <!--wrap end-->

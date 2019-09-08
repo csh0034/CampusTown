@@ -31,6 +31,7 @@ public class StoreController {
 	public String storeInit(ModelMap model, Criteria criteria) throws Exception {
 
 		PageMaker pageMaker = new PageMaker();
+		criteria.setPerPageNum(4);
 		pageMaker.setCriteria(criteria);
 		pageMaker.setTotalCount(storeService.selectStoreServiceListCount(criteria));
 
@@ -59,8 +60,10 @@ public class StoreController {
 			throws Exception {
 
 		StoreVO storeInfo = storeService.selectStoreServiceInfo(num);
+		List<Map<String, Object>> storeFileList = storeService.selectStoreServiceFileList(num);
 
 		model.addAttribute("storeInfo", storeInfo);
+		model.addAttribute("storeFileList", storeFileList);
 
 		return "user/store/storeDetail.tiles";
 	}

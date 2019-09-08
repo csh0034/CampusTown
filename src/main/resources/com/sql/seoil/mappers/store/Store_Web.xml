@@ -87,7 +87,7 @@
 		      join category c 
 		        on s.c_num = c.c_num
 		      left join store_img si on s.s_num = si.s_num
-		     where s.s_num > 0 and (si_num in (select max(si_num)
+		     where s.s_num > 0 and (si_num in (select min(si_num)
 		     								  from store_img
 		     							     group by s_num) or si_num is null)
 		]]>
