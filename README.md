@@ -1,2 +1,2 @@
 
-CampusTown
+CampusTown - jenkins 연동
