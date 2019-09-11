@@ -31,20 +31,19 @@
 		</div>
 		</section>
 		<section class="s_container">
-			<div id="all" class="item_content">
 				<h3 class="h_text"><c:out value="${category == '' ? '전체' : category}"/></h3>
 				<div id="all" class="s_inner">
 					<c:forEach var="store" items="${storeList}" varStatus="status">
 						<div class="s_img">
-						<a href="/storeDetail.do?num=<c:out value="${store.s_num}"/>">
-							<img src='/files/store/<c:out value="${store.si_rename}"/>'>
+						<img src='/files/store/<c:out value="${store.si_rename}"/>'>
 							<div class="s_detail">
 								<h4><c:out value="${store.s_hashtag}"/></h4>
 								<p><c:out value="${store.s_name}"/></p>
 								<p><c:out value="${store.s_tel}"/></p>
-								<button>상세보기</button>
+								<a href="/storeDetail.do?num=<c:out value="${store.s_num}"/>">
+									<button>> 상세보기</button>
+								</a>
 							</div>
-						</a>
 					</div>
 					</c:forEach> 
 				</div>
@@ -66,7 +65,6 @@
 						</span>
 					</c:if>
 				</nav>
-			</div>
 		</section>
 	</div>
 <!--wrap end-->

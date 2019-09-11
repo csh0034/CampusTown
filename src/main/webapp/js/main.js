@@ -100,15 +100,6 @@ $(document).ready(function() {
 		}
 	});
 
-	 $('#all').css({'left':'0px'});
-
-	   $('.s_item a').click(function(){
-	      var tab_id = $(this).attr('data-tab');
-
-	      $('.item_content').css({'left':'-9999px'});
-	      $("#"+tab_id).css({'left':'0px'});
-	   });
-
 	   $('.s_img').hover(function(){
 	      $(this).find('.s_detail').show();
 	     }, function(){

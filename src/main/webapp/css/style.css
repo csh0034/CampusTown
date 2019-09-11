@@ -639,23 +639,18 @@ section .h_text {
   color: #999;
 }
 
-.item_content {
-  position: absolute;
-  left: -9999px;
-  width: 100%;
-}
-
 .s_container {
   position: relative;
   margin: 0 auto;
   width: 100%;
-  height: 32rem;
+  height: auto;
   overflow: hidden;
+  min-height: 19rem;
 }
 
 .s_inner {
   width: 100%;
-  height: 27rem;
+  height: auto;
   overflow: hidden;
   display: flex;
   flex-flow: row wrap;
@@ -667,7 +662,7 @@ section .h_text {
 
 .s_img { 
   width: 40%;
-  height: 50%;
+  height: 12rem;
   position: relative;
   margin: 0% 5% 3%;
 }
@@ -680,7 +675,7 @@ section .h_text {
 .s_detail {
   display: none;
   position: absolute;
-  top:0;
+  top: 0;
   width: 100%;
   height: 100%;
   padding-top: 24%;
@@ -698,7 +693,8 @@ section .h_text {
 .s_detail button {
   background-color: transparent;
   color: #fff;
-  padding-top: 20%;
+  margin-top: 20%;
+  cursor: pointer;
 }
 
 .s_container .pg_wrap{
@@ -1352,20 +1348,18 @@ section .h_text {
   .login_box {
     width: 50%; 
   }
-  
-  .s_inner {
-    height: 48rem;
-  }
 
   .s_container {
-    height: 53rem;
     font-size: 1rem;
+  }
+  
+  .s_img {
+  	height: 25rem;
   }
 
   .s_detail {
     line-height: 2rem;
     padding-top: 30%;
-    height: 99%;
   }
 
   .s_detail button {
