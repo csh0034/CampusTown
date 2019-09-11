@@ -13,7 +13,7 @@ public class PageMaker {
     private int endPage;
     private boolean prev;
     private boolean next;
-    private int displayNum = 10;
+    private int displayNum = 5;
     private Criteria criteria;
 
     public int getTotalCount() {
