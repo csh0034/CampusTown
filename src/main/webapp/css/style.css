@@ -484,6 +484,11 @@ section .h_text {
   border-radius: 0.5rem;
 }
 
+.today_s_detail {  
+  left:5% !important;
+  width: 90% !important;
+}
+
 /* ķ�۽�Ÿ�� �Ұ� */
 
 .intro_box {

@@ -69,8 +69,16 @@
 			<h3 class="h_text">오늘의 식당</h3>
 			<ul class="today today_str">
 				<c:forEach var="store" items="${storeRecommendList}" varStatus="status">
-					<li style="cursor:pointer;" onclick="location.href='/storeDetail.do?num=${store.s_num}'">
+					<li class="s_img" style="cursor:pointer;">
 						<img src='/files/store/<c:out value="${store.si_rename}"/>'  alt="오늘의 식당 ${status.count}">
+						<div class="today_s_detail s_detail ">
+							<h4><c:out value="${store.s_hashtag}"/></h4>
+							<p><c:out value="${store.s_name}"/></p>
+							<p><c:out value="${store.s_tel}"/></p>
+							<a href="/storeDetail.do?num=<c:out value="${store.s_num}"/>">
+								<button>상세보기</button>
+							</a>  
+						</div>
 					</li>
 				</c:forEach> 
 			</ul>
