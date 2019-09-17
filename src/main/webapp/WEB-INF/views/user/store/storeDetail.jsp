@@ -18,6 +18,11 @@
 			$('.store_inner p').append('<span>' + e + '</span>');
 		});
 	});
+	
+	function moveStoreList() {
+		var queryString = window.location.search;
+		location.href = '/store.do' + queryString.replace(/[?&]num=.\d/gi,'');
+	}
 </script>
 <!--content-->
 <div id="wrap">
@@ -90,16 +95,17 @@
 	<section id="today" class="store_today">
 		<h3 class="h_text">오늘의 식당</h3>
 		<ul class="today today_str">
-			<li><img src="/files/store1.jpg" alt="오늘의 식당1"></li>
-			<li><img src="/files/store2.jpg" alt="오늘의 식당2"></li>
-			<li><img src="/files/store3.jpg" alt="오늘의 식당3"></li>
-			<li><img src="/files/store4.jpg" alt="오늘의 식당4"></li>
+			<c:forEach var="store" items="${storeRecommendList}" varStatus="status">
+				<li style="cursor:pointer;" onclick="location.href='/storeDetail.do?num=${store.s_num}'">
+					<img src='/files/store/<c:out value="${store.si_rename}"/>'  alt="오늘의 식당 ${status.count}">
+				</li>
+			</c:forEach> 
 		</ul>
 	</section>
 
 	<div class="store_list">
 		<ul class="back_list">
-			<li><a href="javascript:history.go(-1)" class="bnt_list"><img
+			<li><a href="javascript:moveStoreList()" class="bnt_list"><img
 					src="/img/list.png" alt="목록 이미지"> 상점 목록</a></li>
 		</ul>
 	</div>

@@ -13,29 +13,32 @@ import com.seoil.campustown.main.service.MainService;
 import com.seoil.campustown.notice.service.NoticeService;
 import com.seoil.campustown.notice.service.NoticeVO;
 import com.seoil.campustown.store.service.StoreService;
+import com.seoil.campustown.store.service.StoreVO;
 
 @Controller
 public class MainController {
-	
+
 	@Resource
 	private MainService mainService;
-	
+
 	@Resource
 	private NoticeService noticeService;
-	
+
 	@Resource
 	private StoreService storeService;
-	
+
 	@RequestMapping("/main.do")
 	public String initMain(ModelMap model) throws Exception {
-		
+
 		List<NoticeVO> noticeRecentInfo = noticeService.selectNoticeServiceRecentInfo();
 		List<Map<String, Object>> storeCategoryList = storeService.selectStoreServiceCategoryList();
-		
+		List<StoreVO> storeRecommendList = storeService.selectStoreServiceRecommendList();
+
 		model.addAttribute("noticeRecentInfo", noticeRecentInfo);
 		model.addAttribute("storeCategoryList", storeCategoryList);
-		
+		model.addAttribute("storeRecommendList", storeRecommendList);
+
 		return "user/main/main.tiles";
 	}
-	
+
 }

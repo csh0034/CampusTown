@@ -61,9 +61,11 @@ public class StoreController {
 
 		StoreVO storeInfo = storeService.selectStoreServiceInfo(num);
 		List<Map<String, Object>> storeFileList = storeService.selectStoreServiceFileList(num);
+		List<StoreVO> storeRecommendList = storeService.selectStoreServiceRecommendList();
 
 		model.addAttribute("storeInfo", storeInfo);
 		model.addAttribute("storeFileList", storeFileList);
+		model.addAttribute("storeRecommendList", storeRecommendList);
 
 		return "user/store/storeDetail.tiles";
 	}

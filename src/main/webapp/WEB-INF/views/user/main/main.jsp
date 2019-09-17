@@ -68,18 +68,11 @@
 		<section id="today">
 			<h3 class="h_text">오늘의 식당</h3>
 			<ul class="today today_str">
-				<li>
-					<img src="files/store1.jpg" alt="오늘의 식당1">
-				</li>
-				<li>
-					<img src="files/store2.jpg" alt="오늘의 식당2">
-				</li>
-				<li>
-					<img src="files/store3.jpg" alt="오늘의 식당3">
-				</li>
-				<li>
-					<img src="files/store4.jpg" alt="오늘의 식당4">
-				</li>
+				<c:forEach var="store" items="${storeRecommendList}" varStatus="status">
+					<li style="cursor:pointer;" onclick="location.href='/storeDetail.do?num=${store.s_num}'">
+						<img src='/files/store/<c:out value="${store.si_rename}"/>'  alt="오늘의 식당 ${status.count}">
+					</li>
+				</c:forEach> 
 			</ul>
 		</section>
 		<section id="map">

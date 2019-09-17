@@ -128,4 +128,9 @@ public class StoreServiceImpl implements StoreService {
 	public List<StoreVO> selectStoreServiceBestList() throws Exception {
 		return storeMapper.selectStoreServiceBestList();
 	}
+	
+	@Override
+	public List<StoreVO> selectStoreServiceRecommendList() throws Exception {
+		return storeMapper.selectStoreServiceRecommendList();
+	}
 }

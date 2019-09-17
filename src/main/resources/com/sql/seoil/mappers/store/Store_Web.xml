@@ -192,4 +192,27 @@
 			limit 0,4
 	</select>
 	
+	<select id="selectStoreServiceRecommendList" resultType="storeVO">
+    	SELECT s.s_num
+     		  ,s_name
+      		  ,s.c_num
+		      ,s_tel
+		      ,s_address
+		      ,s_content
+		      ,s_snsurl
+		      ,s_hashtag
+		      ,s_hours
+		      ,c_category
+		      ,si_rename
+ 	     FROM store s
+ 	     JOIN category c
+   		   ON s.c_num = c.c_num
+	     LEFT JOIN store_img si ON s.s_num = si.s_num
+	    WHERE s.s_num > 0 AND (si_num in (SELECT min(si_num)
+		     							    FROM store_img
+		     						       GROUP BY s_num) OR si_num is null) AND s.c_num = 1
+	    ORDER BY RAND(DATE_FORMAT(NOW(), "%Y%m%d"))
+	    LIMIT 0,5
+	</select>
+	
 </mapper>

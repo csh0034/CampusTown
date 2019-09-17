@@ -33,5 +33,7 @@ public interface StoreService {
 	int deleteStoreServiceFileList(int s_num, HttpServletRequest req) throws Exception;
 
 	List<StoreVO> selectStoreServiceBestList() throws Exception;
+	
+	List<StoreVO> selectStoreServiceRecommendList() throws Exception;
 
 }
