@@ -8,7 +8,7 @@
 	}
 	
 	$(function() {
-		$(".notice_searchForm .btn_search").click(function(e) {
+		$(".notice_searchForm form").submit(function(e) {
 			e.preventDefault();
 			self.location = "/notice/list.do" + "${pageMaker.makeQuery(1)}"
 							+ "&searchType=t"
@@ -21,16 +21,16 @@
 <div id="wrap">
 	<div class="home_nav">
 		<img src="/img/home.svg" alt="홈 아이콘" class="home_icon"> HOME >
-		커뮤니티 > 공지사항
+		커뮤니티 > <c:out value="${(empty param.type or param.type eq 0) ? '공지사항' : (param.type eq 1) ? '사업단공지사항' : '자유게시판'}"/>
 	</div>
 
 	<div class="notice_header">
-		<h3>공지사항</h3>
+		<h3><c:out value="${(empty param.type or param.type eq 0) ? '공지사항' : (param.type eq 1) ? '사업단공지사항' : '자유게시판'}"/></h3>
 	</div>
 
 	<div class="notice_searchForm">
 		<form method="get">
-			<input type="search" class="notice_search" id="keywordInput" value="${criteria.keyword}" placeholder="검색어를 입력하세요.">
+			<input type="search" class="notice_search" id="keywordInput" value="${criteria.keyword}" placeholder="검색어를 입력하세요." required>
 			<input type="submit" class="btn_search" value="">
 		</form>
 	</div>

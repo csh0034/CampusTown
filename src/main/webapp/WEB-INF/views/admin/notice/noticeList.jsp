@@ -8,12 +8,10 @@
 		$('#example1').DataTable({
 			"order" : [ [ 0, "desc" ] ]
 		});
-
-		$('.table tbody tr').click(
-				function() {
-					location.href = '/admin/noticeModify.do?num='
-							+ $(this).children().eq(0).html();
-				});
+		
+		$('.table').on('click','tbody tr', function() {
+			location.href = '/admin/noticeModify.do?num='+ $(this).children().eq(0).html();
+		});
 	});
 </script>
 <div class="main">

@@ -13,7 +13,7 @@
 				success : function(data) {
 					
 					if(data === 'true') {
-						location.href='/';
+						location.href='/admin/main.do';
 					} else if(data === 'false') {
 						alert('아이디와 비밀번호를 확인해주세요');
 					}

@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.seoil.campustown.cmmn.util.Criteria;
+import com.seoil.campustown.cmmn.util.PageMaker;
 import com.seoil.campustown.main.service.MainService;
 import com.seoil.campustown.notice.service.NoticeService;
 import com.seoil.campustown.notice.service.NoticeVO;
@@ -39,6 +41,15 @@ public class MainController {
 		model.addAttribute("storeRecommendList", storeRecommendList);
 
 		return "user/main/main.tiles";
+	}
+	
+	@RequestMapping("/search.do")
+	public String search(ModelMap model, Criteria criteria) throws Exception {
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCriteria(criteria);
+		
+		return "user/search/searchList.tiles";
 	}
 
 }
