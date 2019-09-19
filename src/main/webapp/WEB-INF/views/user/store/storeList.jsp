@@ -12,7 +12,8 @@
 	<section id="store_quick">
 	<div class="inner">
 		<div class="s_item current">
-			<a href="/store.do" data-tab="all"> ALL </a> <span>전체</span>
+			<a href="/store.do" data-tab="all"> <img
+					src="img/all.png"> </a> <span>전체</span>
 		</div>
 		<c:forEach var="category" items="${storeCategoryList}">
 			<div class="s_item current">

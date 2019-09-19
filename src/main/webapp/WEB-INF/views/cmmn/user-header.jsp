@@ -8,8 +8,13 @@
 <meta property="og:site_name" content="seoil_CampusTown">
 <meta property="og:image"content="http://seoilcampustown.kr/files/main3.jpg">
 <meta property="og:url" content="http://seoilcampustown.kr/store.do">
+
 <title>CampusTown</title>
+
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" type="text/css" href="/css/slick.css">
 <link rel="stylesheet" type="text/css" href="/css/slick-theme.css">
+
+<link rel=" shortcut icon" href="img/faviconico">
+<link rel="icon" href="img/favicon.ico">
 <script src="/js/jquery-3.2.1.min.js"></script>

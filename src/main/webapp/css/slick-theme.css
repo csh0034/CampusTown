@@ -10,8 +10,8 @@
     z-index: 1;
     top: 50%;
     display: block;
-    width: 0px;
-    height: 20px;
+    width: auto;
+    height: auto;
     padding: 0;
     -webkit-transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
@@ -56,8 +56,8 @@
 
 .slick-prev
 {
-    /*left: -15px;*/
     top:55%;
+    left:2.4%;
 }
 .slick-prev:before
 {
@@ -66,8 +66,8 @@
 
 .slick-next
 {
-    right: 30px;
     top:55%;
+    right:2.4%;
 }
 .slick-next:before
 {

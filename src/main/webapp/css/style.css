@@ -489,6 +489,11 @@ section .h_text {
   width: 90% !important;
 }
 
+#today .s_img { 
+  height:auto !important;
+  margin: 0 !important;
+}
+
 /* ķ�۽�Ÿ�� �Ұ� */
 
 .intro_box {
@@ -610,17 +615,6 @@ section .h_text {
 #store_quick .s_item a {
   display: block;
   padding: 0.2rem;
-}
-
-.s_item a:first-child {
-  height: 2.8rem;
-  line-height: 2.8rem;
-  font-weight: bold;
-  color: #666;
-}
-
-.s_item a:first-child:hover {
-  color: #999;
 }
 
 #store_quick .s_item a:hover img {
@@ -1331,7 +1325,7 @@ section .h_text {
   }
 
   .s_item img {
-    width: 40%;
+    width: 55%;
   }
 
   #slist_content {
