@@ -85,7 +85,8 @@
 		</section>
 		<section id="map">
 			<h3 class="h_text">CAMPUS MAP</h3>
-			<img src="files/map.png" alt="캠퍼스타운지도">
+			디자인 미완성
+			<!-- <img src="files/map.png" alt="캠퍼스타운지도"> -->
 		</section>
 	</div>
 <!--wrap end-->

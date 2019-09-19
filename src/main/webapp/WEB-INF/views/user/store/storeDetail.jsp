@@ -21,7 +21,7 @@
 	
 	function moveStoreList() {
 		var queryString = window.location.search;
-		location.href = '/store.do' + queryString.replace(/[?&]num=.\d/gi,'');
+		location.href = '/store.do' + queryString.replace(/[?&]num=\d*/gi,'');
 	}
 </script>
 <!--content-->
