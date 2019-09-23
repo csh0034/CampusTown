@@ -363,6 +363,7 @@ footer ul {
 
 .sub li>a {
   margin-left: 0.5rem;
+  display: block;
 }
 
 .sub li>a:hover {
