@@ -15,6 +15,7 @@
 			<a href="/store.do" data-tab="all"> <img
 					src="img/all.png"> </a> <span>전체</span>
 		</div>
+
 		<c:forEach var="category" items="${storeCategoryList}">
 			<div class="s_item current">
 				<a href="javascript:detail('${category.c_num}')"> <img
@@ -26,7 +27,12 @@
 	</section>
 	<section class="s_container">
 			<h3 class="h_text"><c:out value="${category == '' ? '전체' : category}"/></h3>
-			<div id="all" class="s_inner">
+			<div class="notice_searchForm">
+				<form method="get">
+					<input type="search" class="notice_search" id="keywordInput" value="${criteria.keyword}" placeholder="검색어를 입력하세요." required>
+					<input type="submit" class="btn_search" value="">
+				</form>
+			</div>			<div id="all" class="s_inner">
 				<c:forEach var="store" items="${storeList}" varStatus="status">
 					<div class="s_img">
 						<img src='/files/store/<c:out value="${store.si_rename}"/>'>
