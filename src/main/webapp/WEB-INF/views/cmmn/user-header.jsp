@@ -15,6 +15,6 @@
 <link rel="stylesheet" type="text/css" href="/css/slick.css">
 <link rel="stylesheet" type="text/css" href="/css/slick-theme.css">
 
-<link rel=" shortcut icon" href="img/faviconico">
-<link rel="icon" href="img/favicon.ico">
+<link rel=" shortcut icon" href="/img/favicon.ico">
+<link rel="icon" href="/img/favicon.ico">
 <script src="/js/jquery-3.2.1.min.js"></script>
