@@ -30,7 +30,7 @@
 
 	<div class="notice_searchForm">
 		<form method="get">
-			<input type="search" class="notice_search" id="keywordInput" value="${criteria.keyword}" placeholder="검색어를 입력하세요." required>
+			<input type="search" class="notice_search" id="keywordInput" value="${criteria.keyword}" placeholder="검색어를 입력하세요."  autocomplete="off" required>
 			<input type="submit" class="btn_search" value="">
 		</form>
 	</div>

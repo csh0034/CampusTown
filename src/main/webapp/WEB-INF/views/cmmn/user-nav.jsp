@@ -5,5 +5,4 @@
 <header>
 	<a href="#" class="total"> <span></span>
 	</a> <a href="/" class="logo"> CAMPUS TOWN </a> 
-	</a>
 </header>

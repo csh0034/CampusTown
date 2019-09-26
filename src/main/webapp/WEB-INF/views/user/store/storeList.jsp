@@ -6,6 +6,16 @@
 	function detail(c_num) {
 		location.href = "/store.do?category=" + c_num;
 	}
+	
+	$(function() {
+		$(".notice_searchForm form").submit(function(e) {
+			e.preventDefault();
+			self.location = "/store.do" + "${pageMaker.makeQuery(1)}"
+							+ "&searchType=t"
+						    + "&keyword="
+							+ encodeURIComponent($('#keywordInput').val());
+		});
+	});
 </script>
 <!--content-->
 <div id="wrap">
@@ -29,10 +39,11 @@
 			<h3 class="h_text"><c:out value="${category == '' ? '전체' : category}"/></h3>
 			<div class="notice_searchForm">
 				<form method="get">
-					<input type="search" class="notice_search" id="keywordInput" value="${criteria.keyword}" placeholder="검색어를 입력하세요." required>
+					<input type="search" class="notice_search" id="keywordInput" value="${criteria.keyword}" placeholder="검색어를 입력하세요." autocomplete="off" required>
 					<input type="submit" class="btn_search" value="">
 				</form>
-			</div>			<div id="all" class="s_inner">
+			</div>			
+			<div id="all" class="s_inner">
 				<c:forEach var="store" items="${storeList}" varStatus="status">
 					<div class="s_img">
 						<img src='/files/store/<c:out value="${store.si_rename}"/>'>
@@ -46,6 +57,9 @@
 						</div>
 					</div>
 				</c:forEach> 
+				<c:if test="${empty storeList}"> 
+					데이터가 없습니다.
+				</c:if>
 			</div>
         	<nav class="pg_wrap">
 				<c:if test="${pageMaker.prev}">
