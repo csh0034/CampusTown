@@ -70,39 +70,6 @@ public class UserController {
 
 	}
 
-	@GetMapping("/mypage.do")
-	public String myPage(HttpServletRequest req,ModelMap map) throws Exception {
-
-		UserVO userVO = (UserVO) req.getSession().getAttribute("user");
-
-		if (userVO == null) {
-			return "redirect:/";
-		} else {
-			
-			userVO = userService.selectUserServiceInfo(userVO);
-			
-			map.addAttribute("user", userVO);
-			
-			return "user/main/mypage.tiles";
-		}
-
-	}
-
-	@PostMapping("/mypage.do")
-	@ResponseBody
-	public String myPage(UserVO userVO) throws Exception {
-
-		int cnt = userService.updateUserServiceInfo(userVO);
-
-		if (cnt == 1) {
-			return "true";
-
-		} else {
-			return "false";
-		}
-
-	}
-
 	@GetMapping("/admin/userList.do")
 	public String userList(ModelMap model) throws Exception {
 

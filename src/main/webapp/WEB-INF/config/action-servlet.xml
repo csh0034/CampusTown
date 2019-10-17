@@ -43,5 +43,13 @@
           </list>
       </property>
    </bean>
+
+	<!-- Interceptor -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/admin/**" />
+			<bean class="com.seoil.campustown.cmmn.interceptor.AdminInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
 	
 </beans>
