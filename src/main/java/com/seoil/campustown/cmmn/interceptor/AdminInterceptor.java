@@ -21,13 +21,12 @@ public class AdminInterceptor extends HandlerInterceptorAdapter {
 		
 		if (userVO == null) {
 			
-			PrintWriter out = response.getWriter();
-			
 			response.setContentType("text/html;charset=UTF-8");
 			
+			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("	alert('관리자 로그인후 이용 가능합니다.')");
-			out.println("	location.href='/'");
+			out.println("	location.href='/login.do'");
 			out.println("</script>");
 			
 			return false;

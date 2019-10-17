@@ -6,7 +6,7 @@
 			<script>
 				document.write(new Date().getFullYear());
 			</script>
-			Sophia. All rights reserved
+			ASk. All rights reserved
 		</p>
 	</div>
 </footer>
