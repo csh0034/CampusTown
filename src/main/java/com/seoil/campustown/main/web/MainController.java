@@ -51,5 +51,10 @@ public class MainController {
 		
 		return "user/search/searchList.tiles";
 	}
+	
+	@RequestMapping("/info.do")
+	public String info() throws Exception {
+		return "user/info/info.tiles";
+	}
 
 }

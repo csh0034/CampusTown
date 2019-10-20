@@ -49,11 +49,15 @@
 			<ul class="store_info">
 				<li id="open"><img src="/img/open.png" alt="오픈 아이콘"></li>
 				<li id="close"><img src="/img/close.png" alt="마감 아이콘"></li>
-				<li id="phone"><img src="/img/phone_white.png" alt="공유 아이콘">
-					CALL</li>
-				<li id="share"><img src="/img/share.png" alt="전화 아이콘">
-					SHARE</li>
+				<li id="phone"><a href="tel:${storeInfo.s_tel}"> 
+					<img src="/img/phone_white.png" alt="전화 아이콘">CALL</a> 
+					<input id="clip_target" class="ip_hidden" type="text" value="${storeInfo.s_tel}"></li>
+				<li id="share">
+				<img src="/img/share.png" alt="공유 아이콘">SHARE
+				</li>
 			</ul>
+			<input type="text" id="ShareUrl" class="ip_hidden">
+			<div id="toast"></div>
 		</div>
 	</section>
 	<section id="store_desc">
