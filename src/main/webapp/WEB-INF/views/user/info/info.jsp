@@ -9,8 +9,30 @@
 	</div>
 	<div class="home_nav">
 		<img src="img/home.svg" alt="홈 아이콘" class="home_icon"> HOME >
-		사업소개 > 캠퍼스타운이란
+		캠퍼스타운 소개
 	</div>
+
+	<a id="intro"></a>
+	<div class="info_head">
+		<h3>인사말</h3>
+	</div>
+	<section class="info i_intro">
+
+		<div class="intro_text">
+		<img src="img/intro.png" alt="인사말 이미지">
+			<p>
+				서일대학교는 1974년 개교한 젊은 대학입니다.<br>
+				과거의 역사보다 미래의 시간이 충만하기에 넘치는 패기와 실패를 두려워하지 않는 도전의식으로 당당한 발거음을 멈추지 않는 대학이 서일대학교입니다.<br>
+				<br>
+				세계는 넓으나 급속하게 지구촌화 되어가는 변혁의 시대에 서일대학교는 능동적으로 변화에 추세에 발맞추어 나갈 뿐만 아니라 미래를 예측하고 새로운 미래의 패러다임을 창조하는 교육의 요람으로 자리잡기 위한 노력을 경주하고 있습니다.<br>
+				경쟁을 두려워하지 않고 경쟁을 통해 발전을 기약하는 대학 대한민국을 넘어, 세계를 향해 웅비의 날개를 펼치는 서일대학교는 실용적 지성을 추구하는 모든 사람들에게 문호를 활짝 열어두고 있습니다.<br>
+				<br>
+				미래를 준비하는 대학 미래를 창조하는 서일대학교는 우리 모두의 꿈입니다.<br>
+			</p>
+		</div>
+	</section>
+
+	<a id="info"></a>
 	<div class="info_head">
 		<h3>캠퍼스타운 소개</h3>
 	</div>
@@ -97,5 +119,12 @@
 			<img class="plan_img" src="img/plan.png" alt="추진계획 이미지">
 		</div>
 	</section>
+	
+	
+	<a id="map"></a>
+	<div class="info_head">
+		<h3>오시는길</h3>
+	</div>
+	<img src="files/map.png" alt="캠퍼스타운지도">
 </div>
 <!--wrap end-->

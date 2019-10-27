@@ -319,6 +319,7 @@ footer ul {
 
 .f_content:nth-child(3) {
 	cursor: auto;
+	color: #333333;
 }
 
 .f_copyright {
@@ -513,6 +514,7 @@ section .h_text {
 	background-color: #a4d7d4;
 	text-align: left;
 	padding: 1.2rem;
+	margin-bottom: 1rem;
 	float: left;
 }
 
@@ -558,6 +560,7 @@ section .h_text {
 	height: 11.5rem;
 	float: left;
 	margin-left: 0.4rem;
+	margin-bottom: 1rem;
 }
 
 .app_box img {
@@ -1324,7 +1327,14 @@ section .h_text {
 	padding: 0.8rem 0.8rem 1rem;
 	font-size: 0.9rem;
 }
-
+.intro_text p{
+    padding: 1rem 0.5rem;
+    font-size: 0.85rem;
+    line-height:1.5rem;
+}
+.intro_text img{
+	width:85%;
+}
 .info {
 	width: 100%;
 	margin: 0 auto;

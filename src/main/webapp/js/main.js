@@ -119,20 +119,23 @@ $(document).ready(function() {
 		function log(str){
 			$('#log').text(str);
 
-			if(str>=50){
+			if(str>=800){
 
+				//PC
 				if($(window).width() >767) {
 					$('.ex_circle:eq(0)').css({opacity:'1',transform:'translateX(-15.5rem)',transition:'2s all ease'});//13
 					$('.ex_circle:eq(1)').css({opacity:'1',transform:'',transition:'2s all ease'});
 					$('.ex_circle:eq(2)').css({opacity:'1',transform:'translateX(7rem)',transition:'2s all ease'});
-				}else{
+				}
+				//mobile
+				else{
 					$('.ex_circle:eq(0)').css({opacity:'1',transform:'',transition:'2s all ease'});
 					$('.ex_circle:eq(1)').css({opacity:'1',transform:'translateY(-1rem)',transition:'2s all ease'});
 					$('.ex_circle:eq(2)').css({opacity:'1',transform:'translateY(-2rem)',transition:'2s all ease'});
 				}
 			}
 
-			if(str >= 600) { // 스크롤바가 아래 쪽에 위치할 때
+			if(str >= 950) { // 스크롤바가 아래 쪽에 위치할 때
 				$('.p_square:eq(0)').stop().animate({opacity:'1'}, 500);
 				$('.p_square:eq(1)').stop().animate({opacity:'1'}, 800);
 				$('.plan_img').stop().animate({top:'50%', opacity:'1'}, 1100);
@@ -196,7 +199,7 @@ $(document).ready(function() {
 	                  var successful = document.execCommand('copy');
 	                  toast();
 	               } catch (err) {
-	                  alert('이 브라우저는 지원하지 않습니다.')
+	                  alert('이 브라우저는 지원하지 않습니다.');
 	               }
 	            }
 	         }
