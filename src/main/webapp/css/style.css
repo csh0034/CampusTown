@@ -508,11 +508,12 @@ section .h_text {
 
 /* ķ�۽�Ÿ�� �Ұ� */
 .intro_box {
-	width: 100%;
-	height: 11.4rem;
+	width: 50%;
+	height: 11.5rem;
 	background-color: #a4d7d4;
 	text-align: left;
 	padding: 1.2rem;
+	float: left;
 }
 
 .intro_box p {
@@ -549,6 +550,19 @@ section .h_text {
 	border: 1.5px solid #fff;
 	margin-top: -0.1rem;
 	cursor: pointer;
+}
+
+
+.app_box {
+	width: 49%;
+	height: 11.5rem;
+	float: left;
+	margin-left: 0.4rem;
+}
+
+.app_box img {
+	width: 100%;
+	height: 100%;
 }
 
 /* ���� */
