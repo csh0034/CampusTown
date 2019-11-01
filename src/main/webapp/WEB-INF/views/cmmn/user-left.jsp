@@ -4,7 +4,7 @@
 	<ul id="menu">
 		<li class="main"><a href="#">캠퍼스타운 소개</a>
 			<ul class="sub">
-				<li><a href="/info.do#intro">인사말</a></li>
+				<li><a href="/info.do">인사말</a></li>
 				<li><a href="/info.do#info">캠퍼스타운이란?</a></li>
 				<li><a href="/info.do#map">오시는길</a></li>
 			</ul></li>

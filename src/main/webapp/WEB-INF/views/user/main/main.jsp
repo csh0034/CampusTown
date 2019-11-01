@@ -39,7 +39,7 @@
 				<p>BUSINESS INTRODUCTION</p>
 				<p>캠퍼스타운이란?</p>
 				<p>서일대학교 상가들의 정보제공을 통하여<br/> 서일대학 학생들이 갖는 편리함과,<br/>더불어 대학상권의 동반성장을 기대하고자 합니다.</p>
-				<button class="more_btn">MORE ▶</button>
+				<button class="more_btn" onclick="location.href='/info.do'">MORE ▶</button>
 			</div>
 			<div class="app_box">
 				<img src="img/app.jpg" alt="어플다운로드">

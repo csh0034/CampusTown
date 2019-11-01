@@ -121,13 +121,13 @@ $(document).ready(function() {
 
 			if(str>=800){
 
-				//PC
+				// PC
 				if($(window).width() >767) {
-					$('.ex_circle:eq(0)').css({opacity:'1',transform:'translateX(-15.5rem)',transition:'2s all ease'});//13
+					$('.ex_circle:eq(0)').css({opacity:'1',transform:'translateX(-15.5rem)',transition:'2s all ease'});// 13
 					$('.ex_circle:eq(1)').css({opacity:'1',transform:'',transition:'2s all ease'});
 					$('.ex_circle:eq(2)').css({opacity:'1',transform:'translateX(7rem)',transition:'2s all ease'});
 				}
-				//mobile
+				// mobile
 				else{
 					$('.ex_circle:eq(0)').css({opacity:'1',transform:'',transition:'2s all ease'});
 					$('.ex_circle:eq(1)').css({opacity:'1',transform:'translateY(-1rem)',transition:'2s all ease'});
@@ -146,16 +146,19 @@ $(document).ready(function() {
 				$('.plan_img').stop().animate({top:'80%', opacity:'0'});
 			};
 		}
-		//현재 url 복사
+		
+		// 현재 url 복사
 	      $('#share,.share').click(function(){
 	         CopyUrlToClipboard();
 	         toast();
 	      });
-
-
+	      
 	      function CopyUrlToClipboard() {
 	         var obShareUrl = document.getElementById("ShareUrl");
-	         obShareUrl.value = window.document.location.href;
+	         var num = getParameterByName('num');
+	         
+	         obShareUrl.value = $(location).attr('protocol') + "//" + $(location).attr('host') +  $(location).attr('pathname') + "?num=" + num;
+	         	// window.document.location.href; <-- 모든 파라미터 다 가지고 옴
 
 	         obShareUrl.select();
 	         obShareUrl.setSelectionRange(0, 9999);
@@ -164,8 +167,15 @@ $(document).ready(function() {
 	         obShareUrl.blur();
 	      }
 
+	      // 파라미터 이름으로 값 구하기
+	      function getParameterByName(name) {
+	          name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	          var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	              results = regex.exec(location.search);
+	          return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	      }
 
-	      //토스트 띄우기
+	      // 토스트 띄우기
 	      let removeToast;
 
 	      function toast(string) {
@@ -183,14 +193,14 @@ $(document).ready(function() {
 	      }
 
 
-	      //상점소개 call
+	      // 상점소개 call
 	      var filter = "win16|win32|win64|mac";
 
 	      $('#phone').click(function(e){
 	         if(navigator.platform){
-	            if(0 > filter.indexOf(navigator.platform.toLowerCase())){ //모바일
+	            if(0 > filter.indexOf(navigator.platform.toLowerCase())){ // 모바일
 	               toast();
-	            } else { //pc
+	            } else { // pc
 	                   event.preventDefault();
 
 	               $('#clip_target').select();
@@ -199,9 +209,23 @@ $(document).ready(function() {
 	                  var successful = document.execCommand('copy');
 	                  toast();
 	               } catch (err) {
-	                  alert('이 브라우저는 지원하지 않습니다.');
+	                  alert('이 브라우저는 지원하지 않습니다.')
 	               }
 	            }
 	         }
 	      });
+	      
+	      
+	      // 상점리스트 페이지 이동시 스크롤 고정
+	      var url = $(location).attr('href')
+	      var pathName = $(location).attr('pathname')
+	      var hash = $(location).attr('hash')
+	      var header_height = $('header').height(); // 헤더 높이
+	      var offset='';
+
+	      if (pathName =="/store.do"){
+	    	  offset = $(".s_container").offset().top - header_height; // 헤더값에 가려짐 -> 헤더 밑으로  위치하게
+	          $('html, body').scrollTop(offset);
+	       }
+	      
 });

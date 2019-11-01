@@ -12,7 +12,6 @@
 		캠퍼스타운 소개
 	</div>
 
-	<a id="intro"></a>
 	<div class="info_head">
 		<h3>인사말</h3>
 	</div>
