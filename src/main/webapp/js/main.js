@@ -220,10 +220,11 @@ $(document).ready(function() {
 	      var url = $(location).attr('href')
 	      var pathName = $(location).attr('pathname')
 	      var hash = $(location).attr('hash')
+	      var search = $(location).attr('search')
 	      var header_height = $('header').height(); // 헤더 높이
 	      var offset='';
 
-	      if (pathName =="/store.do"){
+	      if (pathName =="/store.do" && search!=''){
 	    	  offset = $(".s_container").offset().top - header_height; // 헤더값에 가려짐 -> 헤더 밑으로  위치하게
 	          $('html, body').scrollTop(offset);
 	       }

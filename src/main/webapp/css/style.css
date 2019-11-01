@@ -1327,13 +1327,27 @@ section .h_text {
 	padding: 0.8rem 0.8rem 1rem;
 	font-size: 0.9rem;
 }
-.intro_text p{
+.intro_img{
+    display: inline;
+	float: left;
+    width: 45%;
+    height: 15rem;
+    margin: 0.5rem;
+}
+.intro_img img{
+	height: 100%;
+}
+.intro_text p:nth-child(1){
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 2rem;
+    letter-spacing: 0.5rem;
+    margin: 3rem 0;
+}
+.intro_text p:nth-child(2){
     padding: 1rem 0.5rem;
     font-size: 0.85rem;
     line-height:1.5rem;
-}
-.intro_text img{
-	width:85%;
 }
 .info {
 	width: 100%;
@@ -1606,6 +1620,28 @@ section .h_text {
 	}
 	.plan_img{
 		width: 50%;
+	}
+	.intro_img{
+	    height: 30rem;
+	    margin: 2rem 1rem;
+	}
+	.intro_img img{
+		height: 98%;
+	}
+	.intro_text{
+	    display: inline;
+    	float: left;
+    	width: 50%;
+	}
+	.intro_text p:nth-child(1){
+	    font-size: 1.5rem;
+	    font-weight: 500;
+	    margin: 0;
+	}
+	.intro_text p:nth-child(2){
+	    padding: 1rem 0.5rem;
+	    font-size: 0.85rem;
+	    line-height:1.5rem;
 	}
 	.f_copyright img {
 		width: 6rem;
