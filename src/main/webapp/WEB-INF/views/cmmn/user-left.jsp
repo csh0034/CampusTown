@@ -18,7 +18,7 @@
 				<li><a href="/notice/list.do?type=1">사업단 공지사항</a></li>
 				<li><a href="/notice/list.do?type=2">자유게시판</a></li>
 			</ul></li>
-		<li class="main"><a href="#">창업지원</a></li>
+		<li id="menu_link" class="main"><a href="#">창업지원</a></li>
 		<li class="main"><a href="#">관리</a>
 			<ul class="sub">
 				<c:choose>

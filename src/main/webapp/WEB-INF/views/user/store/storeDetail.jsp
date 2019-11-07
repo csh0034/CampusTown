@@ -39,9 +39,9 @@
 		<div class="store_bg"></div>
 		<div class="store_inner">
 			<div class="store_menu">
-				<img id="share" src="/img/share.png" alt="공유아이콘"> <img
-					id="phone" src="/img/phone_white.png" alt="전화아이콘"> <span><c:out
-						value="${storeInfo.c_category}" /></span>
+				<img id="share" src="/img/share.png" alt="공유아이콘">
+				<img class="phone" src="/img/phone_white.png" alt="전화아이콘">
+				<span><c:out value="${storeInfo.c_category}" /></span>
 			</div>
 			<p>
 				<strong><c:out value="${storeInfo.s_name}" /></strong>
@@ -49,8 +49,8 @@
 			<ul class="store_info">
 				<li id="open"><img src="/img/open.png" alt="오픈 아이콘"></li>
 				<li id="close"><img src="/img/close.png" alt="마감 아이콘"></li>
-				<li id="phone"><a href="tel:${storeInfo.s_tel}"> 
-					<img src="/img/phone_white.png" alt="전화 아이콘">CALL</a> 
+				<li class="phone">
+					<img src="/img/phone_white.png" alt="전화 아이콘">CALL
 					<input id="clip_target" class="ip_hidden" type="text" value="${storeInfo.s_tel}"></li>
 				<li id="share">
 				<img src="/img/share.png" alt="공유 아이콘">SHARE

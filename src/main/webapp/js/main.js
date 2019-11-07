@@ -31,6 +31,10 @@ $(document).ready(function() {
 			$(this).addClass("on");
 		}
 	});
+	
+	$('#menu_link').click(function(){
+		self.location.href = "http://profk5113.cafe24.com";
+	});
 
 
 	$('.bg_black2').click(function(e) {
@@ -186,13 +190,13 @@ $(document).ready(function() {
 	      // 상점소개 call
 	      var filter = "win16|win32|win64|mac";
 
-	      $('#phone').click(function(e){
+	      $('.phone').click(function(e){
 	         if(navigator.platform){
 	            if(0 > filter.indexOf(navigator.platform.toLowerCase())){ // 모바일
+	               var tel = $('#clip_target').val();
+	               location.href = "tel:" + tel;
 	               toast();
 	            } else { // pc
-	                   event.preventDefault();
-
 	               $('#clip_target').select();
 
 	               try {

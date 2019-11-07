@@ -42,6 +42,7 @@
 				<button class="more_btn" onclick="location.href='/info.do'">MORE ▶</button>
 			</div>
 			<div class="app_box">
+				<a href="http://seoilcampustown.kr/files/CampusTown.apk"></a>
 			</div>
 		</section>
 		<section id="quick">
