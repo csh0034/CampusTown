@@ -42,7 +42,6 @@
 				<button class="more_btn" onclick="location.href='/info.do'">MORE ▶</button>
 			</div>
 			<div class="app_box">
-				<img src="img/app.jpg" alt="어플다운로드">
 			</div>
 		</section>
 		<section id="quick">

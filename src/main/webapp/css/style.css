@@ -509,13 +509,13 @@ section .h_text {
 
 /* ķ�۽�Ÿ�� �Ұ� */
 .intro_box {
-	width: 100%;
-	height: 11.5rem;
-	background-color: #a4d7d4;
-	text-align: left;
-	padding: 1.2rem;
-	margin-bottom: 1rem;
-	float: left;
+   width: 100%;
+   height: 11.23rem;
+   background-color: #a4d7d4;
+   text-align: left;
+   padding: 1.2rem;
+   margin-bottom: 1rem;
+   float: left;
 }
 
 .intro_box p {
@@ -556,15 +556,11 @@ section .h_text {
 
 
 .app_box {
-	width: 100%;
-	height: 11.5rem;
-	float: left;
-	margin-bottom: 1rem;
-}
-
-.app_box img {
-	width: 100%;
-	height: 100%;
+   background: url("../img/app_mobile.jpg") no-repeat center;
+   width: 100%;
+   height: 5.7rem;
+   float: left;
+   margin-bottom: 1rem;
 }
 
 /* ���� */
@@ -688,7 +684,7 @@ section .h_text {
 
 .s_img img {
 	border-radius: 0.5rem;
-	height: 100%;
+	height: 99%;
 }
 
 .s_detail {
@@ -696,7 +692,7 @@ section .h_text {
 	position: absolute;
 	top: 0;
 	width: 100%;
-	height: 100%;
+	height: 99%;
 	padding-top: 24%;
 	text-align: center;
 	color: #fff;
@@ -1128,7 +1124,7 @@ section .h_text {
 
 .back_list img {
 	width: 1rem;
-	vertical-align: bottom;
+	height:0.6rem;
 	margin: 0 0.2rem;
 }
 
@@ -1337,14 +1333,22 @@ section .h_text {
 .intro_img img{
 	height: 100%;
 }
-.intro_text p:nth-child(1){
-    font-size: 1rem;
+.intro_head{
+    display: table;
+	float: left;
+    width: 50%;
+    height: 15rem;
+    margin: 0.5rem;
+}
+.intro_head p{
+	display: table-cell;
+	font-size: 1rem;
     font-weight: 600;
     line-height: 2rem;
     letter-spacing: 0.5rem;
-    margin: 3rem 0;
+    vertical-align:middle;
 }
-.intro_text p:nth-child(2){
+.intro_text{
     padding: 1rem 0.5rem;
     font-size: 0.85rem;
     line-height:1.5rem;
@@ -1398,8 +1402,8 @@ section .h_text {
 .ex_circle {
 	position: relative;
 	display: inline-block;
-	width: 13rem;
-	height: 13rem;
+	width: 14rem;
+	height: 14rem;
 	border-radius: 10rem;
 	padding: 1rem;
 	background: rgba(150, 197, 197, 0.4);
@@ -1542,9 +1546,11 @@ section .h_text {
 		width: 49%;
 	}
 	.app_box{
-		width: 50%;
-		margin-left: 0.4rem;
-	}
+      background: url("../img/app.jpg") no-repeat;
+      width: 50%;
+      height: 11.5rem;
+      margin-left: 0.4rem;
+   }
 	.more_btn {
 		float: right;
 	}
@@ -1628,18 +1634,20 @@ section .h_text {
 	.intro_img img{
 		height: 98%;
 	}
+	.intro_head{
+	    height: 0;
+	    margin: 0;
+	}
+	.intro_head p{
+	    font-size: 1.5rem;
+	    margin: 0;
+	}
 	.intro_text{
 	    display: inline;
     	float: left;
     	width: 50%;
 	}
-	.intro_text p:nth-child(1){
-	    font-size: 1.5rem;
-	    font-weight: 500;
-	    margin: 0;
-	}
-	.intro_text p:nth-child(2){
-	    padding: 1rem 0.5rem;
+	.intro_text p{
 	    font-size: 0.85rem;
 	    line-height:1.5rem;
 	}

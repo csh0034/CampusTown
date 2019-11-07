@@ -13,13 +13,12 @@ $(document).ready(function() {
 	});
 
 
-	$('.bg_black').click(function() {
+	$('.bg_black, #info_link1, #info_link2').click(function() {
 		$('.total').toggleClass('on');
 		$('.menu-nav').hide();
         $('.bg_black').hide();
 	});
-
-
+	
 	$(".main>a").click(function(e){
 		e.preventDefault();
 		var sub = $(this).next(".sub");
@@ -34,17 +33,8 @@ $(document).ready(function() {
 	});
 
 
-	// 통합 검색
-	$('.search_btn').click(function(e) {
-		e.preventDefault();
-        $('#search_box').show();
-        $('.bg_black2').show();
-	});
-
-
 	$('.bg_black2').click(function(e) {
 		e.preventDefault();
-		$('#search_box').hide();
         $('.bg_black2').hide();
 	});
 
@@ -221,12 +211,11 @@ $(document).ready(function() {
 	      var pathName = $(location).attr('pathname')
 	      var hash = $(location).attr('hash')
 	      var search = $(location).attr('search')
-	      var header_height = $('header').height(); // 헤더 높이
+	      var header_height = $('header').height();
 	      var offset='';
 
 	      if (pathName =="/store.do" && search!=''){
 	    	  offset = $(".s_container").offset().top - header_height; // 헤더값에 가려짐 -> 헤더 밑으로  위치하게
 	          $('html, body').scrollTop(offset);
 	       }
-	      
 });
