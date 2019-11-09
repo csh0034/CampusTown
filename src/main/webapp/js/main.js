@@ -195,7 +195,6 @@ $(document).ready(function() {
 	            if(0 > filter.indexOf(navigator.platform.toLowerCase())){ // 모바일
 	               var tel = $('#clip_target').val();
 	               location.href = "tel:" + tel;
-	               toast();
 	            } else { // pc
 	               $('#clip_target').select();
 	               
