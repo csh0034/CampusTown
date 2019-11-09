@@ -870,6 +870,7 @@ section .h_text {
 	top: -9999em;
 	left:0;
 	user-select: none;
+	font-size:1rem;
 }
 
 .store_open img, .store_phone img, .store_hashtag img, .store_location img
@@ -1344,7 +1345,6 @@ section .h_text {
 	float: left;
     width: 50%;
     height: 15rem;
-    margin: 0.5rem;
 }
 .intro_head p{
 	display: table-cell;
@@ -1355,6 +1355,8 @@ section .h_text {
     vertical-align:middle;
 }
 .intro_text{
+	display: inline;
+    float: left;
     padding: 1rem 0.5rem;
     font-size: 0.85rem;
     line-height:1.5rem;
@@ -1466,9 +1468,9 @@ section .h_text {
 	height: 16rem;
 	top: 30%;
 	opacity: 0;
-	margin-right: 1rem;
+	margin-left: auto;
+    margin-right: auto;
 }
-
 .p_text {
 	width: 50%;
 	float: left;
@@ -1479,7 +1481,7 @@ section .h_text {
 }
 
 .p_square p {
-	position: absolute;
+	position: absfolute;
 	color: #fff;
 	font-weight: bold;
 	margin: 1.3rem;
@@ -1643,7 +1645,6 @@ section .h_text {
 	}
 	.intro_head{
 	    height: 0;
-	    margin: 0;
 	}
 	.intro_head p{
 	    font-size: 1.5rem;

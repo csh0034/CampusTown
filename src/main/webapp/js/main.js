@@ -129,7 +129,7 @@ $(document).ready(function() {
 				}
 			}
 
-			if(str >= 950) { // 스크롤바가 아래 쪽에 위치할 때
+			if(str >= 900) { // 스크롤바가 아래 쪽에 위치할 때
 				$('.p_square:eq(0)').stop().animate({opacity:'1'}, 500);
 				$('.p_square:eq(1)').stop().animate({opacity:'1'}, 800);
 				$('.plan_img').stop().animate({top:'50%', opacity:'1'}, 1100);
@@ -198,12 +198,12 @@ $(document).ready(function() {
 	               toast();
 	            } else { // pc
 	               $('#clip_target').select();
-
+	               
 	               try {
 	                  var successful = document.execCommand('copy');
 	                  toast();
 	               } catch (err) {
-	                  alert('이 브라우저는 지원하지 않습니다.')
+	                  alert('이 브라우저는 지원하지 않습니다.');
 	               }
 	            }
 	         }

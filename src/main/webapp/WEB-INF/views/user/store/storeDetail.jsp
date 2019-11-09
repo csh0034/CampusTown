@@ -51,12 +51,12 @@
 				<li id="close"><img src="/img/close.png" alt="마감 아이콘"></li>
 				<li class="phone">
 					<img src="/img/phone_white.png" alt="전화 아이콘">CALL
-					<input id="clip_target" class="ip_hidden" type="text" value="${storeInfo.s_tel}"></li>
+					<input id="clip_target" class="ip_hidden" type="text" value="${storeInfo.s_tel}" readonly></li>
 				<li id="share">
 				<img src="/img/share.png" alt="공유 아이콘">SHARE
 				</li>
 			</ul>
-			<input type="text" id="ShareUrl" class="ip_hidden">
+			<input type="text" id="ShareUrl" class="ip_hidden" readonly>
 			<div id="toast"></div>
 		</div>
 	</section>
@@ -92,7 +92,7 @@
 
 	<div class="store_share">
 		<button class="share">
-			<span><img src="/img/share.svg" alt="공유 아이콘"> </span> 공유하기
+			<span><img src="/img/share.svg" alt="공유 아이콘"></span> 공유하기
 		</button>
 	</div>
 
