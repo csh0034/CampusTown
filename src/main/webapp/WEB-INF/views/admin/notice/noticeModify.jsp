@@ -68,12 +68,21 @@
 										<c:when test="${noticeInfo.n_type eq 0}">
 											<option value='0' selected>공지사항</option>
 											<option value='1'>사업단 공지사항</option>
+											<option value='2'>자유게시판</option>
 										</c:when>
 									</c:choose>
 									<c:choose>
 										<c:when test="${noticeInfo.n_type eq 1}">
 											<option value='0'>공지사항</option>
 											<option value='1' selected>사업단 공지사항</option>
+											<option value='2'>자유게시판</option>
+										</c:when>
+									</c:choose>
+									<c:choose>
+										<c:when test="${noticeInfo.n_type eq 2}">
+											<option value='0'>공지사항</option>
+											<option value='1'>사업단 공지사항</option>
+											<option value='2' selected>자유게시판</option>
 										</c:when>
 									</c:choose>
 								</select> <br> 

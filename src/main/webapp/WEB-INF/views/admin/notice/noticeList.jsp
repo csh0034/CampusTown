@@ -53,6 +53,11 @@
 														사업단 공지사항
 													</c:when>
 												</c:choose>
+												<c:choose>
+													<c:when test="${item.n_type eq 2}">
+														자유게시판
+													</c:when>
+												</c:choose>
 											</td>
 											<td><c:out value="${item.n_url}" /></td>
 											<td><c:out value="${item.n_title}" /></td>

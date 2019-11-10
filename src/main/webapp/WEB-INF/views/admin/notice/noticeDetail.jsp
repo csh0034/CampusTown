@@ -32,6 +32,7 @@
 								<select class="form-control" name="n_type">
 									<option value='0'>공지사항</option>
 									<option value='1'>사업단 공지사항</option>
+									<option value='2'>자유게시판</option>
 								</select> <br> 
 								<input type="text"
 									name="n_url" class="form-control"
