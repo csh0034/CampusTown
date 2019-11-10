@@ -2,6 +2,14 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<script>
+	function appDown() {
+		if (confirm('앱을 다운받으시겠습니까?')) {
+			location.href = '/files/CampusTown.apk';
+		}
+	}
+</script>
+
 <!--content-->
 	<div id="wrap">
 		<section id="slide">
@@ -42,7 +50,7 @@
 				<button class="more_btn" onclick="location.href='/info.do'">MORE ▶</button>
 			</div>
 			<div class="app_box">
-				<a href="http://seoilcampustown.kr/files/CampusTown.apk"></a>
+				<a href="javascript:appDown()"></a>
 			</div>
 		</section>
 		<section id="quick">
