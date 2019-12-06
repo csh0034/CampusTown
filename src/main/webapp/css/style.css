@@ -1102,6 +1102,10 @@ section .h_text {
 	border-bottom: 1px solid #f0f0f0;
 }
 
+.notice_content a {
+	display: block;
+}
+
 .notice_content img {
 	width: 100%;
 	height: auto;
@@ -1109,11 +1113,9 @@ section .h_text {
 	font-weight: 600;
 }
 
-.notice_content textarea {
+.notice_content p {
 	width: 100%;
-	resize: none;
-	border: none;
-	padding: 30px;
+	padding: 0.7rem;
 	margin-top: 10px;
 }
 
