@@ -1000,18 +1000,21 @@ section .h_text {
 
 .notice_imgOutline {
 	float: left;
-	width: 4.7rem;
+	width: 20%;
+	height: 100%;
 }
 
 .notice_img {
 	width: 100%;
 	max-height: 6.5rem;
 	border-radius: 0.5rem;
+	height: 100%;
 }
 
 .notice_info {
 	float: left;
 	padding-left: 1.2rem;
+	width: 80%;
 }
 
 .notice_list .table_wrap {
