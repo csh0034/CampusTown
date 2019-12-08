@@ -1113,10 +1113,16 @@ section .h_text {
 	font-weight: 600;
 }
 
-.notice_content p {
+.notice_content pre {
 	width: 100%;
-	padding: 0.7rem;
 	margin-top: 10px;
+	padding: 1rem 0.8rem 0;
+	font-family: inherit;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
 }
 
 .back_list {

@@ -31,7 +31,7 @@
 				<a target="_blank" href='<c:out value="${noticeInfo.n_url}" />'>
 					<img src="/files/notice/<c:out value="${noticeInfo.n_attach}"/>" alt="공지이미지">
 				</a>
-				<p><c:out value="${noticeInfo.n_content}"/></p>
+				<pre><c:out value="${noticeInfo.n_content}"/></pre>
 			</div>
 
 			<ul class="back_list">
